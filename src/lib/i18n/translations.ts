@@ -1,0 +1,1296 @@
+export type Locale = "en" | "hi";
+
+export const translations = {
+  en: {
+    nav: {
+      learn: "Learn",
+      subsidy: "Subsidy",
+      emi: "EMI / Loan",
+      reviews: "Reviews",
+      about: "About",
+      gallery: "Gallery",
+      contact: "Contact",
+      products: "Products",
+      calculator: "Solar Budget",
+      calculatorFull: "Solar Budget Calculator",
+      calculateSavings: "Calculate Savings",
+    },
+    hero: {
+      badge: "PM Surya Ghar Yojana",
+      headline: "Power Your Future with Smart Solar Solutions",
+      subheadline:
+        "Discover how much you can save with solar. Learn about government subsidies, EMI options, premium solar products, and calculate your estimated savings—all in one place.",
+      ctaPrimary: "Calculate My Savings",
+      ctaSecondary: "Learn About Solar",
+    },
+    stats: {
+      experience: "Years Experience",
+      installedCapacity: "Total Installed Capacity",
+      commercialProjects: "Commercial Projects",
+      pmSuryaGhar: "PM Surya Ghar Installations",
+      pmsyProjects: "PMSY Projects",
+      streetLights: "Solar Street Lights Installed",
+      team: "Professional Team",
+      happyCustomers: "Happy Customers",
+      unitsGenerated: "Total Units Generated",
+      suffixes: {
+        experience: "+ Years",
+        installedCapacity: "+ MW",
+        commercialProjects: "+ kW",
+        pmSuryaGhar: " kW",
+        pmsyProjects: " kW",
+        streetLights: "+",
+        happyCustomers: "+",
+        team: "+ Years Experience",
+      },
+    },
+    sections: {
+      learnTitle: "Learn About Solar",
+      learnSubtitle:
+        "Explore our upcoming video guides to understand solar energy, our process, and lasting value.",
+      subsidyTitle: "Government Subsidy",
+      subsidySubtitle:
+        "Navigate PM Surya Ghar Yojana subsidies with confidence. Eligibility, documents, and application support.",
+      emiTitle: "EMI / Loan",
+      emiSubtitle:
+        "Flexible financing under PM Surya Ghar Yojana. Compare loan options and calculate EMI.",
+      calculatorTitle: "Solar Budget Calculator",
+      calculatorSubtitle:
+        "Get an instant estimate tailored to your monthly bill, location, and property type.",
+      reviewsTitle: "Customer Reviews",
+      reviewsSubtitle: "See why 150+ families trust Sundeya Solar for their clean energy needs.",
+      reviewsPlaceholder: "150+ Happy Customers",
+      aboutTitle: "About Sundeya Solar",
+      aboutSubtitle:
+        "Our journey, mission, and the team powering India's clean energy transition.",
+      productsTitle: "Premium Solar Products",
+      productsSubtitle:
+        "Industry-leading components and systems for residential, commercial, and industrial installations.",
+      benefitsTitle: "Why Choose Sundeya Solar",
+      benefitsSubtitle: "End-to-end support from consultation to installation and beyond.",
+      galleryTitle: "Gallery",
+      gallerySubtitle: "Browse our solar installation projects across residential, commercial, and industrial categories.",
+      galleryPlaceholder: "Project Photo",
+      faqsTitle: "Frequently Asked Questions",
+      faqsSubtitle: "Find answers to common questions about solar energy, installation, costs, and government subsidies.",
+      contactTitle: "Contact Us",
+      contactSubtitle:
+        "Ready to go solar? Reach out for a free consultation and site assessment.",
+    },
+    common: {
+      applyNow: "Apply Now",
+      exploreLoans: "Explore Loan Options",
+      openCalculator: "Open Calculator",
+      downloadReport: "Download Report",
+      callNow: "Call Now",
+      videoComingSoon: "Video Guide",
+      contentComingSoon: "Learn More",
+      verifyBeforePublish: "Verify before publishing",
+      sendInquiry: "Submit Inquiry",
+      viewGallery: "View Full Gallery",
+      readReview: "Read full review",
+      loading: "Loading",
+      yes: "Yes",
+      no: "No",
+      contactSupportTeam: "Contact Support Team",
+      backToHome: "Back to Home",
+      backToReviews: "Back to Reviews",
+      backToLearn: "Back to Learn About Solar",
+      backToEmi: "Back to EMI / Loan",
+      yourInputs: "Your Inputs",
+      yourResults: "Your Results",
+      generating: "Generating...",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
+      switchLanguage: "Switch language",
+      allRightsReserved: "All rights reserved.",
+      pmSuryaPartner: "PM Surya Ghar Yojana Partner",
+    },
+    subsidy: {
+      overview: "PM Surya Ghar Yojana — Subsidy Overview",
+    },
+    emi: {
+      financing: "Financing Made Simple",
+      interestRate: "Approximate Interest Rate",
+      emiExamples: "Monthly EMI Examples",
+      systemSize: "System Size",
+      monthlyEmi: "Monthly EMI",
+      flexibleEmiPlans: "Flexible EMI Plans",
+      flexibleEmiDesc:
+        "We offer customized EMI options tailored to your budget. Our team will help you find the best financing plan.",
+      needMoreInfo:
+        "Need more information regarding loan eligibility, banks, documents or financing?",
+      expertsGuide: "Our experts will guide you through the complete loan process.",
+      openEmiCalculator: "Open EMI Calculator",
+      contactSupportTeam: "Contact Support Team",
+    },
+    contact: {
+      inquiry: "Send an Inquiry",
+      mapPlaceholder: "Google Map — Visit Us",
+      fullName: "Full Name *",
+      phone: "Phone Number *",
+      email: "Email Address",
+      inquiryType: "Inquiry Type",
+      message: "Your Message",
+      phoneLabel: "Phone",
+      whatsappLabel: "WhatsApp",
+      emailLabel: "Email",
+      addressLabel: "Address",
+      workingHoursLabel: "Working Hours",
+      addressValue: "Ring Road, Behind ICICI Bank, Jogiwala, Dehradun, Uttarakhand - 248014",
+      workingHoursValue: "Monday – Sunday, 9:00 AM – 6:30 PM",
+      inquiryOptions: [
+        "Residential Solar",
+        "Commercial Solar",
+        "Industrial Solar",
+        "Subsidy Application",
+        "EMI / Loan",
+        "Other",
+      ],
+      sendViaWhatsapp: "Send via WhatsApp",
+      validationName: "Please enter your full name.",
+      validationPhone: "Please enter a valid 10-digit phone number.",
+      successTitle: "Inquiry Sent!",
+      successMessage:
+        "Opening WhatsApp to complete your inquiry. Our team will contact you shortly.",
+    },
+    calculator: {
+      title: "Solar Budget Calculator",
+      subtitle: "Get your personalized estimate",
+      cardTitle: "Solar Budget Calculator",
+      cardSubtitle: "Get your personalized estimate",
+      monthlyBill: "Monthly Electricity Bill (₹)",
+      monthlyBillPlaceholder: "e.g. 5000",
+      state: "State",
+      selectState: "Select State",
+      roofType: "Roof Type",
+      roofOptions: ["RCC Flat", "Tiled Roof", "Metal Sheet", "Ground Mount"],
+      propertyType: "Property Type",
+      propertyOptions: ["Residential", "Commercial", "Industrial"],
+      powerBackup: "Need Power Backup (Hybrid System)",
+      calculate: "Calculate My Savings",
+      durationLabel: "Select Savings Duration",
+      durationHint: "Solar panels generally have a lifespan of around 25 years.",
+      durationOptions: ["5 Years", "10 Years", "15 Years", "20 Years", "25 Years"],
+      savingsAfterTitle: "Estimated Savings After",
+      resultLabels: {
+        recommendedSystem: "Recommended System",
+        installationCost: "Installation Cost",
+        governmentSubsidy: "Government Subsidy",
+        finalCost: "Final Cost",
+        roi: "ROI",
+        monthlySavings: "Monthly Savings",
+        paybackPeriod: "Payback Period",
+        annualSavings: "Annual Savings",
+        lifetimeSavings: "Lifetime Savings",
+      },
+      years: "Years",
+      downloadReport: "Download Report",
+      callNow: "Call Now",
+      resultsTitle: "Your Results Will Appear Here",
+      resultsHint: "Fill in your details and click calculate to see your personalized solar estimate.",
+      disclaimer:
+        "* Estimates are indicative. Actual costs may vary based on site assessment, equipment selection, and current subsidy policies.",
+      inputsList: ["Monthly Bill", "State", "Roof Type", "Property Type", "Power Backup"],
+      outputsList: [
+        "Recommended System",
+        "Installation Cost",
+        "Government Subsidy",
+        "Final Cost",
+        "ROI",
+        "Savings",
+        "Payback Period",
+        "Annual Savings",
+        "Lifetime Savings",
+      ],
+      yourInputs: "Your Inputs",
+      yourResults: "Your Results",
+      errorBill: "Please enter your monthly electricity bill (minimum ₹500).",
+      errorState: "Please select your state.",
+      reportTitle: "Sundeya Solar — Savings Estimate",
+      reportInputs: "Your Inputs",
+      reportResults: "Your Results",
+      reportGenerated: "Generated by Sundeya Solar Calculator",
+      reportFooter: "Estimates are indicative. Actual costs vary.",
+    },
+    emiCalc: {
+      title: "EMI Calculator",
+      subtitle: "Calculate your monthly EMI, total interest, and total payment for your solar loan.",
+      loanDetails: "Loan Details",
+      loanDetailsHint: "Enter your loan information",
+      loanAmount: "Loan Amount (₹)",
+      loanAmountPlaceholder: "e.g. 200000",
+      interestRate: "Interest Rate (% per annum)",
+      interestRateHint: "Default: 5.75% under PM Surya Ghar Yojana",
+      loanTenure: "Loan Tenure (Years)",
+      tenureOptions: [
+        "1 Year",
+        "2 Years",
+        "3 Years",
+        "4 Years",
+        "5 Years",
+        "6 Years",
+        "7 Years",
+        "8 Years",
+        "9 Years",
+        "10 Years",
+        "15 Years",
+        "20 Years",
+      ],
+      calculateEmi: "Calculate EMI",
+      yourEmiResults: "Your EMI Results",
+      emiResultsHint: "Enter your loan details and click calculate.",
+      monthlyEmi: "Monthly EMI",
+      totalInterest: "Total Interest",
+      totalPayable: "Total Payable",
+      loanSummary: "Loan Summary",
+      loanAmountLabel: "Loan Amount",
+      interestRateLabel: "Interest Rate",
+      tenureLabel: "Tenure",
+      months: "months",
+      years: "years",
+      disclaimer: "* Estimates are indicative. Actual EMI may vary based on lender terms and eligibility.",
+      errorLoan: "Please enter a loan amount of at least ₹10,000.",
+    },
+    footer: {
+      taglineDesc: "Premium solar solutions for homes, businesses, and industries.",
+      quickLinks: "Quick Links",
+      productsServices: "Products & Services",
+      resources: "Resources",
+      allRightsReserved: "All rights reserved.",
+      pmSuryaPartner: "PM Surya Ghar Yojana Partner",
+      links: {
+        quickLinks: [
+          { label: "Home", href: "/" },
+          { label: "About", href: "/about/story" },
+          { label: "Gallery", href: "/gallery" },
+          { label: "Contact", href: "/#contact" },
+        ],
+        products: [
+          { label: "On-Grid Solar", href: "/#products" },
+          { label: "Off-Grid Solar", href: "/#products" },
+          { label: "Hybrid Solar", href: "/#products" },
+        ],
+        services: [
+          { label: "Installation", href: "/#benefits" },
+          { label: "Maintenance", href: "/#benefits" },
+          { label: "Subsidy Assistance", href: "/subsidy" },
+        ],
+        resources: [
+          { label: "Subsidy Guide", href: "/subsidy" },
+          { label: "EMI / Loan", href: "/emi" },
+          { label: "Calculator", href: "/calculator" },
+          { label: "FAQs", href: "/#faqs" },
+        ],
+        legal: [
+          { label: "Privacy Policy", href: "/privacy" },
+          { label: "Terms of Service", href: "/terms" },
+        ],
+      },
+    },
+    content: {
+      learnCards: [
+        {
+          slug: "how-solar-works",
+          title: "How Solar Works",
+          description: "Learn how solar panels convert sunlight into electricity — from photovoltaic cells to your home appliances.",
+        },
+        {
+          slug: "how-we-help-you",
+          title: "How We Help You",
+          description: "From site survey to installation and subsidy — discover how we make going solar simple and stress-free.",
+        },
+        {
+          slug: "our-impact",
+          title: "Our Impact",
+          description: "See the environmental benefits and financial savings our customers have achieved with solar energy.",
+        },
+        {
+          slug: "installation-process",
+          title: "Solar Installation Process",
+          description: "A step-by-step walkthrough of how we install your solar system — from mounting to grid connection.",
+        },
+        {
+          slug: "maintenance-guide",
+          title: "Maintenance Guide",
+          description: "Simple maintenance tips to keep your solar panels performing at peak efficiency for decades.",
+        },
+      ],
+      faqs: [
+        {
+          question: "How much does a solar system cost for a typical home?",
+          answer:
+            "For a typical 3 kW residential system, the estimated cost is approximately Rs.2,10,000. After the PM Surya Ghar Yojana subsidy of up to Rs.85,800, your final cost could be as low as Rs.1,24,200. Actual costs vary based on panel brand, roof type, and installation complexity. Use our Solar Budget Calculator for a personalized estimate.",
+        },
+        {
+          question: "What government subsidy is available under PM Surya Ghar Yojana?",
+          answer:
+            "Residential customers installing 3 kW to 10 kW solar systems are eligible for a government subsidy of up to Rs.85,800. The subsidy covers approximately 40% of the system cost. Sundeya Solar handles all documentation and application processing, making the subsidy process completely hassle-free for you.",
+        },
+        {
+          question: "How long does solar panel installation take?",
+          answer:
+            "A typical residential installation takes 3 to 5 days after site assessment and design approval. The complete process from consultation, subsidy application, and installation to grid connection usually spans 2 to 4 weeks. We handle every step, keeping you informed throughout.",
+        },
+        {
+          question: "What is the lifespan of solar panels and do they need maintenance?",
+          answer:
+            "Modern bifacial TOPCon solar panels have a design life of 25 to 30 years. They require minimal maintenance - occasional cleaning to remove dust and debris, typically twice a year. Sundeya Solar provides 5 years of free service with every installation and uses HDG mounting structures rated for 20-25 years of durability.",
+        },
+        {
+          question: "Can I get a loan or EMI for my solar installation?",
+          answer:
+            "Yes! Solar loans are available under PM Surya Ghar Yojana at approximately 5.75% annual interest (subject to eligibility). EMI options make solar affordable with monthly payments comparable to your current electricity bill. Visit our EMI/Loan page or open the Solar Budget Calculator to estimate your monthly EMI.",
+        },
+        {
+          question: "Will solar work during a power cut?",
+          answer:
+            "Standard On-Grid solar systems shut off during power cuts for safety reasons (anti-islanding). If you need backup power during outages, choose a Hybrid system with battery storage. Our Hybrid systems keep your essential appliances running even when the grid is down. Select Need Power Backup in the calculator for Hybrid pricing.",
+        },
+        {
+          question: "How much can I save with solar panels?",
+          answer:
+            "A typical home can save approximately 85% on electricity bills - often Rs.3,000 to Rs.8,000 per month depending on system size. Payback period is usually 3 to 6 years, after which you enjoy nearly free electricity for the remaining 20+ years of the system's life. Lifetime savings can exceed Rs.10-15 lakhs for a 5 kW system.",
+        },
+      ],
+      reviews: [
+        { id: "1", review: "Excellent installation experience. The team was professional, completed the work on time, and explained everything clearly. Highly recommended." },
+        { id: "2", review: "Our electricity bill has reduced significantly after installing the solar system. The installation quality is excellent." },
+        { id: "3", review: "Very supportive staff throughout the subsidy process. Everything was handled smoothly." },
+        { id: "4", review: "Professional engineers, neat installation, and quality products. Completely satisfied." },
+        { id: "5", review: "Quick installation and great customer support. The team answered every question patiently." },
+        { id: "6", review: "Reliable service from consultation to installation. Everything was completed exactly as promised." },
+        { id: "7", review: "Very experienced technicians. The system has been performing perfectly since installation." },
+        { id: "8", review: "Affordable pricing with premium quality components. Worth every penny." },
+        { id: "9", review: "The installation was completed on schedule and the after-sales support has been outstanding." },
+        { id: "10", review: "Highly recommended for anyone looking to install rooftop solar. Honest guidance and quality workmanship." },
+      ],
+      benefits: [
+        "Government Subsidy Support",
+        "Complete Documentation Assistance",
+        "Loan Assistance",
+        "End-to-End Installation",
+        "5 Years Free Service",
+        "Professional Installation Team",
+        "Premium Components",
+        "Hassle-Free Process",
+      ],
+      products: {
+        groups: [
+          { title: "Solar Systems", items: ["On-Grid", "Off-Grid", "Hybrid"] },
+          {
+            title: "Solar Panel Brands",
+            items: ["Adani Solar", "Waaree", "Latest Bifacial TOPCon Solar Panels"],
+          },
+          { title: "Inverter Brands", items: ["Havells", "Polycab"] },
+          {
+            title: "Electrical Components",
+            items: [
+              "ACDB Box",
+              "DCDB Box",
+              "Copper Wiring (Havells / Polycab)",
+              "Chemical Earthing",
+              "Lightning Arrestor",
+            ],
+          },
+          {
+            title: "Mounting Structure",
+            items: [
+              "HDG (Hot Dip Galvanized) Structure with additional corrosion protection designed for 20–25 years of durability.",
+            ],
+          },
+        ],
+        hybridReadyTitle: "Hybrid Ready",
+        hybridReadyDesc:
+          "On-Grid, Off-Grid, and Hybrid systems available with premium bifacial TOPCon panels, trusted inverter brands, and HDG mounting structures built for 20–25 years.",
+        pmSuryaCompatible: "PM Surya Ghar Yojana Compatible",
+      },
+      galleryCategories: [
+        "Residential Projects",
+        "Commercial Projects",
+        "Industrial Projects",
+        "Before & After",
+        "Drone Shots",
+        "Videos",
+      ],
+      aboutItems: [
+        { slug: "story", title: "Company Story" },
+        { slug: "mission", title: "Mission" },
+        { slug: "vision", title: "Vision" },
+        { slug: "values", title: "Values" },
+        { slug: "team", title: "Team" },
+        { slug: "projects", title: "Projects" },
+        { slug: "impact", title: "Impact" },
+      ],
+      subsidyTopics: [
+        "Government Subsidy",
+        "Eligibility",
+        "Documents",
+        "Step by Step Process",
+        "Latest Updates",
+        "FAQ",
+      ],
+      emiTopics: [
+        "Loan Options",
+        "EMI Calculator",
+        "Interest Rate",
+        "Banks",
+        "NBFC",
+        "Eligibility",
+        "Required Documents",
+        "Monthly EMI Examples",
+      ],
+      subsidyInfo: {
+        summary:
+          "Residential systems from 3 kW to 10 kW are eligible for a subsidy of up to ₹85,800 (verify before publishing). Sundeya Solar provides complete documentation assistance for subsidy applications.",
+        verifyNote: "Subsidy amounts subject to current government policy. Verify before publishing.",
+      },
+      emiInfo: {
+        interestRate: "5.75% per annum",
+        description:
+          "Flexible EMI options are available. Please contact our team to discuss the best financing plan according to your requirements.",
+        verifyNote: "Subject to eligibility. Verify interest rate before publishing.",
+      },
+    },
+    pages: {
+      calculator: {
+        title: "Solar Budget Calculator",
+        subtitle:
+          "Enter your details to receive an instant, personalized solar estimate including subsidy, ROI, and payback period.",
+      },
+      emi: {
+        backHome: "Back to Home",
+        title: "EMI / Loan Options",
+        interestRateLabel: "Approximate Interest Rate",
+        openEmiCalculator: "Open EMI Calculator",
+        emiCalcSectionTitle: "EMI Calculator",
+        emiCalcSectionDesc:
+          "Use our dedicated EMI Calculator to estimate your monthly EMI based on loan amount, interest rate, and loan tenure.",
+        needMoreInfo:
+          "Need more information regarding loan eligibility, banks, documents or financing?",
+        expertsGuide: "Our experts will guide you through the complete loan process.",
+        contactSupportTeam: "Contact Support Team",
+      },
+      subsidy: {
+        backHome: "Back to Home",
+        heading: "Government Subsidy Guide",
+        applyNow: "Apply Now",
+        sections: [
+          {
+            title: "Government Subsidy — ₹85,800",
+            intro:
+              "The PM Surya Ghar Yojana provides a subsidy of ₹85,800 for residential rooftop solar installations. This government initiative aims to make solar energy affordable for every Indian household.",
+            bullets: [
+              "Maximum subsidy of ₹85,800 for eligible residential systems",
+              "Reduces upfront installation cost significantly",
+              "Direct Benefit Transfer (DBT) to your bank account",
+              "Grid-connected systems with net metering",
+            ],
+            outro:
+              "Sundeya Solar handles the complete subsidy application process — from documentation to final approval — ensuring a hassle-free experience.",
+          },
+          {
+            title: "Eligibility",
+            intro: "To qualify for the PM Surya Ghar Yojana subsidy, you must meet the following criteria:",
+            bullets: [
+              "Residential Consumer: The applicant must be a residential electricity consumer with a valid electricity connection.",
+              "Eligible Rooftop: The property must have a suitable rooftop area for solar panel installation with adequate sunlight exposure.",
+              "Approved Installation: The solar system must be installed by an approved vendor through the national portal.",
+              "Grid-Connected System: The system must be connected to the electricity grid with net metering.",
+            ],
+          },
+          {
+            title: "Documents",
+            helpTitle: "Need Help with Documentation?",
+            helpText:
+              "Our support team will guide you through the complete documentation process and explain all required documents based on your location and project.",
+          },
+          {
+            title: "Step by Step Process",
+            steps: [
+              { title: "Site Survey", desc: "Our engineers visit your property for assessment" },
+              { title: "Quotation", desc: "Detailed proposal with system design and pricing" },
+              { title: "Approval", desc: "Customer approval and agreement" },
+              { title: "Installation", desc: "Professional installation by certified team" },
+              { title: "Inspection", desc: "Quality and safety inspection" },
+              { title: "Net Metering", desc: "Grid connection with net metering setup" },
+              { title: "Commissioning", desc: "System activation and testing" },
+              { title: "Subsidy Process", desc: "Application processing and DBT transfer" },
+              { title: "After Sales Support", desc: "5 years free service and ongoing support" },
+            ],
+          },
+          {
+            title: "Latest Updates",
+            intro: "Stay updated with the latest government subsidy policies and changes.",
+            helpText:
+              "For the latest information on PM Surya Ghar Yojana, connect with our support team.",
+          },
+          {
+            title: "Frequently Asked Questions",
+            qa: [
+              {
+                q: "What is the maximum subsidy available?",
+                a: "The maximum subsidy under PM Surya Ghar Yojana is ₹85,800 for residential rooftop solar installations.",
+              },
+              {
+                q: "Who is eligible for the subsidy?",
+                a: "Residential consumers with a valid electricity connection and suitable rooftop area are eligible. Commercial and industrial consumers are not eligible for this residential subsidy.",
+              },
+              {
+                q: "How long does the subsidy process take?",
+                a: "The subsidy amount is typically credited to your bank account via Direct Benefit Transfer (DBT) within 30-60 days after commissioning of the system.",
+              },
+              {
+                q: "Does Sundeya Solar handle the subsidy application?",
+                a: "Yes! We handle the complete subsidy application process including documentation, portal registration, and follow-up — making it completely hassle-free for you.",
+              },
+            ],
+          },
+        ],
+      },
+      about: {
+        backHome: "Back to Home",
+        story: {
+          title: "Company Story",
+          paragraphs: [
+            "Sundeya Solar began its journey over five years ago with a vision to provide reliable and high-quality solar energy solutions across Uttarakhand. We initially focused on large-scale commercial solar installations, helping businesses reduce electricity costs while adopting clean and sustainable energy.",
+            "As the Government of India's PM Surya Ghar Yojana expanded access to rooftop solar, we extended our services to residential customers. Today, our mission is to make affordable solar power accessible to every household while maintaining the highest standards of quality, safety, and customer satisfaction.",
+          ],
+        },
+        mission: {
+          title: "Our Mission",
+          paragraphs: [
+            "Our mission is to deliver dependable, affordable, and high-performance solar energy systems that help families and businesses reduce electricity expenses while contributing to a cleaner environment.",
+            "We are committed to providing complete end-to-end support, from consultation and installation to subsidy assistance and after-sales service.",
+          ],
+        },
+        vision: {
+          title: "Our Vision",
+          paragraphs: [
+            "Our vision is to become one of India's most trusted solar energy companies by bringing clean, renewable energy to every home and business.",
+            "We aim to empower families with energy independence, reduce dependence on conventional electricity, and contribute to a greener future through sustainable solar solutions.",
+          ],
+        },
+        values: {
+          title: "Our Values",
+          paragraphs: [
+            "Customer satisfaction always comes first. We believe in honest guidance, transparent pricing, premium-quality products, professional workmanship, and long-term customer relationships.",
+            "Every installation is completed with safety, reliability, and quality as our highest priorities. We treat every project as if it were our own home.",
+          ],
+          highlights: [
+            "Transparent Pricing",
+            "Premium Quality Products",
+            "Professional Workmanship",
+            "Honest Guidance",
+            "Long-Term Relationships",
+            "Safety First Approach",
+          ],
+        },
+        team: {
+          title: "Our Team",
+          paragraphs: [
+            "Our team consists of experienced engineers and dedicated field professionals with over 20-25 years of combined industry experience.",
+            "We have separate technical, installation, documentation, and customer support teams to ensure every solar project is executed efficiently and professionally.",
+          ],
+        },
+        projects: {
+          title: "Our Projects",
+          paragraphs: [
+            "Successfully completed over 1500 kW of commercial solar installations. Installed more than 1000 street lights across multiple locations.",
+            "Completed 1500-2000 kW worth of residential rooftop solar installations under the PM Surya Ghar Yojana. Continuing to expand residential and commercial solar projects across Uttarakhand and nearby regions.",
+          ],
+        },
+        impact: {
+          title: "Our Impact",
+          paragraphs: [
+            "150+ Happy Families Empowered with clean solar energy. 3 MW+ Installed Solar Capacity across residential and commercial projects.",
+            "1500+ kW Commercial Solar Projects and 1000+ Solar Street Lights Installed. Helping reduce thousands of kilograms of CO2 emissions every year by promoting clean and renewable solar energy.",
+          ],
+        },
+      },
+      learn: {
+        backHome: "Back to Learn About Solar",
+        videoGuide: "Video Guide",
+        consultationNote:
+          "Contact Sundeya Solar for a personalized consultation on this topic. Our team is available to answer all your questions.",
+      },
+      reviews: {
+        backHome: "Back to Reviews",
+        alt: "Solar installation project",
+      },
+      privacy: {
+        title: "Privacy Policy",
+        paragraphs: [
+          "Sundeya Solar is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information.",
+          "Information We Collect: When you use our contact form or calculator, we may collect your name, phone number, email address, and project details to provide our services.",
+          "How We Use Your Information: Your information is used solely to respond to your inquiries, provide solar consultations, process subsidy applications, and improve our services. We do not sell or share your personal information with third parties.",
+          "Contact Us: If you have any questions about this Privacy Policy, please contact us at info@suryagharyojana.online or call 9568486108.",
+        ],
+      },
+      terms: {
+        title: "Terms of Service",
+        paragraphs: [
+          "By accessing and using the Sundeya Solar website, you agree to comply with these Terms of Service.",
+          "Services: Sundeya Solar provides solar energy consultation, installation, and related services. Information on this website, including calculator estimates, is for informational purposes and does not constitute a binding offer.",
+          "Accuracy: While we strive to keep information accurate and up-to-date, subsidy amounts, pricing, and policies may change. Please verify details directly with our team before making decisions.",
+          "Contact: For questions about these terms, reach us at info@suryagharyojana.online or call 9568486108.",
+        ],
+      },
+      notFound: {
+        title: "Page Not Found",
+        description:
+          "The page you are looking for does not exist or has been moved. Let us help you find your way back to brighter energy.",
+        backHome: "Back to Home",
+        openCalculator: "Solar Budget Calculator",
+        reachUs: "Or reach us through our contact page",
+      },
+    },
+  },
+  hi: {
+    nav: {
+      learn: "जानें",
+      subsidy: "सब्सिडी",
+      emi: "EMI / लोन",
+      reviews: "समीक्षाएं",
+      about: "हमारे बारे में",
+      gallery: "गैलरी",
+      contact: "संपर्क",
+      products: "उत्पाद",
+      calculator: "सोलर बजट",
+      calculatorFull: "सोलर बजट कैलकुलेटर",
+      calculateSavings: "बचत की गणना करें",
+    },
+    hero: {
+      badge: "पीएम सूर्य घर योजना",
+      headline: "स्मार्ट सोलर समाधानों से अपना भविष्य रोशन करें",
+      subheadline:
+        "जानें सोलर से आप कितनी बचत कर सकते हैं। सरकारी सब्सिडी, EMI विकल्प, प्रीमियम सोलर उत्पाद और अनुमानित बचत की गणना—सब कुछ एक ही जगह।",
+      ctaPrimary: "मेरी बचत की गणना करें",
+      ctaSecondary: "सोलर के बारे में जानें",
+    },
+    stats: {
+      experience: "वर्षों का अनुभव",
+      installedCapacity: "कुल स्थापित क्षमता",
+      commercialProjects: "वाणिज्यिक परियोजनाएं",
+      pmSuryaGhar: "पीएम सूर्य घर स्थापनाएं",
+      pmsyProjects: "PMSY परियोजनाएं",
+      streetLights: "सोलर स्ट्रीट लाइट",
+      team: "पेशेवर टीम",
+      happyCustomers: "खुश ग्राहक",
+      unitsGenerated: "कुल उत्पादित इकाइयां",
+      suffixes: {
+        experience: "+ वर्ष",
+        installedCapacity: "+ MW",
+        commercialProjects: "+ kW",
+        pmSuryaGhar: " kW",
+        pmsyProjects: " kW",
+        streetLights: "+",
+        happyCustomers: "+",
+        team: "+ वर्ष अनुभव",
+      },
+    },
+    sections: {
+      learnTitle: "सोलर के बारे में जानें",
+      learnSubtitle:
+        "सोलर ऊर्जा, हमारी प्रक्रिया और स्थायी मूल्य को समझने के लिए हमारे आने वाले वीडियो गाइड देखें।",
+      subsidyTitle: "सरकारी सब्सिडी",
+      subsidySubtitle:
+        "पीएम सूर्य घर योजना सब्सिडी की पूरी जानकारी। पात्रता, दस्तावेज और आवेदन सहायता।",
+      emiTitle: "EMI / लोन",
+      emiSubtitle:
+        "पीएम सूर्य घर योजना के तहत लचीला वित्तपोषण। लोन विकल्प और EMI की गणना करें।",
+      calculatorTitle: "सोलर बजट कैलकुलेटर",
+      calculatorSubtitle:
+        "अपने मासिक बिल, स्थान और संपत्ति प्रकार के अनुसार तुरंत अनुमान प्राप्त करें।",
+      reviewsTitle: "ग्राहक समीक्षाएं",
+      reviewsSubtitle: "देखें क्यों 150+ परिवार अपनी ऊर्जा जरूरतों के लिए Sundeya Solar पर भरोसा करते हैं।",
+      reviewsPlaceholder: "150+ खुश ग्राहक",
+      aboutTitle: "Sundeya Solar के बारे में",
+      aboutSubtitle:
+        "हमारी यात्रा, मिशन और भारत के स्वच्छ ऊर्जा अभियान को शक्ति देने वाली टीम।",
+      productsTitle: "प्रीमियम सोलर उत्पाद",
+      productsSubtitle:
+        "आवासीय, वाणिज्यिक और औद्योगिक स्थापनाओं के लिए उद्योग-अग्रणी घटक और प्रणालियां।",
+      benefitsTitle: "Sundeya Solar क्यों चुनें",
+      benefitsSubtitle: "परामर्श से स्थापना और उसके बाद तक पूर्ण सहायता।",
+      galleryTitle: "गैलरी",
+      gallerySubtitle: "हमारी आवासीय, वाणिज्यिक और औद्योगिक श्रेणियों में सोलर इंस्टॉलेशन प्रोजेक्ट देखें।",
+      galleryPlaceholder: "प्रोजेक्ट फोटो",
+      faqsTitle: "अक्सर पूछे जाने वाले प्रश्न",
+      faqsSubtitle: "सोलर ऊर्जा, इंस्टॉलेशन, लागत और सरकारी सब्सिडी से जुड़े सामान्य सवालों के जवाब पाएं।",
+      contactTitle: "संपर्क करें",
+      contactSubtitle:
+        "सोलर अपनाने के लिए तैयार हैं? मुफ्त परामर्श और साइट आकलन के लिए संपर्क करें।",
+    },
+    common: {
+      applyNow: "अभी आवेदन करें",
+      exploreLoans: "लोन विकल्प देखें",
+      openCalculator: "कैलकुलेटर खोलें",
+      downloadReport: "रिपोर्ट डाउनलोड करें",
+      callNow: "अभी कॉल करें",
+      videoComingSoon: "वीडियो गाइड",
+      contentComingSoon: "और जानें",
+      verifyBeforePublish: "प्रकाशन से पहले सत्यापित करें",
+      sendInquiry: "पूछताछ भेजें",
+      viewGallery: "पूरी गैलरी देखें",
+      readReview: "पूरी समीक्षा पढ़ें",
+      loading: "लोड हो रहा है",
+      yes: "हाँ",
+      no: "नहीं",
+      contactSupportTeam: "सहायता टीम से संपर्क करें",
+      backToHome: "होम पर वापस जाएं",
+      backToReviews: "समीक्षाओं पर वापस जाएं",
+      backToLearn: "सोलर के बारे में जानें पेज पर वापस जाएं",
+      backToEmi: "EMI / लोन पर वापस जाएं",
+      yourInputs: "आपकी जानकारी",
+      yourResults: "आपके परिणाम",
+      generating: "बन रहा है...",
+      openMenu: "मेनू खोलें",
+      closeMenu: "मेनू बंद करें",
+      switchLanguage: "भाषा बदलें",
+      allRightsReserved: "सर्वाधिकार सुरक्षित।",
+      pmSuryaPartner: "पीएम सूर्य घर योजना पार्टनर",
+    },
+    subsidy: {
+      overview: "पीएम सूर्य घर योजना — सब्सिडी अवलोकन",
+    },
+    emi: {
+      financing: "आसान वित्तपोषण",
+      interestRate: "अनुमानित ब्याज दर",
+      emiExamples: "मासिक EMI उदाहरण",
+      systemSize: "सिस्टम आकार",
+      monthlyEmi: "मासिक EMI",
+      flexibleEmiPlans: "लचीली EMI योजनाएं",
+      flexibleEmiDesc:
+        "हम आपके बजट के अनुरूप अनुकूलित EMI विकल्प प्रदान करते हैं। हमारी टीम आपको सबसे अच्छी वित्तपोषण योजना खोजने में मदद करेगी।",
+      needMoreInfo:
+        "लोन पात्रता, बैंक, दस्तावेज या वित्तपोषण के बारे में अधिक जानकारी चाहिए?",
+      expertsGuide: "हमारे विशेषज्ञ आपको पूरी लोन प्रक्रिया में मार्गदर्शन देंगे।",
+      openEmiCalculator: "EMI कैलकुलेटर खोलें",
+      contactSupportTeam: "सहायता टीम से संपर्क करें",
+    },
+    contact: {
+      inquiry: "पूछताछ भेजें",
+      mapPlaceholder: "Google Map — हमारा पता",
+      fullName: "पूरा नाम *",
+      phone: "फोन नंबर *",
+      email: "ईमेल पता",
+      inquiryType: "पूछताछ का प्रकार",
+      message: "आपका संदेश",
+      phoneLabel: "फोन",
+      whatsappLabel: "WhatsApp",
+      emailLabel: "ईमेल",
+      addressLabel: "पता",
+      workingHoursLabel: "कार्य समय",
+      addressValue: "रिंग रोड, ICICI बैंक के पीछे, जोगीवाला, देहरादून, उत्तराखंड - 248014",
+      workingHoursValue: "सोमवार – रविवार, सुबह 9:00 – शाम 6:30",
+      inquiryOptions: [
+        "आवासीय सोलर",
+        "वाणिज्यिक सोलर",
+        "औद्योगिक सोलर",
+        "सब्सिडी आवेदन",
+        "EMI / लोन",
+        "अन्य",
+      ],
+      sendViaWhatsapp: "WhatsApp से भेजें",
+      validationName: "कृपया अपना पूरा नाम दर्ज करें।",
+      validationPhone: "कृपया मान्य 10 अंकों का फोन नंबर दर्ज करें।",
+      successTitle: "पूछताछ भेज दी गई!",
+      successMessage:
+        "आपकी पूछताछ पूरी करने के लिए WhatsApp खोला जा रहा है। हमारी टीम शीघ्र ही आपसे संपर्क करेगी।",
+    },
+    calculator: {
+      title: "सोलर बजट कैलकुलेटर",
+      subtitle: "अपना व्यक्तिगत अनुमान प्राप्त करें",
+      cardTitle: "सोलर बजट कैलकुलेटर",
+      cardSubtitle: "अपना व्यक्तिगत अनुमान प्राप्त करें",
+      monthlyBill: "मासिक बिजली बिल (₹)",
+      monthlyBillPlaceholder: "जैसे 5000",
+      state: "राज्य",
+      selectState: "राज्य चुनें",
+      roofType: "छत का प्रकार",
+      roofOptions: ["RCC फ्लैट", "टाइल वाली छत", "धातु शीट", "ग्राउंड माउंट"],
+      propertyType: "संपत्ति का प्रकार",
+      propertyOptions: ["आवासीय", "वाणिज्यिक", "औद्योगिक"],
+      powerBackup: "पावर बैकअप चाहिए (हाइब्रिड सिस्टम)",
+      calculate: "मेरी बचत की गणना करें",
+      durationLabel: "बचत अवधि चुनें",
+      durationHint: "सोलर पैनलों का जीवनकाल आमतौर पर लगभग 25 वर्ष होता है।",
+      durationOptions: ["5 वर्ष", "10 वर्ष", "15 वर्ष", "20 वर्ष", "25 वर्ष"],
+      savingsAfterTitle: "अनुमानित बचत इसके बाद",
+      resultLabels: {
+        recommendedSystem: "अनुशंसित सिस्टम",
+        installationCost: "स्थापना लागत",
+        governmentSubsidy: "सरकारी सब्सिडी",
+        finalCost: "अंतिम लागत",
+        roi: "ROI",
+        monthlySavings: "मासिक बचत",
+        paybackPeriod: "पेबैक अवधि",
+        annualSavings: "वार्षिक बचत",
+        lifetimeSavings: "आजीवन बचत",
+      },
+      years: "वर्ष",
+      downloadReport: "रिपोर्ट डाउनलोड करें",
+      callNow: "अभी कॉल करें",
+      resultsTitle: "आपके परिणाम यहां दिखेंगे",
+      resultsHint: "विवरण भरें और गणना पर क्लिक करें, आपका व्यक्तिगत सोलर अनुमान दिखेगा।",
+      disclaimer:
+        "* अनुमान सांकेतिक हैं। वास्तविक लागत साइट आकलन, उपकरण चयन और वर्तमान सब्सिडी नीतियों पर निर्भर करती है।",
+      inputsList: ["मासिक बिल", "राज्य", "छत का प्रकार", "संपत्ति का प्रकार", "पावर बैकअप"],
+      outputsList: [
+        "अनुशंसित सिस्टम",
+        "स्थापना लागत",
+        "सरकारी सब्सिडी",
+        "अंतिम लागत",
+        "ROI",
+        "बचत",
+        "पेबैक अवधि",
+        "वार्षिक बचत",
+        "आजीवन बचत",
+      ],
+      yourInputs: "आपकी जानकारी",
+      yourResults: "आपके परिणाम",
+      errorBill: "कृपया अपना मासिक बिजली बिल दर्ज करें (न्यूनतम ₹500)।",
+      errorState: "कृपया अपना राज्य चुनें।",
+      reportTitle: "Sundeya Solar — बचत अनुमान",
+      reportInputs: "आपकी जानकारी",
+      reportResults: "आपके परिणाम",
+      reportGenerated: "Sundeya Solar कैलकुलेटर द्वारा बनाया गया",
+      reportFooter: "अनुमान सांकेतिक हैं। वास्तविक लागत भिन्न हो सकती है।",
+    },
+    emiCalc: {
+      title: "EMI कैलकुलेटर",
+      subtitle: "अपने सोलर लोन के लिए मासिक EMI, कुल ब्याज और कुल भुगतान की गणना करें।",
+      loanDetails: "लोन विवरण",
+      loanDetailsHint: "अपनी लोन जानकारी दर्ज करें",
+      loanAmount: "लोन राशि (₹)",
+      loanAmountPlaceholder: "जैसे 200000",
+      interestRate: "ब्याज दर (% प्रति वर्ष)",
+      interestRateHint: "डिफ़ॉल्ट: पीएम सूर्य घर योजना के तहत 5.75%",
+      loanTenure: "लोन अवधि (वर्ष)",
+      tenureOptions: [
+        "1 वर्ष",
+        "2 वर्ष",
+        "3 वर्ष",
+        "4 वर्ष",
+        "5 वर्ष",
+        "6 वर्ष",
+        "7 वर्ष",
+        "8 वर्ष",
+        "9 वर्ष",
+        "10 वर्ष",
+        "15 वर्ष",
+        "20 वर्ष",
+      ],
+      calculateEmi: "EMI की गणना करें",
+      yourEmiResults: "आपके EMI परिणाम",
+      emiResultsHint: "अपने लोन विवरण दर्ज करें और गणना पर क्लिक करें।",
+      monthlyEmi: "मासिक EMI",
+      totalInterest: "कुल ब्याज",
+      totalPayable: "कुल भुगतान",
+      loanSummary: "लोन सारांश",
+      loanAmountLabel: "लोन राशि",
+      interestRateLabel: "ब्याज दर",
+      tenureLabel: "अवधि",
+      months: "महीने",
+      years: "वर्ष",
+      disclaimer: "* अनुमान सांकेतिक हैं। वास्तविक EMI ऋणदाता की शर्तों और पात्रता पर निर्भर कर सकती है।",
+      errorLoan: "कृपया कम से कम ₹10,000 की लोन राशि दर्ज करें।",
+    },
+    footer: {
+      taglineDesc: "घरों, व्यवसायों और उद्योगों के लिए प्रीमियम सोलर समाधान।",
+      quickLinks: "त्वरित लिंक",
+      productsServices: "उत्पाद और सेवाएं",
+      resources: "संसाधन",
+      allRightsReserved: "सर्वाधिकार सुरक्षित।",
+      pmSuryaPartner: "पीएम सूर्य घर योजना पार्टनर",
+      links: {
+        quickLinks: [
+          { label: "होम", href: "/" },
+          { label: "हमारे बारे में", href: "/about/story" },
+          { label: "गैलरी", href: "/gallery" },
+          { label: "संपर्क", href: "/#contact" },
+        ],
+        products: [
+          { label: "ऑन-ग्रिड सोलर", href: "/#products" },
+          { label: "ऑफ-ग्रिड सोलर", href: "/#products" },
+          { label: "हाइब्रिड सोलर", href: "/#products" },
+        ],
+        services: [
+          { label: "इंस्टॉलेशन", href: "/#benefits" },
+          { label: "रखरखाव", href: "/#benefits" },
+          { label: "सब्सिडी सहायता", href: "/subsidy" },
+        ],
+        resources: [
+          { label: "सब्सिडी गाइड", href: "/subsidy" },
+          { label: "EMI / लोन", href: "/emi" },
+          { label: "कैलकुलेटर", href: "/calculator" },
+          { label: "अक्सर पूछे जाने वाले प्रश्न", href: "/#faqs" },
+        ],
+        legal: [
+          { label: "गोपनीयता नीति", href: "/privacy" },
+          { label: "सेवा की शर्तें", href: "/terms" },
+        ],
+      },
+    },
+    content: {
+      learnCards: [
+        {
+          slug: "how-solar-works",
+          title: "सोलर कैसे काम करता है",
+          description: "जानें कैसे सोलर पैनल सूरज की रोशनी को बिजली में बदलते हैं — फोटोवोल्टिक सेल्स से लेकर आपके घर के उपकरणों तक।",
+        },
+        {
+          slug: "how-we-help-you",
+          title: "हम आपकी कैसे मदद करते हैं",
+          description: "साइट सर्वे से लेकर इंस्टॉलेशन और सब्सिडी तक — जानें कैसे हम सोलर अपनाने को आसान और तनाव-मुक्त बनाते हैं।",
+        },
+        {
+          slug: "our-impact",
+          title: "हमारा प्रभाव",
+          description: "पर्यावरणीय लाभ और वित्तीय बचत देखें जो हमारे ग्राहकों ने सोलर ऊर्जा से हासिल की है।",
+        },
+        {
+          slug: "installation-process",
+          title: "सोलर इंस्टॉलेशन प्रक्रिया",
+          description: "हम आपका सोलर सिस्टम कैसे इंस्टॉल करते हैं — माउंटिंग से ग्रिड कनेक्शन तक चरण-दर-चरण।",
+        },
+        {
+          slug: "maintenance-guide",
+          title: "रखरखाव गाइड",
+          description: "अपने सोलर पैनल को दशकों तक अधिकतम दक्षता पर रखने के लिए सरल रखरखाव टिप्स।",
+        },
+      ],
+      faqs: [
+        {
+          question: "एक सामान्य घर के लिए सोलर सिस्टम की लागत कितनी होती है?",
+          answer:
+            "एक सामान्य 3 kW आवासीय सिस्टम की अनुमानित लागत लगभग ₹2,10,000 है। पीएम सूर्य घर योजना की अधिकतम ₹85,800 सब्सिडी के बाद, आपकी अंतिम लागत ₹1,24,200 तक कम हो सकती है। वास्तविक लागत पैनल ब्रांड, छत के प्रकार और स्थापना जटिलता पर निर्भर करती है। व्यक्तिगत अनुमान के लिए हमारे सोलर बजट कैलकुलेटर का उपयोग करें।",
+        },
+        {
+          question: "पीएम सूर्य घर योजना के तहत कौन सी सरकारी सब्सिडी उपलब्ध है?",
+          answer:
+            "3 kW से 10 kW तक के सोलर सिस्टम लगाने वाले आवासीय ग्राहक ₹85,800 तक की सरकारी सब्सिडी के पात्र हैं। सब्सिडी सिस्टम लागत का लगभग 40% कवर करती है। Sundeya Solar सभी दस्तावेज और आवेदन प्रक्रिया संभालता है, जिससे सब्सिडी प्रक्रिया आपके लिए पूरी तरह आसान हो जाती है।",
+        },
+        {
+          question: "सोलर पैनल स्थापना में कितना समय लगता है?",
+          answer:
+            "साइट आकलन और डिज़ाइन अनुमोदन के बाद एक सामान्य आवासीय स्थापना में 3 से 5 दिन लगते हैं। परामर्श, सब्सिडी आवेदन और ग्रिड कनेक्शन तक की पूरी प्रक्रिया आमतौर पर 2 से 4 सप्ताह में पूरी होती है। हम हर चरण संभालते हैं और आपको पूरे समय सूचित रखते हैं।",
+        },
+        {
+          question: "सोलर पैनल का जीवनकाल कितना होता है और क्या उन्हें रखरखाव की आवश्यकता होती है?",
+          answer:
+            "आधुनिक bifacial TOPCon सोलर पैनलों का डिज़ाइन जीवन 25 से 30 वर्ष है। इन्हें न्यूनतम रखरखाव की आवश्यकता होती है — धूल और मलबा हटाने के लिए समय-समय पर सफाई, आमतौर पर साल में दो बार। Sundeya Solar हर स्थापना के साथ 5 साल की मुफ्त सेवा प्रदान करता है और 20-25 वर्षों की स्थायित्व के लिए रेटेड HDG माउंटिंग संरचनाओं का उपयोग करता है।",
+        },
+        {
+          question: "क्या मैं अपने सोलर इंस्टॉलेशन के लिए लोन या EMI ले सकता हूँ?",
+          answer:
+            "हाँ! पीएम सूर्य घर योजना के तहत लगभग 5.75% वार्षिक ब्याज पर सोलर लोन उपलब्ध हैं (पात्रता के अधीन)। EMI विकल्प सोलर को किफायती बनाते हैं, जिसमें मासिक भुगतान आपके वर्तमान बिजली बिल के बराबर होते हैं। अपनी मासिक EMI का अनुमान लगाने के लिए हमारे EMI/लोन पेज पर जाएँ या सोलर बजट कैलकुलेटर खोलें।",
+        },
+        {
+          question: "क्या बिजली कटौती के दौरान सोलर काम करेगा?",
+          answer:
+            "सुरक्षा कारणों से (anti-islanding) मानक On-Grid सोलर सिस्टम बिजली कटौती के दौरान बंद हो जाते हैं। यदि आपको कटौती के दौरान बैकअप पावर चाहिए, तो बैटरी स्टोरेज वाला Hybrid सिस्टम चुनें। हमारे Hybrid सिस्टम ग्रिड बंद होने पर भी आपके आवश्यक उपकरण चालू रखते हैं। Hybrid मूल्य निर्धारण के लिए कैलकुलेटर में 'पावर बैकअप चाहिए' चुनें।",
+        },
+        {
+          question: "सोलर पैनल से मैं कितनी बचत कर सकता हूँ?",
+          answer:
+            "एक सामान्य घर बिजली बिल पर लगभग 85% बचत कर सकता है — सिस्टम आकार के अनुसार अक्सर ₹3,000 से ₹8,000 प्रति माह। पेबैक अवधि आमतौर पर 3 से 6 वर्ष होती है, जिसके बाद आप सिस्टम के जीवन के शेष 20+ वर्षों के लिए लगभग मुफ्त बिजली का आनंद लेते हैं। 5 kW सिस्टम के लिए आजीवन बचत ₹10-15 लाख से अधिक हो सकती है।",
+        },
+      ],
+      reviews: [
+        { id: "1", review: "उत्कृष्ट इंस्टॉलेशन अनुभव। टीम पेशेवर थी, समय पर काम पूरा किया और सब कुछ स्पष्ट रूप से समझाया। अत्यधिक अनुशंसित।" },
+        { id: "2", review: "सोलर सिस्टम लगाने के बाद हमारा बिजली बिल काफी कम हो गया है। इंस्टॉलेशन की गुणवत्ता उत्कृष्ट है।" },
+        { id: "3", review: "सब्सिडी प्रक्रिया में स्टाफ ने पूरा सहयोग दिया। सब कुछ सुचारू रूप से संभाला गया।" },
+        { id: "4", review: "पेशेवर इंजीनियर, साफ-सुथरी स्थापना और गुणवत्तापूर्ण उत्पाद। पूरी तरह संतुष्ट हूँ।" },
+        { id: "5", review: "त्वरित स्थापना और बेहतरीन ग्राहक सहायता। टीम ने हर सवाल का धैर्यपूर्वक जवाब दिया।" },
+        { id: "6", review: "परामर्श से लेकर स्थापना तक विश्वसनीय सेवा। सब कुछ वादे के अनुसार पूरा हुआ।" },
+        { id: "7", review: "बहुत अनुभवी तकनीशियन। स्थापना के बाद से सिस्टम पूरी तरह बेहतर प्रदर्शन कर रहा है।" },
+        { id: "8", review: "प्रीमियम गुणवत्ता वाले घटकों के साथ किफायती मूल्य। हर पैसे के लायक।" },
+        { id: "9", review: "स्थापना समय पर पूरी हुई और बिक्री के बाद की सहायता शानदार रही है।" },
+        { id: "10", review: "रूफटॉप सोलर लगवाने के इच्छुक किसी भी व्यक्ति के लिए अत्यधिक अनुशंसित। ईमानदार मार्गदर्शन और गुणवत्तापूर्ण कारीगरी।" },
+      ],
+      benefits: [
+        "सरकारी सब्सिडी सहायता",
+        "पूर्ण दस्तावेज़ सहायता",
+        "लोन सहायता",
+        "एंड-टू-एंड स्थापना",
+        "5 साल मुफ्त सेवा",
+        "पेशेवर स्थापना टीम",
+        "प्रीमियम घटक",
+        "परेशानी-मुक्त प्रक्रिया",
+      ],
+      products: {
+        groups: [
+          { title: "सोलर सिस्टम", items: ["ऑन-ग्रिड", "ऑफ-ग्रिड", "हाइब्रिड"] },
+          {
+            title: "सोलर पैनल ब्रांड",
+            items: ["Adani Solar", "Waaree", "नवीनतम Bifacial TOPCon सोलर पैनल"],
+          },
+          { title: "इन्वर्टर ब्रांड", items: ["Havells", "Polycab"] },
+          {
+            title: "विद्युत घटक",
+            items: [
+              "ACDB बॉक्स",
+              "DCDB बॉक्स",
+              "कॉपर वायरिंग (Havells / Polycab)",
+              "केमिकल अर्थिंग",
+              "लाइटनिंग अरेस्टर",
+            ],
+          },
+          {
+            title: "माउंटिंग स्ट्रक्चर",
+            items: [
+              "HDG (हॉट डिप गैल्वेनाइज्ड) संरचना, अतिरिक्त जंग सुरक्षा के साथ, 20–25 वर्षों की स्थायित्व के लिए डिज़ाइन की गई।",
+            ],
+          },
+        ],
+        hybridReadyTitle: "हाइब्रिड रेडी",
+        hybridReadyDesc:
+          "प्रीमियम bifacial TOPCon पैनल, विश्वसनीय इन्वर्टर ब्रांड और 20–25 वर्षों के लिए बनी HDG माउंटिंग संरचनाओं के साथ ऑन-ग्रिड, ऑफ-ग्रिड और हाइब्रिड सिस्टम उपलब्ध हैं।",
+        pmSuryaCompatible: "पीएम सूर्य घर योजना संगत",
+      },
+      galleryCategories: [
+        "आवासीय प्रोजेक्ट",
+        "वाणिज्यिक प्रोजेक्ट",
+        "औद्योगिक प्रोजेक्ट",
+        "पहले और बाद में",
+        "ड्रोन शॉट्स",
+        "वीडियो",
+      ],
+      aboutItems: [
+        { slug: "story", title: "कंपनी की कहानी" },
+        { slug: "mission", title: "मिशन" },
+        { slug: "vision", title: "विज़न" },
+        { slug: "values", title: "मूल्य" },
+        { slug: "team", title: "टीम" },
+        { slug: "projects", title: "प्रोजेक्ट" },
+        { slug: "impact", title: "प्रभाव" },
+      ],
+      subsidyTopics: [
+        "सरकारी सब्सिडी",
+        "पात्रता",
+        "दस्तावेज़",
+        "चरण-दर-चरण प्रक्रिया",
+        "ताज़ा अपडेट",
+        "अक्सर पूछे जाने वाले प्रश्न",
+      ],
+      emiTopics: [
+        "लोन विकल्प",
+        "EMI कैलकुलेटर",
+        "ब्याज दर",
+        "बैंक",
+        "NBFC",
+        "पात्रता",
+        "आवश्यक दस्तावेज़",
+        "मासिक EMI उदाहरण",
+      ],
+      subsidyInfo: {
+        summary:
+          "3 kW से 10 kW तक के आवासीय सिस्टम ₹85,800 तक की सब्सिडी के पात्र हैं (प्रकाशन से पहले सत्यापित करें)। Sundeya Solar सब्सिडी आवेदन के लिए पूर्ण दस्तावेज़ सहायता प्रदान करता है।",
+        verifyNote: "सब्सिडी राशि वर्तमान सरकारी नीति के अधीन है। प्रकाशन से पहले सत्यापित करें।",
+      },
+      emiInfo: {
+        interestRate: "5.75% प्रति वर्ष",
+        description:
+          "लचीले EMI विकल्प उपलब्ध हैं। अपनी आवश्यकताओं के अनुसार सबसे अच्छी वित्तपोषण योजना पर चर्चा करने के लिए कृपया हमारी टीम से संपर्क करें।",
+        verifyNote: "पात्रता के अधीन। प्रकाशन से पहले ब्याज दर सत्यापित करें।",
+      },
+    },
+    pages: {
+      calculator: {
+        title: "सोलर बजट कैलकुलेटर",
+        subtitle:
+          "अपना विवरण दर्ज करें और सब्सिडी, ROI और पेबैक अवधि सहित तुरंत व्यक्तिगत सोलर अनुमान प्राप्त करें।",
+      },
+      emi: {
+        backHome: "होम पर वापस जाएं",
+        title: "EMI / लोन विकल्प",
+        interestRateLabel: "अनुमानित ब्याज दर",
+        openEmiCalculator: "EMI कैलकुलेटर खोलें",
+        emiCalcSectionTitle: "EMI कैलकुलेटर",
+        emiCalcSectionDesc:
+          "लोन राशि, ब्याज दर और लोन अवधि के आधार पर अपनी मासिक EMI का अनुमान लगाने के लिए हमारे समर्पित EMI कैलकुलेटर का उपयोग करें।",
+        needMoreInfo:
+          "लोन पात्रता, बैंक, दस्तावेज या वित्तपोषण के बारे में अधिक जानकारी चाहिए?",
+        expertsGuide: "हमारे विशेषज्ञ आपको पूरी लोन प्रक्रिया में मार्गदर्शन देंगे।",
+        contactSupportTeam: "सहायता टीम से संपर्क करें",
+      },
+      subsidy: {
+        backHome: "होम पर वापस जाएं",
+        heading: "सरकारी सब्सिडी गाइड",
+        applyNow: "अभी आवेदन करें",
+        sections: [
+          {
+            title: "सरकारी सब्सिडी — ₹85,800",
+            intro:
+              "पीएम सूर्य घर योजना आवासीय रूफटॉप सोलर स्थापनाओं के लिए ₹85,800 की सब्सिडी प्रदान करती है। इस सरकारी पहल का उद्देश्य हर भारतीय परिवार के लिए सोलर ऊर्जा को किफायती बनाना है।",
+            bullets: [
+              "पात्र आवासीय सिस्टम के लिए अधिकतम ₹85,800 सब्सिडी",
+              "अग्रिम स्थापना लागत में महत्वपूर्ण कमी",
+              "आपके बैंक खाते में सीधा लाभ हस्तांतरण (DBT)",
+              "नेट मीटरिंग के साथ ग्रिड-कनेक्टेड सिस्टम",
+            ],
+            outro:
+              "Sundeya Solar पूरी सब्सिडी आवेदन प्रक्रिया संभालता है — दस्तावेज़ से लेकर अंतिम अनुमोदन तक — परेशानी-मुक्त अनुभव सुनिश्चित करते हुए।",
+          },
+          {
+            title: "पात्रता",
+            intro: "पीएम सूर्य घर योजना सब्सिडी के लिए पात्र होने हेतु आपको निम्नलिखित मानदंड पूरे करने होंगे:",
+            bullets: [
+              "आवासीय उपभोक्ता: आवेदक वैध बिजली कनेक्शन वाला आवासीय बिजली उपभोक्ता होना चाहिए।",
+              "पात्र छत: संपत्ति में पर्याप्त धूप के साथ सोलर पैनल स्थापना के लिए उपयुक्त छत क्षेत्र होना चाहिए।",
+              "अनुमोदित स्थापना: सोलर सिस्टम राष्ट्रीय पोर्टल के माध्यम से अनुमोदित विक्रेता द्वारा स्थापित होना चाहिए।",
+              "ग्रिड-कनेक्टेड सिस्टम: सिस्टम नेट मीटरिंग के साथ बिजली ग्रिड से जुड़ा होना चाहिए।",
+            ],
+          },
+          {
+            title: "दस्तावेज़",
+            helpTitle: "दस्तावेज़ में मदद चाहिए?",
+            helpText:
+              "हमारी सहायता टीम आपको पूरी दस्तावेज़ प्रक्रिया में मार्गदर्शन देगी और आपके स्थान और प्रोजेक्ट के आधार पर सभी आवश्यक दस्तावेज़ समझाएगी।",
+          },
+          {
+            title: "चरण-दर-चरण प्रक्रिया",
+            steps: [
+              { title: "साइट सर्वे", desc: "हमारे इंजीनियर मूल्यांकन के लिए आपकी संपत्ति का दौरा करते हैं" },
+              { title: "कोटेशन", desc: "सिस्टम डिज़ाइन और मूल्य निर्धारण के साथ विस्तृत प्रस्ताव" },
+              { title: "अनुमोदन", desc: "ग्राहक की सहमति और अनुबंध" },
+              { title: "स्थापना", desc: "प्रमाणित टीम द्वारा पेशेवर स्थापना" },
+              { title: "निरीक्षण", desc: "गुणवत्ता और सुरक्षा निरीक्षण" },
+              { title: "नेट मीटरिंग", desc: "नेट मीटरिंग सेटअप के साथ ग्रिड कनेक्शन" },
+              { title: "कमीशनिंग", desc: "सिस्टम सक्रियण और परीक्षण" },
+              { title: "सब्सिडी प्रक्रिया", desc: "आवेदन प्रसंस्करण और DBT हस्तांतरण" },
+              { title: "बिक्री के बाद सहायता", desc: "5 साल मुफ्त सेवा और निरंतर समर्थन" },
+            ],
+          },
+          {
+            title: "ताज़ा अपडेट",
+            intro: "नवीनतम सरकारी सब्सिडी नीतियों और बदलावों से अपडेट रहें।",
+            helpText: "पीएम सूर्य घर योजना की नवीनतम जानकारी के लिए हमारी सहायता टीम से जुड़ें।",
+          },
+          {
+            title: "अक्सर पूछे जाने वाले प्रश्न",
+            qa: [
+              {
+                q: "उपलब्ध अधिकतम सब्सिडी कितनी है?",
+                a: "पीएम सूर्य घर योजना के तहत आवासीय रूफटॉप सोलर स्थापनाओं के लिए अधिकतम सब्सिडी ₹85,800 है।",
+              },
+              {
+                q: "सब्सिडी के लिए कौन पात्र है?",
+                a: "वैध बिजली कनेक्शन और उपयुक्त छत क्षेत्र वाले आवासीय उपभोक्ता पात्र हैं। वाणिज्यिक और औद्योगिक उपभोक्ता इस आवासीय सब्सिडी के पात्र नहीं हैं।",
+              },
+              {
+                q: "सब्सिडी प्रक्रिया में कितना समय लगता है?",
+                a: "सिस्टम के कमीशनिंग के बाद सब्सिडी राशि आमतौर पर 30-60 दिनों के भीतर डायरेक्ट बेनिफिट ट्रांसफर (DBT) के माध्यम से आपके बैंक खाते में जमा कर दी जाती है।",
+              },
+              {
+                q: "क्या Sundeya Solar सब्सिडी आवेदन संभालता है?",
+                a: "हाँ! हम दस्तावेज़, पोर्टल पंजीकरण और फॉलो-अप सहित पूरी सब्सिडी आवेदन प्रक्रिया संभालते हैं — जिससे यह आपके लिए पूरी तरह परेशानी-मुक्त हो जाती है।",
+              },
+            ],
+          },
+        ],
+      },
+      about: {
+        backHome: "होम पर वापस जाएं",
+        story: {
+          title: "कंपनी की कहानी",
+          paragraphs: [
+            "Sundeya Solar ने पांच साल से अधिक पहले उत्तराखंड में विश्वसनीय और उच्च-गुणवत्ता वाले सोलर ऊर्जा समाधान प्रदान करने की दृष्टि से अपनी यात्रा शुरू की। हमने शुरुआत में बड़े पैमाने पर वाणिज्यिक सोलर स्थापनाओं पर ध्यान केंद्रित किया, जिससे व्यवसायों को बिजली की लागत कम करने में मदद मिली।",
+            "जैसे-जैसे भारत सरकार की पीएम सूर्य घर योजना ने रूफटॉप सोलर तक पहुंच बढ़ाई, हमने अपनी सेवाओं का विस्तार आवासीय ग्राहकों तक किया। आज हमारा मिशन गुणवत्ता, सुरक्षा और ग्राहक संतुष्टि के उच्चतम मानकों को बनाए रखते हुए हर परिवार के लिए किफायती सोलर बिजली उपलब्ध कराना है।",
+          ],
+        },
+        mission: {
+          title: "हमारा मिशन",
+          paragraphs: [
+            "हमारा मिशन भरोसेमंद, किफायती और उच्च-प्रदर्शन वाले सोलर ऊर्जा सिस्टम प्रदान करना है जो परिवारों और व्यवसायों को बिजली खर्च कम करने के साथ-साथ स्वच्छ पर्यावरण में योगदान देने में मदद करें।",
+            "हम परामर्श और स्थापना से लेकर सब्सिडी सहायता और बिक्री के बाद की सेवा तक पूर्ण एंड-टू-एंड सहायता प्रदान करने के लिए प्रतिबद्ध हैं।",
+          ],
+        },
+        vision: {
+          title: "हमारा विज़न",
+          paragraphs: [
+            "हमारा विज़न स्वच्छ, नवीकरणीय ऊर्जा को हर घर और व्यवसाय तक पहुंचाकर भारत की सबसे भरोसेमंद सोलर ऊर्जा कंपनियों में से एक बनना है।",
+            "हमारा लक्ष्य परिवारों को ऊर्जा आत्मनिर्भरता से सशक्त बनाना, पारंपरिक बिजली पर निर्भरता कम करना और स्थायी सोलर समाधानों के माध्यम से हरित भविष्य में योगदान देना है।",
+          ],
+        },
+        values: {
+          title: "हमारे मूल्य",
+          paragraphs: [
+            "ग्राहक संतुष्टि हमेशा सर्वोपरि है। हम ईमानदार मार्गदर्शन, पारदर्शी मूल्य निर्धारण, प्रीमियम-गुणवत्ता वाले उत्पाद, पेशेवर कारीगरी और दीर्घकालिक ग्राहक संबंधों में विश्वास करते हैं।",
+            "हर स्थापना सुरक्षा, विश्वसनीयता और गुणवत्ता को सर्वोच्च प्राथमिकता देकर पूरी की जाती है। हम हर प्रोजेक्ट को अपना घर समझकर पूरा करते हैं।",
+          ],
+          highlights: [
+            "पारदर्शी मूल्य निर्धारण",
+            "प्रीमियम गुणवत्ता वाले उत्पाद",
+            "पेशेवर कारीगरी",
+            "ईमानदार मार्गदर्शन",
+            "दीर्घकालिक संबंध",
+            "सुरक्षा-प्रथम दृष्टिकोण",
+          ],
+        },
+        team: {
+          title: "हमारी टीम",
+          paragraphs: [
+            "हमारी टीम में अनुभवी इंजीनियर और समर्पित फील्ड पेशेवर शामिल हैं, जिनका संयुक्त उद्योग अनुभव 20-25 वर्षों से अधिक है।",
+            "हमारे पास अलग-अलग तकनीकी, स्थापना, दस्तावेज़ और ग्राहक सहायता टीमें हैं ताकि हर सोलर प्रोजेक्ट कुशलतापूर्वक और पेशेवर रूप से पूरा हो सके।",
+          ],
+        },
+        projects: {
+          title: "हमारे प्रोजेक्ट",
+          paragraphs: [
+            "1500 kW से अधिक वाणिज्यिक सोलर स्थापनाएं सफलतापूर्वक पूरी कीं। कई स्थानों पर 1000 से अधिक स्ट्रीट लाइटें स्थापित कीं।",
+            "पीएम सूर्य घर योजना के तहत 1500-2000 kW मूल्य की आवासीय रूफटॉप सोलर स्थापनाएं पूरी कीं। उत्तराखंड और आस-पास के क्षेत्रों में आवासीय और वाणिज्यिक सोलर प्रोजेक्ट का विस्तार जारी है।",
+          ],
+        },
+        impact: {
+          title: "हमारा प्रभाव",
+          paragraphs: [
+            "150+ खुशहाल परिवार स्वच्छ सोलर ऊर्जा से सशक्त। आवासीय और वाणिज्यिक प्रोजेक्टों में 3 MW+ स्थापित सोलर क्षमता।",
+            "1500+ kW वाणिज्यिक सोलर प्रोजेक्ट और 1000+ सोलर स्ट्रीट लाइटें स्थापित। स्वच्छ और नवीकरणीय सोलर ऊर्जा को बढ़ावा देकर हर साल हजारों किलोग्राम CO2 उत्सर्जन कम करने में मदद कर रहे हैं।",
+          ],
+        },
+      },
+      learn: {
+        backHome: "सोलर के बारे में जानें पेज पर वापस जाएं",
+        videoGuide: "वीडियो गाइड",
+        consultationNote:
+          "इस विषय पर व्यक्तिगत परामर्श के लिए Sundeya Solar से संपर्क करें। हमारी टीम आपके सभी सवालों के जवाब देने के लिए उपलब्ध है।",
+      },
+      reviews: {
+        backHome: "समीक्षाओं पर वापस जाएं",
+        alt: "सोलर इंस्टॉलेशन प्रोजेक्ट",
+      },
+      privacy: {
+        title: "गोपनीयता नीति",
+        paragraphs: [
+          "Sundeya Solar आपकी गोपनीयता की रक्षा के लिए प्रतिबद्ध है। यह गोपनीयता नीति बताती है कि हम आपकी व्यक्तिगत जानकारी कैसे एकत्र, उपयोग और सुरक्षित करते हैं।",
+          "हम जो जानकारी एकत्र करते हैं: जब आप हमारे संपर्क फॉर्म या कैलकुलेटर का उपयोग करते हैं, तो हम अपनी सेवाएं प्रदान करने के लिए आपका नाम, फोन नंबर, ईमेल पता और प्रोजेक्ट विवरण एकत्र कर सकते हैं।",
+          "हम आपकी जानकारी का उपयोग कैसे करते हैं: आपकी जानकारी का उपयोग केवल आपकी पूछताछ का जवाब देने, सोलर परामर्श प्रदान करने, सब्सिडी आवेदन संसाधित करने और हमारी सेवाओं को बेहतर बनाने के लिए किया जाता है। हम आपकी व्यक्तिगत जानकारी तीसरे पक्ष को नहीं बेचते या साझा नहीं करते।",
+          "संपर्क करें: इस गोपनीयता नीति के बारे में कोई प्रश्न होने पर कृपया info@suryagharyojana.online पर संपर्क करें या 9568486108 पर कॉल करें।",
+        ],
+      },
+      terms: {
+        title: "सेवा की शर्तें",
+        paragraphs: [
+          "Sundeya Solar वेबसाइट तक पहुंचने और उपयोग करने से, आप इन सेवा की शर्तों का पालन करने के लिए सहमत होते हैं।",
+          "सेवाएं: Sundeya Solar सोलर ऊर्जा परामर्श, स्थापना और संबंधित सेवाएं प्रदान करता है। इस वेबसाइट पर दी गई जानकारी, जिसमें कैलकुलेटर अनुमान शामिल हैं, केवल सूचनात्मक उद्देश्यों के लिए है और यह बाध्यकारी प्रस्ताव नहीं है।",
+          "सटीकता: हम जानकारी को सटीक और अद्यतित रखने का प्रयास करते हैं, लेकिन सब्सिडी राशि, मूल्य और नीतियां बदल सकती हैं। निर्णय लेने से पहले कृपया हमारी टीम से सीधे विवरण सत्यापित करें।",
+          "संपर्क: इन शर्तों के बारे में प्रश्नों के लिए info@suryagharyojana.online पर संपर्क करें या 9568486108 पर कॉल करें।",
+        ],
+      },
+      notFound: {
+        title: "पेज नहीं मिला",
+        description:
+          "जिस पेज को आप ढूंढ रहे हैं वह मौजूद नहीं है या स्थानांतरित कर दिया गया है। आइए हम आपको उज्जवल ऊर्जा की ओर वापस ले चलें।",
+        backHome: "होम पर वापस जाएं",
+        openCalculator: "सोलर बजट कैलकुलेटर",
+        reachUs: "या हमारे संपर्क पेज के माध्यम से हम तक पहुंचें",
+      },
+    },
+  },
+} as const;
+
+// Use a broad type so both en and hi are assignable
+export type TranslationKeys = typeof translations.en | typeof translations.hi;
