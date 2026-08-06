@@ -30,14 +30,14 @@ export const hero = {
 } as const;
 
 export const stats = [
-  { key: "experience", value: "5", suffix: "+ Years", numeric: false },
+  { key: "experience", value: "5", suffix: "+", numeric: false },
   { key: "installedCapacity", value: "3", suffix: "+ MW", numeric: true },
   { key: "commercialProjects", value: "1500", suffix: "+ kW", numeric: true },
   { key: "pmSuryaGhar", value: "1500-2000", suffix: " kW", numeric: false },
   { key: "pmsyProjects", value: "600", suffix: " kW", numeric: true },
   { key: "streetLights", value: "1000", suffix: "+", numeric: true },
   { key: "happyCustomers", value: "150", suffix: "+", numeric: true },
-  { key: "team", value: "20-25", suffix: "+ Years Experience", numeric: false },
+  { key: "team", value: "20-25", suffix: "+ Years", numeric: false },
 ] as const;
 
 export const learnCards = [

@@ -5,7 +5,7 @@ A premium, conversion-focused website for a solar energy company and **PM Surya 
 ## Features
 
 - **Full EN ⇄ HI language switch** — navigation, hero, cards, reviews, FAQ, subsidy guide, EMI section, calculators, contact form, footer, and all sub-pages render in the active language (persisted across visits).
-- **Solar Budget Calculator** — estimates recommended system size, installation cost, government subsidy (up to ₹85,800), final cost, ROI, payback period, and monthly/annual savings.
+- **Solar Budget Calculator** — monthly bill + electricity tariff inputs (Uttarakhand-fixed), a 3–10 kW system capacity selector, and estimates for installation cost, government subsidy (up to ₹85,800, residential only), ROI, payback period, and monthly/annual savings (net of a ₹300 fixed charge).
 - **Savings duration analysis** — choose 5 / 10 / 15 / 20 / 25 years (default 25, matching the typical solar panel lifespan); lifetime savings update live and an "Estimated Savings After" timeline chart visualizes cumulative savings at each milestone.
 - **Standalone EMI Calculator** — loan amount, interest rate (default 5.75% p.a. under PM Surya Ghar Yojana), and tenure produce monthly EMI, total interest, and total payable using the standard EMI formula. Fully independent of the solar calculator.
 - **Government Subsidy guide** — overview, eligibility, documents, step-by-step process, and FAQ.
@@ -86,7 +86,7 @@ const { t, locale, setLocale } = useLanguage();
 
 ## Calculator Logic
 
-- **Solar:** system size from monthly bill, per-property-type cost per kW, flat subsidy estimate (₹85,800), 85% bill savings, duration-scaled lifetime savings, ROI and payback derived from the final cost.
+- **Solar:** installation cost from the selected capacity (3 kW = ₹2,10,000, 5 kW = ₹3,50,000, otherwise kW × ₹60,000), flat subsidy estimate of ₹85,800 for residential property types only (₹0 / hidden for commercial & industrial), monthly savings = max(0, 85% of bill − ₹300 fixed charge), duration-scaled lifetime savings, ROI and payback derived from the final cost.
 - **EMI:** standard formula `EMI = P × r × (1 + r)ⁿ / ((1 + r)ⁿ − 1)` with `r = annual rate / 12 / 100` and `n = tenure × 12` months.
 
 ## Documentation
