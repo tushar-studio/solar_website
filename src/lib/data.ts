@@ -9,6 +9,7 @@ export const company = {
   email: "info@suryagharyojana.online",
   address: "Ring Road, Behind ICICI Bank, Jogiwala, Dehradun, Uttarakhand - 248014",
   workingHours: "Monday – Sunday, 9:00 AM – 6:30 PM",
+  mapUrl: "https://maps.app.goo.gl/1VoNjzXnY6JYTaRz8?g_st=aw",
   website: "https://sundeyasolar.com",
   social: {
     instagram: "https://instagram.com/surya.ghar.yojna",

@@ -62,9 +62,25 @@ export function ContactSection() {
                 </div>
               </div>
             ))}
-            <div className="glass-card p-5 h-48 flex items-center justify-center bg-slate-50">
-              <p className="text-sm text-slate-400">{t.contact.mapPlaceholder}</p>
-            </div>
+            <a
+              href={company.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t.contact.mapTitle}
+              className="glass-card p-5 flex items-start gap-4 group cursor-pointer transition-all duration-300 hover:shadow-card hover:scale-[1.01] hover:bg-white"
+            >
+              <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                <MapPin className="w-5 h-5 text-emerald-700" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-xs text-slate-500 uppercase tracking-wide group-hover:text-emerald-700 transition-colors">
+                  {t.contact.mapTitle}
+                </p>
+                <p className="font-medium text-solar-blue-dark group-hover:text-emerald-700 transition-colors">
+                  {t.contact.mapSubtitle}
+                </p>
+              </div>
+            </a>
           </motion.div>
 
           <motion.form variants={fadeRight} initial="hidden" whileInView="visible" viewport={viewportOnce} className="glass-card p-6 sm:p-8 space-y-4" onSubmit={handleSubmit} noValidate>

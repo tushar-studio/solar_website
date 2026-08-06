@@ -126,7 +126,8 @@ export const translations = {
     },
     contact: {
       inquiry: "Send an Inquiry",
-      mapPlaceholder: "Google Map — Visit Us",
+      mapTitle: "Visit Us / Open Location",
+      mapSubtitle: "Click to open in Google Maps ↗",
       fullName: "Full Name *",
       phone: "Phone Number *",
       email: "Email Address",
@@ -770,7 +771,8 @@ export const translations = {
     },
     contact: {
       inquiry: "पूछताछ भेजें",
-      mapPlaceholder: "Google Map — हमारा पता",
+      mapTitle: "हमसे मिलें / स्थान खोलें",
+      mapSubtitle: "Google Maps में खोलने के लिए क्लिक करें ↗",
       fullName: "पूरा नाम *",
       phone: "फोन नंबर *",
       email: "ईमेल पता",
