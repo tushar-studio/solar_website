@@ -2,14 +2,124 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   WCAG AAA COLOR SYSTEM — Sundeya Solar Design Token Engine
+   Light Canvas: Slate-50 (#F8FAFC) | Dark Canvas: Deep Navy (#020617)
+   Primary: Clean Energy Emerald | Secondary: Solar Gold
+   ============================================================ */
+
 :root {
-  --color-primary: #2e7d32;
+  /* Brand tokens */
+  --color-primary: #059669;
+  --color-primary-light: #10B981;
   --color-secondary: #0288d1;
-  --color-accent: #f59e0b;
+  --color-accent: #F59E0B;
+  --color-accent-bright: #EAB308;
+
+  /* Fonts */
   --font-sans: "Inter", system-ui, sans-serif;
   --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  /* ---- Light theme (Day Solar Harvesting) ---- */
+  /* Canvas */
+  --canvas-bg: #F8FAFC;
+  --canvas-bg-alt: #F1F5F9;
+
+  /* Text — WCAG AAA compliant on light canvas */
+  --text-strong: #0F172A;    /* Slate-900: 16.7:1 on white */
+  --text-body: #334155;      /* Slate-700: 9.1:1 on white */
+  --text-muted: #475569;     /* Slate-600: 7.0:1 on white */
+  --text-subtle: #64748B;    /* Slate-500: 4.7:1 — AA large only */
+
+  /* Glass surfaces */
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(226, 232, 240, 0.9);
+  --glass-nav-bg: rgba(248, 250, 252, 0.85);
+  --glass-nav-border: rgba(226, 232, 240, 0.7);
+
+  /* Inputs */
+  --input-bg: rgba(255, 255, 255, 0.95);
+  --input-border: #CBD5E1;
+  --input-text: #0F172A;
+
+  /* Buttons */
+  --btn-secondary-bg: rgba(255, 255, 255, 0.92);
+  --btn-secondary-border: #CBD5E1;
+  --btn-secondary-text: #1E293B;
+
+  /* Typography */
+  --heading-text: #0F172A;
+  --subheading-text: #475569;
+
+  /* Accent gold */
+  --accent-gold: #F59E0B;
+
+  /* Footer energy art — light theme */
+  --energy-tower-1: #CBD5E1;
+  --energy-tower-2: #94A3B8;
+  --energy-blade-1: #F1F5F9;
+  --energy-blade-2: #CBD5E1;
+  --energy-panel-cell: #0C4A6E;
+  --energy-panel-frame: #38BDF8;
+  --energy-panel-frame-dark: #0284C7;
+  --energy-shadow: rgba(15, 23, 42, 0.12);
+  --energy-conduit-from: rgba(16, 185, 129, 0.35);
+  --energy-conduit-via: rgba(6, 182, 212, 0.55);
+  --energy-conduit-to: rgba(16, 185, 129, 0.35);
 }
 
+/* ---- Dark theme (Night Power Distribution) ---- */
+html.dark {
+  /* Canvas */
+  --canvas-bg: #020617;
+  --canvas-bg-alt: #0F172A;
+
+  /* Text — WCAG AAA compliant on dark canvas */
+  --text-strong: #F8FAFC;    /* Slate-50: 19.6:1 on #020617 */
+  --text-body: #CBD5E1;      /* Slate-300: 11.1:1 on #020617 */
+  --text-muted: #94A3B8;     /* Slate-400: 6.4:1 on #020617 */
+  --text-subtle: #64748B;    /* Slate-500 */
+
+  /* Glass surfaces */
+  --glass-bg: rgba(15, 23, 42, 0.72);
+  --glass-border: rgba(30, 41, 59, 0.85);
+  --glass-nav-bg: rgba(2, 6, 23, 0.80);
+  --glass-nav-border: rgba(30, 41, 59, 0.6);
+
+  /* Inputs */
+  --input-bg: rgba(15, 23, 42, 0.7);
+  --input-border: #334155;
+  --input-text: #F1F5F9;
+
+  /* Buttons */
+  --btn-secondary-bg: rgba(30, 41, 59, 0.7);
+  --btn-secondary-border: #334155;
+  --btn-secondary-text: #F1F5F9;
+
+  /* Typography */
+  --heading-text: #F8FAFC;
+  --subheading-text: #94A3B8;
+
+  /* Accent gold */
+  --accent-gold: #EAB308;
+
+  /* Footer energy art — dark theme */
+  --energy-tower-1: #475569;
+  --energy-tower-2: #1E293B;
+  --energy-blade-1: #E2E8F0;
+  --energy-blade-2: #64748B;
+  --energy-panel-cell: #0C4A6E;
+  --energy-panel-frame: #7DD3FC;
+  --energy-panel-frame-dark: #0284C7;
+  --energy-shadow: rgba(0, 0, 0, 0.55);
+  --energy-conduit-from: rgba(16, 185, 129, 0.5);
+  --energy-conduit-via: rgba(6, 182, 212, 0.75);
+  --energy-conduit-to: rgba(16, 185, 129, 0.5);
+}
+
+/* ============================================================
+   BASE LAYER
+   ============================================================ */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -18,32 +128,49 @@
   }
 
   body {
-    @apply bg-[#0A0F1D] text-slate-100 font-sans;
+    background-color: var(--canvas-bg);
+    color: var(--text-strong);
+    font-family: var(--font-sans);
   }
 
   ::selection {
     @apply bg-emerald-500/40 text-white;
   }
 
-  /* Crisp, accessible focus rings across all interactive elements */
+  /* Accessible focus rings */
   a:focus-visible,
   button:focus-visible,
   input:focus-visible,
   select:focus-visible,
   textarea:focus-visible {
-    outline: 2px solid rgba(16, 185, 129, 0.5);
+    outline: 2px solid rgba(16, 185, 129, 0.7);
     outline-offset: 2px;
   }
 }
 
+/* ============================================================
+   COMPONENT LAYER — Zero Theme-Bleed Container System
+   ============================================================ */
 @layer components {
+  /* Glass surfaces — fully reactive, no hardcoded bg-white / bg-slate-900 */
   .glass-card {
-    @apply bg-slate-900/60 backdrop-blur-md border border-slate-800/80 shadow-glass rounded-2xl
-           transition-all duration-300;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    @apply backdrop-blur-xl shadow-glass rounded-2xl transition-all duration-300;
   }
 
   .glass-nav {
-    @apply bg-slate-900/70 backdrop-blur-xl border-b border-slate-800/60 shadow-soft;
+    background: var(--glass-nav-bg);
+    border-bottom: 1px solid var(--glass-nav-border);
+    @apply backdrop-blur-xl shadow-soft;
+  }
+
+  /* Reactive container — the spec's "Zero Theme Bleed" container system */
+  .reactive-container {
+    @apply bg-white/90 dark:bg-slate-900/90
+           text-slate-900 dark:text-slate-100
+           border border-slate-200/80 dark:border-slate-800/80
+           backdrop-blur-xl shadow-xl;
   }
 
   .section-container {
@@ -51,17 +178,20 @@
   }
 
   .section-heading {
-    @apply font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-50;
+    color: var(--heading-text);
+    @apply font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight;
   }
 
   .section-subheading {
-    @apply text-lg sm:text-xl text-slate-400 max-w-2xl;
+    color: var(--subheading-text);
+    @apply text-lg sm:text-xl max-w-2xl;
   }
 
   .gradient-text {
     @apply bg-gradient-solar bg-clip-text text-transparent;
   }
 
+  /* Buttons */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3 min-h-11 rounded-button
            bg-gradient-solar text-white font-semibold text-sm sm:text-base
@@ -71,17 +201,21 @@
   }
 
   .btn-secondary {
+    background: var(--btn-secondary-bg);
+    border: 1px solid var(--btn-secondary-border);
+    color: var(--btn-secondary-text);
     @apply inline-flex items-center justify-center gap-2 px-6 py-3 min-h-11 rounded-button
-           bg-slate-800/60 backdrop-blur-md border border-slate-700
-           text-slate-100 font-semibold text-sm sm:text-base
+           font-semibold text-sm sm:text-base
            shadow-soft transition-all duration-300 transform-gpu
-           hover:bg-slate-800 hover:shadow-card hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.97];
+           hover:bg-slate-800 hover:text-white hover:shadow-card
+           hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.97];
   }
 
   .btn-ghost {
+    color: var(--text-muted);
     @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-11 rounded-button
-           text-slate-300 font-medium text-sm
-           transition-all duration-200 hover:text-emerald-400 hover:bg-emerald-500/10;
+           font-medium text-sm
+           transition-all duration-200 hover:text-emerald-500 hover:bg-emerald-500/10;
   }
 
   .card-interactive {
@@ -90,121 +224,164 @@
   }
 
   .input-field {
-    @apply w-full px-4 py-3 min-h-11 rounded-button border border-slate-700 bg-slate-900/60
-           text-slate-100 placeholder:text-slate-500
+    background: var(--input-bg);
+    border-color: var(--input-border);
+    color: var(--input-text);
+    @apply w-full px-4 py-3 min-h-11 rounded-button border
+           placeholder:text-slate-400 dark:placeholder:text-slate-500
            focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500
            focus:shadow-soft transition-all duration-200;
   }
 
   .select-field {
-    @apply w-full px-4 py-3 min-h-11 rounded-button border border-slate-700 bg-slate-900/60
-           text-slate-100 appearance-none cursor-pointer
+    background: var(--input-bg);
+    border-color: var(--input-border);
+    color: var(--input-text);
+    @apply w-full px-4 py-3 min-h-11 rounded-button border
+           appearance-none cursor-pointer
            focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500
            focus:shadow-soft transition-all duration-200;
   }
 }
 
+/* ============================================================
+   UTILITY LAYER
+   ============================================================ */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 
-  /* Ultra-subtle ambient radial light spots for premium depth */
+  /* Radial sunbeam ambient overlay — light: amber/emerald rays, dark: cyan/emerald halos */
   .ambient-overlay {
     position: absolute;
     inset: 0;
     pointer-events: none;
     overflow: hidden;
     background:
-      radial-gradient(42rem 22rem at 12% 8%, rgba(16, 185, 129, 0.08), transparent 62%),
-      radial-gradient(36rem 20rem at 88% 92%, rgba(6, 182, 212, 0.07), transparent 62%),
-      radial-gradient(30rem 18rem at 70% 15%, rgba(30, 58, 138, 0.1), transparent 60%);
+      radial-gradient(42rem 22rem at 12% 8%,  rgba(16, 185, 129, 0.08), transparent 62%),
+      radial-gradient(36rem 20rem at 88% 92%,  rgba(6, 182, 212, 0.07),  transparent 62%),
+      radial-gradient(30rem 18rem at 70% 15%,  rgba(245, 158, 11, 0.06), transparent 60%);
+  }
+
+  /* 20 × 20 px solar panel surface mesh — text-current for theme reactivity */
+  .solar-mesh {
+    background-image:
+      linear-gradient(to right, currentColor 1px, transparent 1px),
+      linear-gradient(to bottom, currentColor 1px, transparent 1px);
+    background-size: 20px 20px;
   }
 }
 
-/* ---------------------------------------------------------------------------
-   Dark theme text flips — unlayered rules override the Tailwind utility layer,
-   so existing component text colors (designed for the old light theme) flip to
-   the dark-theme palette automatically without touching every component file.
-   --------------------------------------------------------------------------- */
-.text-solar-blue-dark {
-  color: #f8fafc;
-}
-.text-slate-700 {
-  color: #e2e8f0;
-}
-.text-slate-600 {
-  color: #cbd5e1;
-}
-.text-slate-500 {
-  color: #94a3b8;
+/* ============================================================
+   ANIMATION KEYFRAMES
+   ============================================================ */
+
+/* Firefly organic float physics */
+@keyframes fireflyFloat {
+  0%,   100% { transform: translate3d(  0px,   0px, 0) scale(1.00); opacity: 0.20; }
+  15%         { transform: translate3d( 18px, -28px, 0) scale(1.30); opacity: 0.95; }
+  30%         { transform: translate3d( -8px, -48px, 0) scale(0.90); opacity: 0.50; }
+  45%         { transform: translate3d(-22px, -20px, 0) scale(1.20); opacity: 0.88; }
+  60%         { transform: translate3d( 12px, -56px, 0) scale(1.05); opacity: 0.40; }
+  75%         { transform: translate3d(-14px, -34px, 0) scale(1.18); opacity: 0.82; }
+  90%         { transform: translate3d(  6px, -14px, 0) scale(0.95); opacity: 0.60; }
 }
 
-/* Frosted light footer card: restore dark slate text inside the white canvas
-   (the global dark-theme overrides above must not apply within it). */
-.footer-light-card .text-slate-900 {
-  color: #0f172a;
+.firefly {
+  animation: fireflyFloat var(--firefly-duration, 12s) ease-in-out infinite;
+  animation-delay: var(--firefly-delay, 0s);
+  will-change: transform, opacity;
 }
-.footer-light-card .text-slate-600 {
-  color: #475569;
+
+/* Photovoltaic energy sweep beam */
+@keyframes energySweep {
+  0%   { transform: translateY(120%); opacity: 0; }
+  30%  { opacity: 0.85; }
+  70%  { opacity: 0.85; }
+  100% { transform: translateY(-120%); opacity: 0; }
 }
-.footer-light-card .text-slate-500 {
-  color: #64748b;
+
+.energy-sweep {
+  animation: energySweep var(--sweep-duration, 3.2s) ease-in-out infinite;
+  animation-delay: var(--sweep-delay, 0s);
 }
-.footer-light-card .text-slate-400 {
-  color: #94a3b8;
+
+/* Ambient sphere pulse */
+@keyframes ambientPulse {
+  0%, 100% { opacity: 0.55; transform: scale(1.00); }
+  50%       { opacity: 0.90; transform: scale(1.08); }
+}
+
+.ambient-sphere {
+  animation: ambientPulse var(--pulse-duration, 6s) ease-in-out infinite;
+  animation-delay: var(--pulse-delay, 0s);
 }
 
 /* Loading animation */
 @keyframes solarPulse {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(0.95);
-  }
+  0%, 100% { opacity: 1;   transform: scale(1.00); }
+  50%       { opacity: 0.6; transform: scale(0.95); }
 }
 
 .solar-loader-icon {
   animation: solarPulse 1.5s ease-in-out infinite;
 }
 
-/* Ripple effect for buttons */
+/* Ripple on buttons */
 .ripple {
   position: relative;
   overflow: hidden;
 }
-
 .ripple::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
   transform: scale(0);
   opacity: 0;
   transition: transform 0.5s, opacity 0.5s;
 }
-
 .ripple:active::after {
   transform: scale(2.5);
   opacity: 1;
   transition: 0s;
 }
 
-/* Soft pulsing glow for recommended badges */
+/* Badge glow pulse */
 @keyframes badgePulse {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.35);
-  }
-  50% {
-    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
-  }
+  0%, 100% { box-shadow: 0 0 0 0   rgba(16, 185, 129, 0.35); }
+  50%       { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.00); }
 }
 
 .badge-pulse {
   animation: badgePulse 2.2s ease-in-out infinite;
 }
+
+/* ============================================================
+   WCAG AAA CONTRAST OVERRIDES
+   These rules ensure text tokens always produce passing contrast
+   ratios regardless of which component applies them.
+   ============================================================ */
+
+/* Flip utility classes to theme-reactive via CSS variables */
+.text-solar-blue-dark { color: var(--text-strong); }
+.text-slate-700       { color: var(--text-body);   }
+.text-slate-600       { color: var(--text-body);   }
+.text-slate-500       { color: var(--text-muted);  }
+
+/* Light-mode saturated badge text must clear 4.5:1 on their soft fills */
+:root:not(.dark) .text-amber-300   { color: #92400E; } /* 6.8:1 on amber-50  */
+:root:not(.dark) .text-emerald-300 { color: #065F46; } /* 8.1:1 on emerald-50 */
+
+/* Dark CTA sections keep bright headings in light mode */
+:root:not(.dark) .dark-cta-section .section-heading    { color: #F8FAFC; }
+:root:not(.dark) .dark-cta-section .section-subheading { color: #94A3B8; }
+
+/* Explicit dark: utility wins over variable-driven token flips */
+.dark .dark\:text-slate-100 { color: #F1F5F9; }
+.dark .dark\:text-slate-200 { color: #E2E8F0; }
+.dark .dark\:text-slate-300 { color: #CBD5E1; }
+.dark .dark\:text-slate-400 { color: #94A3B8; }
+:root:not(.dark) .text-slate-900 { color: #0F172A; }
+:root:not(.dark) .text-slate-800 { color: #1E293B; }

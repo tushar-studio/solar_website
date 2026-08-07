@@ -74,7 +74,7 @@ export function SubsidyPageContent() {
                             {si + 1}
                           </span>
                           <div>
-                            <strong className="text-slate-100">{step.title}</strong>
+                            <strong className="text-slate-600">{step.title}</strong>
                             <p className="text-sm text-slate-500">{step.desc}</p>
                           </div>
                         </div>

@@ -52,10 +52,10 @@ export function GovernmentSubsidySection() {
                 >
                   <Link
                     href={`/subsidy#${topic.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="flex items-center gap-3 p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 hover:bg-slate-800 hover:shadow-card hover:border-emerald-500/40 transition-all duration-300 group"
+                    className="flex items-center gap-3 p-4 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 shadow-md shadow-slate-200/40 dark:shadow-black/30 hover:border-emerald-500 hover:shadow-card transition-all duration-300 group"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                    <span className="text-sm font-medium text-slate-100 group-hover:text-emerald-400 transition-colors">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                    <span className="text-sm font-medium text-slate-800 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                       {topic}
                     </span>
                   </Link>

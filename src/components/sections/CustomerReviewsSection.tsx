@@ -44,7 +44,7 @@ export function CustomerReviewsSection() {
                   </div>
                   <div className="flex gap-0.5 mb-3">
                     {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                      <Star key={i} className="w-4 h-4 text-amber-500 fill-amber-500" />
                     ))}
                   </div>
                   <div className="relative flex-1">
@@ -66,13 +66,13 @@ export function CustomerReviewsSection() {
           viewport={viewportOnce}
           className="text-center mt-12"
         >
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-pill bg-slate-800/60 border border-slate-700">
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-pill bg-white/80 dark:bg-slate-800/80 backdrop-blur border border-slate-200 dark:border-slate-700 shadow-md shadow-slate-200/40 dark:shadow-black/30">
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                <Star key={i} className="w-4 h-4 text-amber-500 fill-amber-500" />
               ))}
             </div>
-            <span className="font-bold text-emerald-400">{t.sections.reviewsPlaceholder}</span>
+            <span className="font-bold text-slate-800 dark:text-emerald-400">{t.sections.reviewsPlaceholder}</span>
           </div>
         </motion.div>
       </div>

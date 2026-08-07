@@ -26,7 +26,7 @@ export function HeroSection() {
         >
           <motion.div
             variants={fadeUp}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-slate-800/70 backdrop-blur border border-emerald-500/30 text-emerald-300 text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-emerald-50 dark:bg-emerald-500/15 border border-emerald-200 dark:border-emerald-500/30 text-emerald-900 dark:text-emerald-300 text-sm font-semibold shadow-sm mb-6 transition-all"
           >
             <Zap className="w-4 h-4" />
             {t.hero.badge}

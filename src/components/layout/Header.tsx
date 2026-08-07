@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Logo } from "@/components/layout/Logo";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 export function Header() {
@@ -55,7 +56,7 @@ export function Header() {
               className="lg:hidden w-11 h-11 rounded-button flex items-center justify-center hover:bg-white/10 transition-colors"
               aria-label={t.common.openMenu}
             >
-              <Menu className="w-5 h-5 text-slate-100" />
+              <Menu className="w-5 h-5 text-solar-blue-dark" />
             </button>
             <Logo />
           </div>
@@ -65,7 +66,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-2.5 py-2 text-sm font-medium text-slate-300 hover:text-emerald-400 rounded-lg hover:bg-emerald-500/10 transition-all"
+                className="px-2.5 py-2 text-sm font-medium text-slate-600 hover:text-emerald-500 rounded-lg hover:bg-emerald-500/10 transition-all"
               >
                 {link.label}
               </Link>
@@ -73,6 +74,7 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             <LanguageSwitcher />
             <Link
               href="/calculator"
@@ -107,7 +109,7 @@ export function Header() {
                 <button
                   type="button"
                   onClick={() => setMenuOpen(false)}
-                  className="w-11 h-11 rounded-button flex items-center justify-center hover:bg-slate-800"
+                  className="w-11 h-11 rounded-button flex items-center justify-center hover:bg-emerald-500/10"
                   aria-label={t.common.closeMenu}
                 >
                   <X className="w-5 h-5" />
@@ -125,7 +127,7 @@ export function Header() {
                     <Link
                       href={link.href}
                       onClick={() => setMenuOpen(false)}
-                      className="block px-4 py-3 rounded-button font-medium text-slate-200 hover:bg-emerald-500/10 hover:text-emerald-400 transition-colors"
+                      className="block px-4 py-3 rounded-button font-medium text-slate-600 hover:bg-emerald-500/10 hover:text-emerald-500 transition-colors"
                     >
                       {link.label}
                     </Link>

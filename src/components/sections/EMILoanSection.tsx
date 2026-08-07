@@ -48,10 +48,10 @@ export function EMILoanSection() {
                 const tab = (
                   <div
                     key={topic}
-                    className={`flex items-center gap-2 px-4 py-2.5 min-h-11 rounded-t-lg border text-sm font-medium transition-colors ${
+                    className={`flex items-center gap-2 px-4 py-2.5 min-h-11 rounded-t-lg border text-sm font-medium transition-all ${
                       isClickable
-                        ? "bg-emerald-500/15 border-emerald-500 border-b-[3px] text-emerald-300 font-bold shadow-soft"
-                        : "bg-slate-800/60 border-slate-700 text-slate-300 cursor-default"
+                        ? "bg-emerald-50 dark:bg-emerald-500/15 border-emerald-500 border-b-[3px] text-emerald-900 dark:text-emerald-300 font-bold shadow-sm"
+                        : "bg-white dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 cursor-default shadow-md shadow-slate-200/40 dark:shadow-black/30"
                     }`}
                   >
                     {isClickable ? <Calculator className="w-4 h-4" /> : <Info className="w-4 h-4 text-slate-400" />}

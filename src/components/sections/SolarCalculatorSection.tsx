@@ -12,7 +12,7 @@ export function SolarCalculatorSection() {
   const { inputsList, outputsList } = t.calculator;
 
   return (
-    <section className="py-section-sm sm:py-section bg-solar-blue-dark text-white relative overflow-hidden">
+    <section className="dark-cta-section py-section-sm sm:py-section bg-solar-blue-dark text-white relative overflow-hidden">
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-500 rounded-full blur-3xl" />

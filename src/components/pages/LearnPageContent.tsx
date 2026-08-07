@@ -23,11 +23,11 @@ export function LearnPageContent({ slug }: { slug: string }) {
         <h1 className="section-heading mb-4">{card.title}</h1>
         <p className="section-subheading mb-8">{card.description}</p>
 
-        <div className="aspect-video rounded-2xl bg-gradient-to-br from-emerald-500/15 to-sky-500/15 flex flex-col items-center justify-center mb-8 shadow-card border border-dashed border-slate-700">
-          <div className="w-20 h-20 rounded-full bg-slate-800/80 flex items-center justify-center mb-4 shadow-card opacity-60">
-            <Play className="w-8 h-8 text-emerald-400/60 ml-1" />
+        <div className="aspect-video rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100/80 dark:from-slate-800/60 dark:to-slate-900/60 flex flex-col items-center justify-center mb-8 shadow-card border border-slate-100 dark:border-slate-800">
+          <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-400 text-white flex items-center justify-center mb-4 shadow-lg shadow-emerald-500/30">
+            <Play className="w-8 h-8 ml-1" />
           </div>
-          <p className="text-sm font-medium text-slate-500 flex items-center gap-2">
+          <p className="text-sm font-medium text-slate-500 dark:text-slate-400 flex items-center gap-2">
             <Clock className="w-4 h-4" />
             {t.pages.learn.videoGuide}
           </p>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, MessageCircle, Send, CheckCircle2, ArrowUpRight } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle, Send, CheckCircle2 } from "lucide-react";
 import { company } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { fadeLeft, fadeRight, viewportOnce } from "@/lib/animations";
@@ -67,20 +67,31 @@ export function ContactSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t.contact.mapTitle}
-              className="glass-card p-5 flex items-start gap-4 group cursor-pointer ripple transition-all duration-300 hover:shadow-[0_16px_48px_-12px_rgba(5,150,105,0.4)] hover:border-emerald-500/40 hover:scale-[1.015] hover:bg-slate-800/80 transform-gpu"
+              className="block relative h-[180px] rounded-2xl overflow-hidden border border-slate-700/80 group cursor-pointer transition-transform duration-300 hover:scale-105 transform-gpu shadow-lg"
             >
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-5 h-5 text-emerald-400" />
+              {/* Interactive Google Maps preview */}
+              <iframe
+                title={t.contact.mapTitle}
+                src="https://www.google.com/maps?q=Ring%20Road%2C%20Behind%20ICICI%20Bank%2C%20Jogiwala%2C%20Dehradun%2C%20Uttarakhand%20248014&output=embed"
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                loading="lazy"
+                style={{ border: 0, filter: "saturate(0.85) contrast(1.05)" }}
+              />
+              {/* Blend overlay for theme */}
+              <div className="absolute inset-0 bg-slate-900/25 pointer-events-none" />
+
+              {/* Glowing emerald pin with pulse ring */}
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                <span className="relative flex w-10 h-10 items-center justify-center">
+                  <span className="animate-ping absolute inline-flex h-8 w-8 rounded-full bg-emerald-400 opacity-50" />
+                  <MapPin className="relative w-9 h-9 text-emerald-400 drop-shadow-[0_0_10px_rgba(16,185,129,0.9)]" />
+                </span>
               </div>
-              <div className="min-w-0 flex-1">
-                <p className="text-xs text-slate-400 uppercase tracking-wide group-hover:text-emerald-400 transition-colors">
-                  {t.contact.mapTitle}
-                </p>
-                <p className="font-medium text-slate-100 group-hover:text-emerald-400 transition-colors">
-                  {t.contact.mapSubtitle}
-                </p>
+
+              {/* Hover glass overlay badge */}
+              <div className="absolute inset-x-3 bottom-3 rounded-xl bg-slate-900/70 backdrop-blur-md border border-white/10 px-3 py-2 text-xs font-medium text-white text-center transition-all duration-300">
+                {t.contact.mapCta}
               </div>
-              <ArrowUpRight className="w-4 h-4 text-emerald-400 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </a>
           </motion.div>
 

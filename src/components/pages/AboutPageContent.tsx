@@ -54,7 +54,7 @@ export function AboutPageContent({ slug }: { slug: string }) {
               <Link
                 key={a.slug}
                 href={`/about/${a.slug}`}
-                className="px-4 py-2 rounded-pill bg-emerald-500/10 text-emerald-300 text-sm font-medium hover:bg-emerald-500/20 transition-colors"
+                className="px-4 py-2 rounded-pill bg-emerald-50 dark:bg-emerald-500/15 border border-emerald-200 dark:border-emerald-500/30 text-emerald-900 dark:text-emerald-300 text-sm font-semibold shadow-sm hover:bg-emerald-100 dark:hover:bg-emerald-500/25 transition-all"
               >
                 {a.title}
               </Link>

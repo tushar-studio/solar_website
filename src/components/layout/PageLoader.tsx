@@ -29,14 +29,15 @@ export function PageLoader() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0A0F1D]"
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center"
+      style={{ backgroundColor: "var(--canvas-bg)" }}
     >
       <div className="flex flex-col items-center gap-6">
         <div className="relative w-20 h-20 rounded-full overflow-hidden solar-loader-icon shadow-glow ring-4 ring-emerald-500/20">
           <Image src={company.logo} alt={company.name} fill className="object-cover" priority />
         </div>
         <div className="flex flex-col items-center gap-2">
-          <p className="font-display font-semibold text-slate-100">{company.name}</p>
+          <p className="font-display font-semibold text-solar-blue-dark">{company.name}</p>
           <p className="text-xs text-emerald-400">{company.tagline}</p>
           <div className="flex gap-1 mt-1">
             {[0, 1, 2].map((i) => (

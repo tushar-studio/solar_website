@@ -301,7 +301,7 @@ export function SolarCalculatorForm() {
                     className={`relative h-11 px-4 rounded-2xl text-sm font-semibold transition-colors duration-200 ${
                       active
                         ? "text-white border border-transparent"
-                        : "bg-slate-800/60 border border-slate-700 text-slate-300 hover:border-emerald-400/60 hover:text-emerald-300"
+                        : "bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 shadow-md shadow-slate-200/40 dark:shadow-black/30 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400"
                     }`}
                   >
                     {active && (
@@ -316,7 +316,9 @@ export function SolarCalculatorForm() {
                       {isRecommended && (
                         <span
                           className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full badge-pulse ${
-                            active ? "bg-white/25 text-white" : "bg-emerald-500/20 text-emerald-300"
+                            active
+                              ? "bg-white/25 text-white"
+                              : "bg-emerald-50 dark:bg-emerald-500/20 border border-emerald-200 dark:border-emerald-500/30 text-emerald-900 dark:text-emerald-200"
                           }`}
                         >
                           {t.calculator.recommended}
@@ -416,7 +418,7 @@ export function SolarCalculatorForm() {
                       <span className="w-20 sm:w-24 text-xs text-slate-500 flex-shrink-0">
                         {years} {t.calculator.years}
                       </span>
-                      <div className="flex-1 h-7 rounded-lg bg-slate-800/80 overflow-hidden">
+                      <div className="flex-1 h-7 rounded-lg bg-slate-100 dark:bg-slate-800/80 overflow-hidden">
                         <motion.div
                           className={`h-full rounded-lg ${
                             isMax ? "bg-gradient-solar" : "bg-emerald-400/60"
