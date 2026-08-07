@@ -36,7 +36,7 @@ export function AboutCompanySection() {
   const items = t.content.aboutItems;
 
   return (
-    <section className="py-section-sm sm:py-section bg-gradient-to-b from-emerald-50/30 to-transparent">
+    <section className="py-section-sm sm:py-section">
       <div className="section-container">
         <SectionHeader
           title={t.sections.aboutTitle}
@@ -62,12 +62,12 @@ export function AboutCompanySection() {
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-600 to-sky-600 flex items-center justify-center shadow-glow">
                       <Icon className="w-5 h-5 text-white" />
                     </div>
-                    <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-white border-2 border-emerald-200 text-[10px] font-bold flex items-center justify-center text-emerald-700">
+                    <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-slate-800 border-2 border-emerald-500/40 text-[10px] font-bold flex items-center justify-center text-emerald-300">
                       {i + 1}
                     </span>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-solar-blue-dark group-hover:text-emerald-700 transition-colors">
+                    <h3 className="font-semibold text-solar-blue-dark group-hover:text-emerald-400 transition-colors">
                       {item.title}
                     </h3>
                   </div>

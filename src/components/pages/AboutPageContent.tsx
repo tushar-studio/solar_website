@@ -36,9 +36,9 @@ export function AboutPageContent({ slug }: { slug: string }) {
             <p key={i}>{p}</p>
           ))}
           {content.highlights && (
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4 pt-4 border-t border-slate-100">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4 pt-4 border-t border-slate-800">
               {content.highlights.map((h) => (
-                <li key={h} className="flex items-center gap-2 text-sm font-medium text-emerald-700">
+                <li key={h} className="flex items-center gap-2 text-sm font-medium text-emerald-400">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
                   {h}
                 </li>
@@ -54,7 +54,7 @@ export function AboutPageContent({ slug }: { slug: string }) {
               <Link
                 key={a.slug}
                 href={`/about/${a.slug}`}
-                className="px-4 py-2 rounded-pill bg-emerald-50 text-emerald-700 text-sm font-medium hover:bg-emerald-100 transition-colors"
+                className="px-4 py-2 rounded-pill bg-emerald-500/10 text-emerald-300 text-sm font-medium hover:bg-emerald-500/20 transition-colors"
               >
                 {a.title}
               </Link>

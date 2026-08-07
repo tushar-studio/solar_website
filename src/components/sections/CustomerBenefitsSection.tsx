@@ -30,7 +30,7 @@ export function CustomerBenefitsSection() {
             <motion.div
               key={benefit}
               variants={fadeUp}
-              className="glass-card p-5 flex items-start gap-3 hover:shadow-card transition-shadow"
+              className="glass-card p-5 flex items-start gap-3 hover:shadow-xl hover:border-emerald-200/60 transition-all duration-300 transform-gpu"
             >
               <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
               <span className="text-sm font-medium text-solar-blue-dark leading-snug">{benefit}</span>

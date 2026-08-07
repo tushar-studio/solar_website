@@ -8,7 +8,7 @@ export function FAQsSection() {
   const { t } = useLanguage();
 
   return (
-    <section id="faqs" className="py-section-sm sm:py-section bg-slate-50/50">
+    <section id="faqs" className="py-section-sm sm:py-section">
       <div className="section-container max-w-3xl">
         <SectionHeader
           title={t.sections.faqsTitle}

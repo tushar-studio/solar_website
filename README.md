@@ -5,8 +5,8 @@ A premium, conversion-focused website for a solar energy company and **PM Surya 
 ## Features
 
 - **Full EN ⇄ HI language switch** — navigation, hero, cards, reviews, FAQ, subsidy guide, EMI section, calculators, contact form, footer, and all sub-pages render in the active language (persisted across visits).
-- **Solar Budget Calculator** — monthly bill + electricity tariff inputs (Uttarakhand-fixed), a 3–10 kW system capacity selector, and estimates for installation cost, government subsidy (up to ₹85,800, residential only), ROI, payback period, and monthly/annual savings (net of a ₹300 fixed charge).
-- **Savings duration analysis** — choose 5 / 10 / 15 / 20 / 25 years (default 25, matching the typical solar panel lifespan); lifetime savings update live and an "Estimated Savings After" timeline chart visualizes cumulative savings at each milestone.
+- **Solar Budget Calculator** — auto-recommends system capacity (3–10 kW) from your monthly bill with a "(Recommended)" badge (manual override always allowed), plus estimates for installation cost, government subsidy (₹78,000 cap for residential), ROI, payback period, and monthly/annual savings (net of a ₹300 fixed charge).
+- **Savings breakdown** — 25-year lifetime savings with an "Estimated Savings After" chart visualizing cumulative savings at the 5 / 10 / 15 / 20 / 25-year milestones, all updating live with the inputs.
 - **Standalone EMI Calculator** — loan amount, interest rate (default 5.75% p.a. under PM Surya Ghar Yojana), and tenure produce monthly EMI, total interest, and total payable using the standard EMI formula. Fully independent of the solar calculator.
 - **Government Subsidy guide** — overview, eligibility, documents, step-by-step process, and FAQ.
 - **EMI / Loan section** — financing information with a clearly highlighted EMI Calculator tab.
@@ -86,7 +86,7 @@ const { t, locale, setLocale } = useLanguage();
 
 ## Calculator Logic
 
-- **Solar:** installation cost from the selected capacity (3 kW = ₹2,10,000, 5 kW = ₹3,50,000, otherwise kW × ₹60,000), flat subsidy estimate of ₹85,800 for residential property types only (₹0 / hidden for commercial & industrial), monthly savings = max(0, 85% of bill − ₹300 fixed charge), duration-scaled lifetime savings, ROI and payback derived from the final cost.
+- **Solar:** capacity auto-recommended from the monthly bill (≤₹2,500 → 3 kW, then +1 kW per ₹2,000 band up to >₹14,000 → 10 kW), installation cost from the selected capacity (3 kW = ₹2,10,000, 5 kW = ₹3,50,000, otherwise kW × ₹60,000), subsidy capped at ₹78,000 for residential (₹0 / hidden for commercial & industrial), monthly savings = max(0, bill − ₹300 fixed charge), annual = monthly × 12, 25-year lifetime savings, ROI and payback derived from the final cost.
 - **EMI:** standard formula `EMI = P × r × (1 + r)ⁿ / ((1 + r)ⁿ − 1)` with `r = annual rate / 12 / 100` and `n = tenure × 12` months.
 
 ## Documentation

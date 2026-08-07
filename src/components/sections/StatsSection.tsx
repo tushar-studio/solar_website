@@ -31,14 +31,14 @@ export function StatsSection() {
                 variants={fadeUp}
                 className="text-center md:text-left"
               >
-                <p className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text">
+                <p className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text tabular-nums tracking-tight leading-none">
                   {stat.numeric && !stat.value.includes("[DATA") ? (
                     <AnimatedCounter value={stat.value} suffix={suffix} />
                   ) : (
                     `${stat.value}${suffix}`
                   )}
                 </p>
-                <p className="mt-1 text-xs sm:text-sm text-slate-600 leading-snug">{label}</p>
+                <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-snug">{label}</p>
               </motion.div>
             );
           })}

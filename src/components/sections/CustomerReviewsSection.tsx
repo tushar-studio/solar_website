@@ -13,7 +13,7 @@ export function CustomerReviewsSection() {
   const reviews = t.content.reviews;
 
   return (
-    <section id="reviews" className="py-section-sm sm:py-section bg-gradient-to-b from-transparent to-slate-50/50">
+    <section id="reviews" className="py-section-sm sm:py-section">
       <div className="section-container">
         <SectionHeader
           title={t.sections.reviewsTitle}
@@ -32,8 +32,8 @@ export function CustomerReviewsSection() {
             const text = reviews.find((r) => r.id === review.id)?.review ?? review.review;
             return (
               <motion.div key={review.id} variants={fadeUp}>
-                <div className="glass-card p-5 sm:p-6 hover:shadow-card transition-shadow h-full flex flex-col">
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-4 border border-white/40">
+                <div className="glass-card p-5 sm:p-6 hover:shadow-xl hover:border-emerald-200/60 transition-all duration-300 transform-gpu h-full flex flex-col">
+                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-4 border border-slate-800">
                     <Image
                       src={review.photo}
                       alt={`${t.sections.reviewsTitle} ${review.id}`}
@@ -48,7 +48,7 @@ export function CustomerReviewsSection() {
                     ))}
                   </div>
                   <div className="relative flex-1">
-                    <Quote className="w-5 h-5 text-emerald-100 absolute -top-1 -left-1" />
+                    <Quote className="w-5 h-5 text-emerald-500/30 absolute -top-1 -left-1" />
                     <p className="text-sm text-slate-600 leading-relaxed pl-4 line-clamp-4">
                       {text}
                     </p>
@@ -66,13 +66,13 @@ export function CustomerReviewsSection() {
           viewport={viewportOnce}
           className="text-center mt-12"
         >
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-pill bg-emerald-50 border border-emerald-100">
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-pill bg-slate-800/60 border border-slate-700">
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
               ))}
             </div>
-            <span className="font-bold text-emerald-700">{t.sections.reviewsPlaceholder}</span>
+            <span className="font-bold text-emerald-400">{t.sections.reviewsPlaceholder}</span>
           </div>
         </motion.div>
       </div>

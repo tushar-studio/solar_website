@@ -31,7 +31,7 @@ export function SubsidyPageContent() {
 
         <h1 className="section-heading mb-4">{t.pages.subsidy.heading}</h1>
         <p className="section-subheading mb-4">{t.content.subsidyInfo.summary}</p>
-        <p className="text-xs text-amber-700 bg-amber-50 border border-amber-100 rounded-lg px-3 py-2 mb-10 inline-block">
+        <p className="text-xs text-amber-300 bg-amber-500/10 border border-amber-500/30 rounded-lg px-3 py-2 mb-10 inline-block">
           {t.content.subsidyInfo.verifyNote}
         </p>
 
@@ -63,7 +63,7 @@ export function SubsidyPageContent() {
                         <div
                           key={step.title}
                           className={`flex items-center gap-4 p-3 rounded-xl ${
-                            si % 2 === 0 ? "bg-emerald-50/50" : "bg-sky-50/50"
+                            si % 2 === 0 ? "bg-emerald-500/10" : "bg-sky-500/10"
                           }`}
                         >
                           <span
@@ -74,7 +74,7 @@ export function SubsidyPageContent() {
                             {si + 1}
                           </span>
                           <div>
-                            <strong className="text-slate-800">{step.title}</strong>
+                            <strong className="text-slate-100">{step.title}</strong>
                             <p className="text-sm text-slate-500">{step.desc}</p>
                           </div>
                         </div>
@@ -94,8 +94,8 @@ export function SubsidyPageContent() {
                   )}
 
                   {section.helpTitle && section.helpText && (
-                    <div className="glass-card p-6 bg-emerald-50/50 border-emerald-100 text-center">
-                      <FileText className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
+                    <div className="glass-card p-6 bg-emerald-500/10 border-emerald-500/20 text-center">
+                      <FileText className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
                       <h3 className="font-display font-semibold text-lg text-solar-blue-dark mb-2">
                         {section.helpTitle}
                       </h3>

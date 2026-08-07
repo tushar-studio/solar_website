@@ -162,16 +162,11 @@ export const translations = {
       cardSubtitle: "Get your personalized estimate",
       monthlyBill: "Monthly Electricity Bill (₹)",
       monthlyBillPlaceholder: "e.g. 5000",
-      tariff: "Electricity Tariff / Rate (₹ per Unit)",
-      tariffPlaceholder: "e.g. 7.5",
-      stateFixedBadge: "State: Uttarakhand (Fixed)",
       systemCapacity: "System Capacity (kW)",
       propertyType: "Property Type",
       propertyOptions: ["Residential", "Commercial", "Industrial"],
       calculate: "Calculate My Savings",
-      durationLabel: "Select Savings Duration",
-      durationHint: "Solar panels generally have a lifespan of around 25 years.",
-      durationOptions: ["5 Years", "10 Years", "15 Years", "20 Years", "25 Years"],
+      recommended: "(Recommended)",
       savingsAfterTitle: "Estimated Savings After",
       resultLabels: {
         recommendedSystem: "Recommended System",
@@ -192,7 +187,7 @@ export const translations = {
       disclaimer:
         "* Estimates are indicative. Actual costs may vary based on site assessment, equipment selection, and current subsidy policies.",
       monthlySavingsNote: "*₹300 mandatory monthly fixed charge deducted.",
-      inputsList: ["Monthly Bill", "Electricity Tariff / Rate", "System Capacity", "Property Type", "Savings Duration"],
+      inputsList: ["Monthly Bill", "System Capacity", "Property Type"],
       outputsList: [
         "Recommended System",
         "Installation Cost",
@@ -254,39 +249,31 @@ export const translations = {
     },
     footer: {
       taglineDesc: "Premium solar solutions for homes, businesses, and industries.",
-      quickLinks: "Quick Links",
-      productsServices: "Products & Services",
-      resources: "Resources",
+      instagramHandle: "Instagram — @sundeyasolar",
+      calculatorsTitle: "Solar Calculators & Tools",
+      schemeTitle: "PM Surya Ghar Scheme",
+      quickLinksTrustTitle: "Quick Links & Trust",
+      calculators: [
+        "Solar System Calculator",
+        "Government Subsidy Estimator",
+        "Monthly Electricity Bill Savings",
+        "Solar EMI & Bank Loan Calculator",
+        "ROI & Payback Period Tool",
+      ],
+      scheme: [
+        "Apply for Rooftop Subsidy",
+        "Scheme Eligibility Criteria",
+        "Net Metering Process",
+        "Approved Vendor Network",
+      ],
+      trust: [
+        "About Sundeya Solar",
+        "Warranty & Maintenance Policy",
+        "Privacy Policy & Terms",
+        "24/7 Customer Support",
+      ],
+      poweredBy: "Powered by PM Surya Ghar Muft Bijli Yojana | 100% Clean Energy Solutions",
       allRightsReserved: "All rights reserved.",
-      pmSuryaPartner: "PM Surya Ghar Yojana Partner",
-      links: {
-        quickLinks: [
-          { label: "Home", href: "/" },
-          { label: "About", href: "/about/story" },
-          { label: "Gallery", href: "/gallery" },
-          { label: "Contact", href: "/#contact" },
-        ],
-        products: [
-          { label: "On-Grid Solar", href: "/#products" },
-          { label: "Off-Grid Solar", href: "/#products" },
-          { label: "Hybrid Solar", href: "/#products" },
-        ],
-        services: [
-          { label: "Installation", href: "/#benefits" },
-          { label: "Maintenance", href: "/#benefits" },
-          { label: "Subsidy Assistance", href: "/subsidy" },
-        ],
-        resources: [
-          { label: "Subsidy Guide", href: "/subsidy" },
-          { label: "EMI / Loan", href: "/emi" },
-          { label: "Calculator", href: "/calculator" },
-          { label: "FAQs", href: "/#faqs" },
-        ],
-        legal: [
-          { label: "Privacy Policy", href: "/privacy" },
-          { label: "Terms of Service", href: "/terms" },
-        ],
-      },
     },
     content: {
       learnCards: [
@@ -807,16 +794,11 @@ export const translations = {
       cardSubtitle: "अपना व्यक्तिगत अनुमान प्राप्त करें",
       monthlyBill: "मासिक बिजली बिल (₹)",
       monthlyBillPlaceholder: "जैसे 5000",
-      tariff: "बिजली टैरिफ / दर (₹ प्रति यूनिट)",
-      tariffPlaceholder: "जैसे 7.5",
-      stateFixedBadge: "राज्य: उत्तराखंड (निर्धारित)",
       systemCapacity: "सिस्टम क्षमता (kW)",
       propertyType: "संपत्ति का प्रकार",
       propertyOptions: ["आवासीय", "वाणिज्यिक", "औद्योगिक"],
       calculate: "मेरी बचत की गणना करें",
-      durationLabel: "बचत अवधि चुनें",
-      durationHint: "सोलर पैनलों का जीवनकाल आमतौर पर लगभग 25 वर्ष होता है।",
-      durationOptions: ["5 वर्ष", "10 वर्ष", "15 वर्ष", "20 वर्ष", "25 वर्ष"],
+      recommended: "(अनुशंसित)",
       savingsAfterTitle: "अनुमानित बचत इसके बाद",
       resultLabels: {
         recommendedSystem: "अनुशंसित सिस्टम",
@@ -837,7 +819,7 @@ export const translations = {
       disclaimer:
         "* अनुमान सांकेतिक हैं। वास्तविक लागत साइट आकलन, उपकरण चयन और वर्तमान सब्सिडी नीतियों पर निर्भर करती है।",
       monthlySavingsNote: "*₹300 अनिवार्य मासिक फिक्स्ड चार्ज काटा गया।",
-      inputsList: ["मासिक बिल", "बिजली टैरिफ / दर", "सिस्टम क्षमता", "संपत्ति का प्रकार", "बचत अवधि"],
+      inputsList: ["मासिक बिल", "सिस्टम क्षमता", "संपत्ति का प्रकार"],
       outputsList: [
         "अनुशंसित सिस्टम",
         "स्थापना लागत",
@@ -899,39 +881,31 @@ export const translations = {
     },
     footer: {
       taglineDesc: "घरों, व्यवसायों और उद्योगों के लिए प्रीमियम सोलर समाधान।",
-      quickLinks: "त्वरित लिंक",
-      productsServices: "उत्पाद और सेवाएं",
-      resources: "संसाधन",
+      instagramHandle: "Instagram — @sundeyasolar",
+      calculatorsTitle: "सोलर कैलकुलेटर और टूल्स",
+      schemeTitle: "पीएम सूर्य घर योजना",
+      quickLinksTrustTitle: "त्वरित लिंक और विश्वास",
+      calculators: [
+        "सोलर सिस्टम कैलकुलेटर",
+        "सरकारी सब्सिडी अनुमानक",
+        "मासिक बिजली बिल बचत",
+        "सोलर EMI और बैंक लोन कैलकुलेटर",
+        "ROI और पेबैक अवधि टूल",
+      ],
+      scheme: [
+        "रूफटॉप सब्सिडी के लिए आवेदन करें",
+        "योजना पात्रता मानदंड",
+        "नेट मीटरिंग प्रक्रिया",
+        "अनुमोदित विक्रेता नेटवर्क",
+      ],
+      trust: [
+        "Sundeya Solar के बारे में",
+        "वारंटी और रखरखाव नीति",
+        "गोपनीयता नीति और शर्तें",
+        "24/7 ग्राहक सहायता",
+      ],
+      poweredBy: "पीएम सूर्य घर मुफ्त बिजली योजना द्वारा संचालित | 100% स्वच्छ ऊर्जा समाधान",
       allRightsReserved: "सर्वाधिकार सुरक्षित।",
-      pmSuryaPartner: "पीएम सूर्य घर योजना पार्टनर",
-      links: {
-        quickLinks: [
-          { label: "होम", href: "/" },
-          { label: "हमारे बारे में", href: "/about/story" },
-          { label: "गैलरी", href: "/gallery" },
-          { label: "संपर्क", href: "/#contact" },
-        ],
-        products: [
-          { label: "ऑन-ग्रिड सोलर", href: "/#products" },
-          { label: "ऑफ-ग्रिड सोलर", href: "/#products" },
-          { label: "हाइब्रिड सोलर", href: "/#products" },
-        ],
-        services: [
-          { label: "इंस्टॉलेशन", href: "/#benefits" },
-          { label: "रखरखाव", href: "/#benefits" },
-          { label: "सब्सिडी सहायता", href: "/subsidy" },
-        ],
-        resources: [
-          { label: "सब्सिडी गाइड", href: "/subsidy" },
-          { label: "EMI / लोन", href: "/emi" },
-          { label: "कैलकुलेटर", href: "/calculator" },
-          { label: "अक्सर पूछे जाने वाले प्रश्न", href: "/#faqs" },
-        ],
-        legal: [
-          { label: "गोपनीयता नीति", href: "/privacy" },
-          { label: "सेवा की शर्तें", href: "/terms" },
-        ],
-      },
     },
     content: {
       learnCards: [

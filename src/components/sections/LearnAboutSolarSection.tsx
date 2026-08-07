@@ -26,10 +26,10 @@ export function LearnAboutSolarSection() {
           {cards.map((card) => (
             <motion.div key={card.slug} variants={fadeUp}>
               <Link href={`/learn/${card.slug}`} className="group block card-interactive h-full">
-                <div className="relative aspect-video rounded-xl bg-gradient-to-br from-emerald-100/80 to-sky-100/80 mb-4 overflow-hidden border border-white/60">
+                <div className="relative aspect-video rounded-xl bg-gradient-to-br from-emerald-500/15 to-sky-500/15 mb-4 overflow-hidden border border-slate-800">
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                    <div className="w-14 h-14 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-card opacity-60">
-                      <Play className="w-6 h-6 text-emerald-600/60 ml-0.5" />
+                    <div className="w-14 h-14 rounded-full bg-slate-800/80 backdrop-blur flex items-center justify-center shadow-card opacity-60">
+                      <Play className="w-6 h-6 text-emerald-400/60 ml-0.5" />
                     </div>
                     <span className="text-xs font-medium text-slate-500 flex items-center gap-1">
                       <Clock className="w-3 h-3" />

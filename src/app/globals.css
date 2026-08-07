@@ -18,21 +18,32 @@
   }
 
   body {
-    @apply bg-solar-white text-solar-blue-dark font-sans;
+    @apply bg-[#0A0F1D] text-slate-100 font-sans;
   }
 
   ::selection {
-    @apply bg-emerald-200 text-emerald-900;
+    @apply bg-emerald-500/40 text-white;
+  }
+
+  /* Crisp, accessible focus rings across all interactive elements */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid rgba(16, 185, 129, 0.5);
+    outline-offset: 2px;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-glass rounded-card;
+    @apply bg-slate-900/60 backdrop-blur-md border border-slate-800/80 shadow-glass rounded-2xl
+           transition-all duration-300;
   }
 
   .glass-nav {
-    @apply bg-white/80 backdrop-blur-xl border-b border-white/30 shadow-soft;
+    @apply bg-slate-900/70 backdrop-blur-xl border-b border-slate-800/60 shadow-soft;
   }
 
   .section-container {
@@ -40,11 +51,11 @@
   }
 
   .section-heading {
-    @apply font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-solar-blue-dark;
+    @apply font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-50;
   }
 
   .section-subheading {
-    @apply text-lg sm:text-xl text-slate-600 max-w-2xl;
+    @apply text-lg sm:text-xl text-slate-400 max-w-2xl;
   }
 
   .gradient-text {
@@ -52,43 +63,44 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-button
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 min-h-11 rounded-button
            bg-gradient-solar text-white font-semibold text-sm sm:text-base
-           shadow-glow transition-all duration-300
-           hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
+           shadow-glow transition-all duration-300 transform-gpu
+           hover:shadow-[0_12px_44px_-10px_rgba(5,150,105,0.55)]
+           hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.97];
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-button
-           bg-white/80 backdrop-blur-sm border border-slate-200
-           text-solar-blue-dark font-semibold text-sm sm:text-base
-           shadow-soft transition-all duration-300
-           hover:bg-white hover:shadow-card hover:scale-[1.02] active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 min-h-11 rounded-button
+           bg-slate-800/60 backdrop-blur-md border border-slate-700
+           text-slate-100 font-semibold text-sm sm:text-base
+           shadow-soft transition-all duration-300 transform-gpu
+           hover:bg-slate-800 hover:shadow-card hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.97];
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-button
-           text-slate-600 font-medium text-sm
-           transition-all duration-200 hover:text-emerald-600 hover:bg-emerald-50;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-11 rounded-button
+           text-slate-300 font-medium text-sm
+           transition-all duration-200 hover:text-emerald-400 hover:bg-emerald-500/10;
   }
 
   .card-interactive {
-    @apply glass-card p-6 transition-all duration-300 cursor-pointer
-           hover:shadow-card hover:-translate-y-1;
+    @apply glass-card p-6 transition-all duration-300 cursor-pointer transform-gpu
+           hover:shadow-xl hover:border-emerald-500/40 hover:-translate-y-1;
   }
 
   .input-field {
-    @apply w-full px-4 py-3 rounded-button border border-slate-200 bg-white/80
-           text-solar-blue-dark placeholder:text-slate-400
-           focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-500
-           transition-all duration-200;
+    @apply w-full px-4 py-3 min-h-11 rounded-button border border-slate-700 bg-slate-900/60
+           text-slate-100 placeholder:text-slate-500
+           focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500
+           focus:shadow-soft transition-all duration-200;
   }
 
   .select-field {
-    @apply w-full px-4 py-3 rounded-button border border-slate-200 bg-white/80
-           text-solar-blue-dark appearance-none cursor-pointer
-           focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-500
-           transition-all duration-200;
+    @apply w-full px-4 py-3 min-h-11 rounded-button border border-slate-700 bg-slate-900/60
+           text-slate-100 appearance-none cursor-pointer
+           focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500
+           focus:shadow-soft transition-all duration-200;
   }
 }
 
@@ -96,6 +108,51 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Ultra-subtle ambient radial light spots for premium depth */
+  .ambient-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background:
+      radial-gradient(42rem 22rem at 12% 8%, rgba(16, 185, 129, 0.08), transparent 62%),
+      radial-gradient(36rem 20rem at 88% 92%, rgba(6, 182, 212, 0.07), transparent 62%),
+      radial-gradient(30rem 18rem at 70% 15%, rgba(30, 58, 138, 0.1), transparent 60%);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Dark theme text flips — unlayered rules override the Tailwind utility layer,
+   so existing component text colors (designed for the old light theme) flip to
+   the dark-theme palette automatically without touching every component file.
+   --------------------------------------------------------------------------- */
+.text-solar-blue-dark {
+  color: #f8fafc;
+}
+.text-slate-700 {
+  color: #e2e8f0;
+}
+.text-slate-600 {
+  color: #cbd5e1;
+}
+.text-slate-500 {
+  color: #94a3b8;
+}
+
+/* Frosted light footer card: restore dark slate text inside the white canvas
+   (the global dark-theme overrides above must not apply within it). */
+.footer-light-card .text-slate-900 {
+  color: #0f172a;
+}
+.footer-light-card .text-slate-600 {
+  color: #475569;
+}
+.footer-light-card .text-slate-500 {
+  color: #64748b;
+}
+.footer-light-card .text-slate-400 {
+  color: #94a3b8;
 }
 
 /* Loading animation */
@@ -135,4 +192,19 @@
   transform: scale(2.5);
   opacity: 1;
   transition: 0s;
+}
+
+/* Soft pulsing glow for recommended badges */
+@keyframes badgePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+}
+
+.badge-pulse {
+  animation: badgePulse 2.2s ease-in-out infinite;
 }

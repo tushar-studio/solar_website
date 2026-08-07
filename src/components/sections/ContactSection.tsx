@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, MessageCircle, Send, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle, Send, CheckCircle2, ArrowUpRight } from "lucide-react";
 import { company } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { fadeLeft, fadeRight, viewportOnce } from "@/lib/animations";
@@ -53,8 +53,8 @@ export function ContactSection() {
           <motion.div variants={fadeLeft} initial="hidden" whileInView="visible" viewport={viewportOnce} className="space-y-4">
             {contactItems.map((item) => (
               <div key={item.label} className="glass-card p-5 flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                  <item.icon className="w-5 h-5 text-emerald-700" />
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                  <item.icon className="w-5 h-5 text-emerald-400" />
                 </div>
                 <div>
                   <p className="text-xs text-slate-500 uppercase tracking-wide">{item.label}</p>
@@ -67,19 +67,20 @@ export function ContactSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t.contact.mapTitle}
-              className="glass-card p-5 flex items-start gap-4 group cursor-pointer transition-all duration-300 hover:shadow-card hover:scale-[1.01] hover:bg-white"
+              className="glass-card p-5 flex items-start gap-4 group cursor-pointer ripple transition-all duration-300 hover:shadow-[0_16px_48px_-12px_rgba(5,150,105,0.4)] hover:border-emerald-500/40 hover:scale-[1.015] hover:bg-slate-800/80 transform-gpu"
             >
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-5 h-5 text-emerald-700" />
+              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                <MapPin className="w-5 h-5 text-emerald-400" />
               </div>
-              <div className="min-w-0">
-                <p className="text-xs text-slate-500 uppercase tracking-wide group-hover:text-emerald-700 transition-colors">
+              <div className="min-w-0 flex-1">
+                <p className="text-xs text-slate-400 uppercase tracking-wide group-hover:text-emerald-400 transition-colors">
                   {t.contact.mapTitle}
                 </p>
-                <p className="font-medium text-solar-blue-dark group-hover:text-emerald-700 transition-colors">
+                <p className="font-medium text-slate-100 group-hover:text-emerald-400 transition-colors">
                   {t.contact.mapSubtitle}
                 </p>
               </div>
+              <ArrowUpRight className="w-4 h-4 text-emerald-400 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </a>
           </motion.div>
 
@@ -87,8 +88,8 @@ export function ContactSection() {
             <h3 className="font-display font-semibold text-xl text-solar-blue-dark mb-2">{t.contact.inquiry}</h3>
 
             {success && (
-              <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800">
-                <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300">
+                <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-sm">{t.contact.successTitle}</p>
                   <p className="text-sm mt-0.5">{t.contact.successMessage}</p>

@@ -23,9 +23,9 @@ export function LearnPageContent({ slug }: { slug: string }) {
         <h1 className="section-heading mb-4">{card.title}</h1>
         <p className="section-subheading mb-8">{card.description}</p>
 
-        <div className="aspect-video rounded-2xl bg-gradient-to-br from-emerald-100/80 to-sky-100/80 flex flex-col items-center justify-center mb-8 shadow-card border border-dashed border-slate-200">
-          <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center mb-4 shadow-card opacity-60">
-            <Play className="w-8 h-8 text-emerald-600/60 ml-1" />
+        <div className="aspect-video rounded-2xl bg-gradient-to-br from-emerald-500/15 to-sky-500/15 flex flex-col items-center justify-center mb-8 shadow-card border border-dashed border-slate-700">
+          <div className="w-20 h-20 rounded-full bg-slate-800/80 flex items-center justify-center mb-4 shadow-card opacity-60">
+            <Play className="w-8 h-8 text-emerald-400/60 ml-1" />
           </div>
           <p className="text-sm font-medium text-slate-500 flex items-center gap-2">
             <Clock className="w-4 h-4" />

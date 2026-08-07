@@ -52,10 +52,10 @@ export function Header() {
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
-              className="lg:hidden w-10 h-10 rounded-button flex items-center justify-center hover:bg-white/60 transition-colors"
+              className="lg:hidden w-11 h-11 rounded-button flex items-center justify-center hover:bg-white/10 transition-colors"
               aria-label={t.common.openMenu}
             >
-              <Menu className="w-5 h-5 text-solar-blue-dark" />
+              <Menu className="w-5 h-5 text-slate-100" />
             </button>
             <Logo />
           </div>
@@ -65,7 +65,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-2.5 py-2 text-sm font-medium text-slate-600 hover:text-emerald-700 rounded-lg hover:bg-emerald-50/50 transition-all"
+                className="px-2.5 py-2 text-sm font-medium text-slate-300 hover:text-emerald-400 rounded-lg hover:bg-emerald-500/10 transition-all"
               >
                 {link.label}
               </Link>
@@ -107,7 +107,7 @@ export function Header() {
                 <button
                   type="button"
                   onClick={() => setMenuOpen(false)}
-                  className="w-10 h-10 rounded-button flex items-center justify-center hover:bg-slate-100"
+                  className="w-11 h-11 rounded-button flex items-center justify-center hover:bg-slate-800"
                   aria-label={t.common.closeMenu}
                 >
                   <X className="w-5 h-5" />
@@ -125,14 +125,14 @@ export function Header() {
                     <Link
                       href={link.href}
                       onClick={() => setMenuOpen(false)}
-                      className="block px-4 py-3 rounded-button font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
+                      className="block px-4 py-3 rounded-button font-medium text-slate-200 hover:bg-emerald-500/10 hover:text-emerald-400 transition-colors"
                     >
                       {link.label}
                     </Link>
                   </motion.div>
                 ))}
               </div>
-              <div className="mt-8 pt-8 border-t border-slate-200">
+              <div className="mt-8 pt-8 border-t border-slate-800">
                 <Link
                   href="/calculator"
                   onClick={() => setMenuOpen(false)}

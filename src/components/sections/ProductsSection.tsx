@@ -23,7 +23,7 @@ export function ProductsSection() {
   const groupIcons: LucideIcon[] = [Sun, PanelTop, Cpu, Cable, Wrench];
 
   return (
-    <section id="products" className="py-section-sm sm:py-section bg-gradient-to-b from-sky-50/40 to-transparent">
+    <section id="products" className="py-section-sm sm:py-section">
       <div className="section-container">
         <SectionHeader title={t.sections.productsTitle} subtitle={t.sections.productsSubtitle} />
 
@@ -59,7 +59,7 @@ export function ProductsSection() {
             );
           })}
 
-          <motion.div variants={fadeUp} className="glass-card p-6 bg-gradient-to-br from-emerald-50/80 to-sky-50/80 md:col-span-2 lg:col-span-1">
+          <motion.div variants={fadeUp} className="glass-card p-6 bg-gradient-to-br from-emerald-500/10 to-sky-500/10 md:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center">
                 <Battery className="w-5 h-5 text-amber-700" />

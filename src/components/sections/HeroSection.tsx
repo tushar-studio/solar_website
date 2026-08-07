@@ -12,9 +12,9 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[100svh] flex items-center pt-24 pb-16 overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-solar-white to-sky-50" />
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-emerald-200/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-sky-200/25 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-3xl" />
+        <div className="ambient-overlay" />
       </div>
 
       <div className="section-container w-full">
@@ -26,7 +26,7 @@ export function HeroSection() {
         >
           <motion.div
             variants={fadeUp}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-white/70 backdrop-blur border border-emerald-100 text-emerald-700 text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-slate-800/70 backdrop-blur border border-emerald-500/30 text-emerald-300 text-sm font-medium mb-6"
           >
             <Zap className="w-4 h-4" />
             {t.hero.badge}

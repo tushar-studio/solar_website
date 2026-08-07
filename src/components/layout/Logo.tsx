@@ -37,11 +37,7 @@ export function Logo({ size = "md", showName = true, variant = "dark" }: LogoPro
           >
             {company.name}
           </span>
-          <span
-            className={`text-[10px] sm:text-xs font-medium truncate block ${
-              isLight ? "text-emerald-400" : "text-emerald-700"
-            }`}
-          >
+          <span className="text-[10px] sm:text-xs font-medium truncate block text-emerald-400">
             {company.tagline}
           </span>
         </div>

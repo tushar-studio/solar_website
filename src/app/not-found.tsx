@@ -8,10 +8,10 @@ export default function NotFound() {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-solar-white pt-20 pb-16">
+    <div className="min-h-screen flex items-center justify-center bg-[#0A0F1D] pt-20 pb-16">
       <div className="section-container text-center max-w-lg">
-        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-100 to-sky-100 flex items-center justify-center mx-auto mb-6">
-          <Sun className="w-10 h-10 text-emerald-600" />
+        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500/20 to-sky-500/20 flex items-center justify-center mx-auto mb-6">
+          <Sun className="w-10 h-10 text-emerald-400" />
         </div>
 
         <h1 className="font-display text-6xl sm:text-7xl font-bold text-solar-blue-dark mb-3">
@@ -34,10 +34,10 @@ export default function NotFound() {
           </Link>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-slate-200">
+        <div className="mt-16 pt-8 border-t border-slate-800">
           <Link
             href="/#contact"
-            className="inline-flex items-center gap-2 text-sm text-emerald-700 hover:text-emerald-800 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             {t.pages.notFound.reachUs}

@@ -4,6 +4,8 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageLoader } from "@/components/layout/PageLoader";
+import { ScrollReset } from "@/components/layout/ScrollReset";
+import { SolarBackground } from "@/components/layout/SolarBackground";
 import { LanguageProvider } from "@/lib/i18n/LanguageProvider";
 import { company } from "@/lib/data";
 
@@ -75,10 +77,12 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <ScrollReset />
+        <SolarBackground />
         <LanguageProvider>
           <PageLoader />
           <Header />
-          <main>{children}</main>
+          <main className="relative z-10">{children}</main>
           <Footer />
         </LanguageProvider>
       </body>

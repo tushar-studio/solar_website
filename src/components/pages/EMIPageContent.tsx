@@ -20,9 +20,9 @@ export function EMIPageContent() {
         <h1 className="section-heading mb-4">{t.pages.emi.title}</h1>
         <p className="section-subheading mb-4">{t.content.emiInfo.description}</p>
         <p className="text-sm text-slate-600 mb-2">
-          {t.pages.emi.interestRateLabel}: <span className="font-semibold text-emerald-700">{t.content.emiInfo.interestRate}</span>
+          {t.pages.emi.interestRateLabel}: <span className="font-semibold text-emerald-400">{t.content.emiInfo.interestRate}</span>
         </p>
-        <p className="text-xs text-amber-700 bg-amber-50 border border-amber-100 rounded-lg px-3 py-2 mb-10 inline-block">{t.content.emiInfo.verifyNote}</p>
+        <p className="text-xs text-amber-300 bg-amber-500/10 border border-amber-500/30 rounded-lg px-3 py-2 mb-10 inline-block">{t.content.emiInfo.verifyNote}</p>
 
         <div className="space-y-6">
           {/* EMI Calculator - active */}
@@ -59,7 +59,7 @@ export function EMIPageContent() {
           })}
         </div>
 
-        <div className="mt-10 glass-card p-6 sm:p-8 bg-emerald-50/50 border-emerald-100 text-center">
+        <div className="mt-10 glass-card p-6 sm:p-8 bg-emerald-500/10 border-emerald-500/20 text-center">
           <p className="text-slate-600 mb-4">{t.emi.needMoreInfo}</p>
           <p className="text-slate-500 text-sm mb-4">{t.emi.expertsGuide}</p>
           <a href={`tel:${company.phone}`} className="btn-primary ripple inline-flex">

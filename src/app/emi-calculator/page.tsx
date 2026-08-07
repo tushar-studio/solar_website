@@ -112,20 +112,20 @@ export default function EMICalculatorPage() {
           <div className="space-y-4">
             {!results ? (
               <div className="glass-card p-8 h-full flex flex-col items-center justify-center text-center min-h-[350px]">
-                <div className="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center mb-4">
-                  <TrendingUp className="w-8 h-8 text-emerald-500" />
+                <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-4">
+                  <TrendingUp className="w-8 h-8 text-emerald-400" />
                 </div>
                 <h3 className="font-display font-semibold text-lg text-solar-blue-dark">{t.emiCalc.yourEmiResults}</h3>
                 <p className="text-sm text-slate-500 mt-2">{t.emiCalc.emiResultsHint}</p>
               </div>
             ) : (
               <>
-                <div className="glass-card p-5 bg-gradient-to-br from-emerald-50 to-sky-50">
+                <div className="glass-card p-5 bg-gradient-to-br from-emerald-500/10 to-sky-500/10">
                   <div className="flex items-center gap-2 mb-1">
-                    <IndianRupee className="w-5 h-5 text-emerald-600" />
-                    <p className="text-sm text-slate-500">{t.emiCalc.monthlyEmi}</p>
+                    <IndianRupee className="w-5 h-5 text-emerald-400" />
+                    <p className="text-sm text-slate-400">{t.emiCalc.monthlyEmi}</p>
                   </div>
-                  <p className="font-display font-bold text-3xl text-emerald-700">₹{results.emi.toLocaleString("en-IN")}</p>
+                  <p className="font-display font-bold text-3xl text-emerald-400">₹{results.emi.toLocaleString("en-IN")}</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">

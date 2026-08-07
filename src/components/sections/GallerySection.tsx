@@ -38,7 +38,7 @@ export function GallerySection() {
                 {[...Array(placeholderCount)].map((_, i) => (
                   <div
                     key={i}
-                    className="aspect-square rounded-xl bg-gradient-to-br from-slate-100 to-slate-50 border border-dashed border-slate-200 flex flex-col items-center justify-center gap-2"
+                    className="aspect-square rounded-xl bg-gradient-to-br from-slate-800/40 to-slate-900/40 border border-dashed border-slate-700 flex flex-col items-center justify-center gap-2"
                   >
                     <ImageIcon className="w-8 h-8 text-slate-300" />
                     <span className="text-xs text-slate-400 font-medium">

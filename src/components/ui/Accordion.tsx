@@ -41,9 +41,9 @@ export function Accordion({ items }: AccordionProps) {
               <motion.span
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
-                className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center"
+                className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center"
               >
-                <ChevronDown className="w-4 h-4 text-emerald-600" />
+                <ChevronDown className="w-4 h-4 text-emerald-400" />
               </motion.span>
             </button>
             <AnimatePresence initial={false}>
@@ -54,7 +54,7 @@ export function Accordion({ items }: AccordionProps) {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                  <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 leading-relaxed border-t border-slate-800 pt-4">
                     {item.answer}
                   </div>
                 </motion.div>
