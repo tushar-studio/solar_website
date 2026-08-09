@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowRight, Zap } from "lucide-react";
-import { fadeUp, fadeRight, staggerContainer } from "@/lib/animations";
+import { Zap } from "lucide-react";
+import { fadeUp, staggerContainer } from "@/lib/animations";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { HeroBannerCarousel } from "@/components/sections/HeroBannerCarousel";
 
 export function HeroSection() {
   const { t } = useLanguage();
@@ -45,27 +45,18 @@ export function HeroSection() {
           >
             {t.hero.subheadline}
           </motion.p>
+        </motion.div>
 
-          <motion.div variants={fadeUp} className="mt-10 flex flex-wrap gap-4">
-            <Link href="/calculator" className="btn-primary ripple">
-              {t.hero.ctaPrimary}
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link href="/#learn" className="btn-secondary ripple">
-              {t.hero.ctaSecondary}
-            </Link>
-          </motion.div>
+        {/* 10-banner auto-sliding carousel — under the hero text, above the stats bar */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="mt-10 sm:mt-14"
+        >
+          <HeroBannerCarousel />
         </motion.div>
       </div>
-
-      <motion.div
-        variants={fadeRight}
-        initial="hidden"
-        animate="visible"
-        className="hidden xl:block absolute right-16 top-1/2 -translate-y-1/2"
-      >
-        <div className="w-72 h-72 rounded-full bg-gradient-solar opacity-10 blur-2xl" />
-      </motion.div>
     </section>
   );
 }

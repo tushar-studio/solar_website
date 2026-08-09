@@ -13,7 +13,8 @@
     "lucide-react": "^0.469.0",
     "next": "^16.2.12",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "swiper": "^14.1.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

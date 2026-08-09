@@ -507,7 +507,9 @@ function PhonePill() {
       className="group flex items-center gap-3 px-4 py-3 rounded-button bg-slate-900/70 hover:bg-slate-900/90 border border-slate-700/50 transition-all duration-200 cursor-pointer backdrop-blur-sm"
     >
       <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-      <span className="text-[11px] font-semibold text-slate-200">{company.phone}</span>
+      <span className="text-[11px] font-semibold text-slate-300 hover:text-sky-400 active:text-sky-400 transition-colors duration-300">
+        {company.phone}
+      </span>
     </a>
   );
 }
@@ -519,7 +521,9 @@ function GmailPill() {
       className="group flex items-center gap-3 px-4 py-3 rounded-button bg-slate-900/70 hover:bg-slate-900/90 border border-slate-700/50 transition-all duration-200 cursor-pointer backdrop-blur-sm"
     >
       <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
-      <span className="text-[11px] font-semibold text-slate-200 break-all">{company.email}</span>
+      <span className="text-[11px] font-semibold text-slate-300 hover:text-red-500 active:text-red-500 break-all transition-colors duration-300">
+        {company.email}
+      </span>
     </a>
   );
 }
@@ -527,13 +531,15 @@ function GmailPill() {
 function LocationPill() {
   return (
     <a
-      href={`https://maps.google.com/?q=${encodeURIComponent(company.address)}`}
+      href={company.mapUrl}
       target="_blank"
       rel="noopener noreferrer"
       className="group flex items-center gap-3 px-4 py-3 rounded-button bg-slate-900/70 hover:bg-slate-900/90 border border-slate-700/50 transition-all duration-200 cursor-pointer backdrop-blur-sm"
     >
       <MapPin className="w-4 h-4 text-emerald-400 shrink-0" />
-      <span className="text-[11px] font-semibold text-slate-200">{company.address}</span>
+      <span className="text-[11px] font-semibold text-slate-300 hover:text-red-500 active:text-red-500 transition-colors duration-300">
+        {company.address}
+      </span>
     </a>
   );
 }
@@ -542,13 +548,15 @@ function InstagramPill() {
   const { t } = useLanguage();
   return (
     <a
-      href="https://instagram.com/sundeyasolar"
+      href={company.social.instagram}
       target="_blank"
       rel="noopener noreferrer"
       className="group flex items-center gap-3 px-4 py-3 rounded-button bg-slate-900/70 hover:bg-slate-900/90 border border-slate-700/50 transition-all duration-200 cursor-pointer backdrop-blur-sm"
     >
       <Instagram className="w-4 h-4 text-emerald-400 shrink-0" />
-      <span className="text-[11px] font-semibold text-slate-200">{t.footer.instagramHandle}</span>
+      <span className="text-[11px] font-semibold text-slate-300 hover:bg-gradient-to-r hover:from-purple-500 hover:via-pink-500 hover:to-amber-500 hover:bg-clip-text hover:text-transparent active:bg-gradient-to-r active:from-purple-500 active:via-pink-500 active:to-amber-500 active:bg-clip-text active:text-transparent transition-all duration-300">
+        {t.footer.instagramHandle}
+      </span>
     </a>
   );
 }

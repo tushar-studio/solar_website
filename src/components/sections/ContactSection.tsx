@@ -46,7 +46,7 @@ export function ContactSection() {
       setFormData((p) => ({ ...p, [field]: e.target.value }));
 
   return (
-    <section id="contact" className="py-section-sm sm:py-section">
+    <section id="contact" className="py-section-sm sm:py-section scroll-mt-24">
       <div className="section-container">
         <SectionHeader title={t.sections.contactTitle} subtitle={t.sections.contactSubtitle} align="center" />
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">

@@ -22,6 +22,18 @@ export const translations = {
         "Discover how much you can save with solar. Learn about government subsidies, EMI options, premium solar products, and calculate your estimated savings—all in one place.",
       ctaPrimary: "Calculate My Savings",
       ctaSecondary: "Learn About Solar",
+      banners: [
+        "Switch to Solar",
+        "Your Home. Your Power",
+        "High Electricity Bills?",
+        "Premium Solar",
+        "We Handle It All",
+        "Choose Your Solar System",
+        "Smart Energy. Smarter Choice",
+        "Why Keep Paying More?",
+        "Long-Term Power Protection",
+        "Up to ₹85,800 Subsidy",
+      ],
     },
     stats: {
       experience: "Years Experience",
@@ -180,6 +192,12 @@ export const translations = {
         annualSavings: "Annual Savings",
         lifetimeSavings: "Lifetime Savings",
       },
+      customSystemTitle: "Commercial / High-Capacity System",
+      customRecommendedLabel: "Recommended Commercial/High-Capacity System",
+      customNote:
+        "Your usage exceeds our standard 10 kW residential range. This size is calculated automatically from your monthly bill and cannot be edited manually — an on-site audit is required to finalize an exact commercial design.",
+      customAuditCta: "Request Custom On-Site Technical Audit",
+      customLockTitle: "Calculated automatically — not editable",
       years: "Years",
       downloadReport: "Download Report",
       callNow: "Call Now",
@@ -187,7 +205,7 @@ export const translations = {
       resultsHint: "Fill in your details and click calculate to see your personalized solar estimate.",
       disclaimer:
         "* Estimates are indicative. Actual costs may vary based on site assessment, equipment selection, and current subsidy policies.",
-      monthlySavingsNote: "*₹300 mandatory monthly fixed charge deducted.",
+      monthlySavingsNote: "* Monthly savings equal 100% of your electricity bill — no deductions.",
       inputsList: ["Monthly Bill", "System Capacity", "Property Type"],
       outputsList: [
         "Recommended System",
@@ -250,7 +268,7 @@ export const translations = {
     },
     footer: {
       taglineDesc: "Premium solar solutions for homes, businesses, and industries.",
-      instagramHandle: "Instagram — @sundeyasolar",
+      instagramHandle: "@sundeyasolar",
       calculatorsTitle: "Tools & Calculators",
       schemeTitle: "PM Surya Ghar Scheme",
       contactSupportTitle: "Contact & Support",
@@ -650,6 +668,18 @@ export const translations = {
         "जानें सोलर से आप कितनी बचत कर सकते हैं। सरकारी सब्सिडी, EMI विकल्प, प्रीमियम सोलर उत्पाद और अनुमानित बचत की गणना—सब कुछ एक ही जगह।",
       ctaPrimary: "मेरी बचत की गणना करें",
       ctaSecondary: "सोलर के बारे में जानें",
+      banners: [
+        "सोलर पर स्विच करें",
+        "आपका घर। आपकी पावर।",
+        "हाई बिजली बिल?",
+        "प्रीमियम सोलर",
+        "हम सब संभालते हैं",
+        "अपना सोलर सिस्टम चुनें",
+        "स्मार्ट एनर्जी। स्मार्ट चॉइस।",
+        "ज़्यादा क्यों चुकाएं?",
+        "दीर्घकालिक पावर प्रोटेक्शन",
+        "₹85,800 तक सब्सिडी",
+      ],
     },
     stats: {
       experience: "वर्षों का अनुभव",
@@ -808,6 +838,12 @@ export const translations = {
         annualSavings: "वार्षिक बचत",
         lifetimeSavings: "आजीवन बचत",
       },
+      customSystemTitle: "वाणिज्यिक / उच्च-क्षमता सिस्टम",
+      customRecommendedLabel: "अनुशंसित वाणिज्यिक/उच्च-क्षमता सिस्टम",
+      customNote:
+        "आपका उपयोग हमारी मानक 10 kW आवासीय सीमा से अधिक है। यह आकार आपके मासिक बिल से स्वचालित रूप से गणना किया जाता है और इसे मैन्युअल रूप से संपादित नहीं किया जा सकता — सटीक वाणिज्यिक डिज़ाइन के लिए ऑन-साइट ऑडिट आवश्यक है।",
+      customAuditCta: "कस्टम ऑन-साइट तकनीकी ऑडिट का अनुरोध करें",
+      customLockTitle: "स्वचालित रूप से गणना — संपादन योग्य नहीं",
       years: "वर्ष",
       downloadReport: "रिपोर्ट डाउनलोड करें",
       callNow: "अभी कॉल करें",
@@ -815,7 +851,7 @@ export const translations = {
       resultsHint: "विवरण भरें और गणना पर क्लिक करें, आपका व्यक्तिगत सोलर अनुमान दिखेगा।",
       disclaimer:
         "* अनुमान सांकेतिक हैं। वास्तविक लागत साइट आकलन, उपकरण चयन और वर्तमान सब्सिडी नीतियों पर निर्भर करती है।",
-      monthlySavingsNote: "*₹300 अनिवार्य मासिक फिक्स्ड चार्ज काटा गया।",
+      monthlySavingsNote: "* मासिक बचत आपके बिजली बिल का 100% है — कोई कटौती नहीं।",
       inputsList: ["मासिक बिल", "सिस्टम क्षमता", "संपत्ति का प्रकार"],
       outputsList: [
         "अनुशंसित सिस्टम",
@@ -878,7 +914,7 @@ export const translations = {
     },
     footer: {
       taglineDesc: "घरों, व्यवसायों और उद्योगों के लिए प्रीमियम सोलर समाधान।",
-      instagramHandle: "Instagram — @sundeyasolar",
+      instagramHandle: "@sundeyasolar",
       calculatorsTitle: "टूल्स और कैलकुलेटर",
       schemeTitle: "पीएम सूर्य घर योजना",
       contactSupportTitle: "संपर्क और सहायता",

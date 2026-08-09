@@ -23,7 +23,7 @@ export function ProductsSection() {
   const groupIcons: LucideIcon[] = [Sun, PanelTop, Cpu, Cable, Wrench];
 
   return (
-    <section id="products" className="py-section-sm sm:py-section">
+    <section id="products" className="py-section-sm sm:py-section scroll-mt-24">
       <div className="section-container">
         <SectionHeader title={t.sections.productsTitle} subtitle={t.sections.productsSubtitle} />
 

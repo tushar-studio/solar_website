@@ -86,7 +86,7 @@ const { t, locale, setLocale } = useLanguage();
 
 ## Calculator Logic
 
-- **Solar:** capacity auto-recommended from the monthly bill (≤₹2,500 → 3 kW, then +1 kW per ₹2,000 band up to >₹14,000 → 10 kW), installation cost from the selected capacity (3 kW = ₹2,10,000, 5 kW = ₹3,50,000, otherwise kW × ₹60,000), subsidy capped at ₹78,000 for residential (₹0 / hidden for commercial & industrial), monthly savings = max(0, bill − ₹300 fixed charge), annual = monthly × 12, 25-year lifetime savings, ROI and payback derived from the final cost.
+- **Solar:** monthly units = `round(bill / ₹7)`, capacity auto-recommended from units (≤450 → 3 kW, 451–600 → 4 kW, …, 1351–1500 → 10 kW, >1500 → +1 kW per 150 units, via `3 + ceil((units − 450) / 150)`), installation cost at ₹70,000/kW for 3 kW and 5 kW, ₹60,000/kW for all other sizes (3 kW = ₹2,10,000, 5 kW = ₹3,50,000), subsidy fixed at ₹85,800 for residential (₹0 for commercial & industrial), monthly savings = 100% of the bill (no deductions), annual = monthly × 12, 25-year lifetime savings, ROI and payback derived from the final cost. Systems >10 kW render a read-only "Commercial / High-Capacity System" card with fully recalculated values.
 - **EMI:** standard formula `EMI = P × r × (1 + r)ⁿ / ((1 + r)ⁿ − 1)` with `r = annual rate / 12 / 100` and `n = tenure × 12` months.
 
 ## Documentation

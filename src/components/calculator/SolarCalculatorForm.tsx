@@ -12,15 +12,60 @@ import {
   Clock,
   Leaf,
   Loader2,
+  Building2,
+  Lock,
+  ShieldCheck,
   type LucideIcon,
 } from "lucide-react";
 import { fadeUp, viewportOnce } from "@/lib/animations";
 import { Button } from "@/components/ui/Button";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { company } from "@/lib/data";
+
+/* ═════════════════════════════════════════════════════════════════════════
+   Sundeya Solar — Solar Budget Calculator (bilingual)
+   ─────────────────────────────────────────────────────────────────────────
+   CONTRACTUAL BUSINESS RULES (single source of truth — do not alter
+   without explicit sign-off):
+
+   SAVINGS:
+     monthlySavings = monthlyBill          ← 100% of the bill. NO deductions
+     of any kind. There is NO "₹300 mandatory fixed charge".
+
+   TARIFF:
+     TARIFF_RATE          = ₹7 / kWh unit
+     monthlyUnits         = Math.round(monthlyBill / TARIFF_RATE)
+
+   CAPACITY TIERING (from monthlyUnits):
+     recommendedKw = units <= 450 ? 3 : 3 + Math.ceil((units - 450) / 150)
+
+     <=450 → 3 | 451–600 → 4 | 601–750 → 5 | 751–900 → 6 | 901–1050 → 7
+     1051–1200 → 8 | 1201–1350 → 9 | 1351–1500 → 10 | >1500 → +1 kW / 150 units
+
+   PRICING STRUCTURE:
+     costPerKw           = (kw === 3 || kw === 5) ? 70000 : 60000
+     installationCost    = recommendedKw * costPerKw
+     subsidy             = ₹85,800 fixed (Residential only)
+     finalCost           = installationCost - subsidy
+
+   ROI (25-year horizon):
+     roi = ((annualSavings * 25 - finalCost) / finalCost) * 100
+
+   >10 kW SYSTEMS (recommendedKw > 10):
+     Floating read-only "Commercial / High-Capacity System" tab directly next
+     to the 10 kW option + a dedicated card. All dependent values (Total Cost,
+     Net Cost, ROI, Payback, 25-Year Savings) recompute from the same formulas.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+const TARIFF_RATE = 7;
+const GOV_SUBSIDY = 85800;
+const PREMIUM_COST_PER_KW = 70000; // 3 kW and 5 kW systems
+const STANDARD_COST_PER_KW = 60000; // all other sizes (4, 6–10, and >10 kW)
+const LIFETIME_YEARS = 25;
+const STANDARD_KW_CAP = 10;
 
 const CAPACITY_OPTIONS = ["3", "4", "5", "6", "7", "8", "9", "10"];
 const TIMELINE_YEARS = [5, 10, 15, 20, 25];
-const SUBSIDY_CAP = 78000;
 
 const pillSpring = { type: "spring", stiffness: 400, damping: 30 } as const;
 const cardSpring = { type: "spring", stiffness: 300, damping: 25 } as const;
@@ -38,22 +83,22 @@ interface CalculatorResult {
   annualSavings: string;
   lifetimeSavings: string;
   annualSavingsNumber: number;
+  finalCostNumber: number;
+  paybackYears: number | null;
+  roiNumber: number;
 }
 
 /**
- * Auto-recommend a system capacity (kW) based on the monthly electricity bill.
+ * Auto-recommend a system capacity (kW) from the monthly electricity bill.
+ * Capacity derives from tariff-converted units (₹7/unit), per the tier table.
  * Returns null when the bill is empty/invalid so the user's selection is preserved.
+ * May return >10 kW (e.g. "11", "12") — handled by the commercial card UI.
  */
 function recommendCapacity(bill: number): string | null {
   if (isNaN(bill) || bill <= 0) return null;
-  if (bill <= 2500) return "3";
-  if (bill <= 4000) return "4";
-  if (bill <= 6000) return "5";
-  if (bill <= 8000) return "6";
-  if (bill <= 10000) return "7";
-  if (bill <= 12000) return "8";
-  if (bill <= 14000) return "9";
-  return "10";
+  const units = Math.round(bill / TARIFF_RATE);
+  const kw = units <= 450 ? 3 : 3 + Math.ceil((units - 450) / 150);
+  return String(kw);
 }
 
 function calculateSolar(inputs: {
@@ -64,20 +109,24 @@ function calculateSolar(inputs: {
   const bill = inputs.monthlyBill || 0;
   const kW = inputs.capacity;
 
-  // Base installation cost: 3 kW = ₹2,10,000, 5 kW = ₹3,50,000, others = kW * ₹60,000
-  const installationCost = kW === 3 ? 210000 : kW === 5 ? 350000 : kW * 60000;
+  // Contract pricing: 3 kW and 5 kW bill at ₹70,000/kW; every other size at ₹60,000/kW
+  const costPerKw =
+    kW === 3 || kW === 5 ? PREMIUM_COST_PER_KW : STANDARD_COST_PER_KW;
+  const installationCost = kW * costPerKw;
 
-  // PM Surya Ghar subsidy: capped at ₹78,000 for systems >= 3kW (Residential only)
-  const subsidy = inputs.propertyType === "Residential" ? SUBSIDY_CAP : 0;
+  // PM Surya Ghar subsidy: fixed ₹85,800 (Residential only)
+  const subsidy = inputs.propertyType === "Residential" ? GOV_SUBSIDY : 0;
   const finalCost = installationCost - subsidy;
 
-  // Monthly savings = bill minus ₹300 compulsory fixed charge
-  const grossMonthlySavings = bill;
-  const monthlySavings = Math.max(0, grossMonthlySavings - 300);
+  // Monthly savings = 100% of the bill — no fixed charge, no deductions
+  const monthlySavings = Math.max(0, bill);
   const annualSavings = monthlySavings * 12;
   const paybackYears = annualSavings > 0 ? finalCost / annualSavings : null;
-  const lifetimeSavings = annualSavings * 25;
-  const roi = ((annualSavings * 25 - finalCost) / finalCost) * 100;
+  const lifetimeSavings = annualSavings * LIFETIME_YEARS;
+  const roi =
+    finalCost > 0
+      ? ((lifetimeSavings - finalCost) / finalCost) * 100
+      : 0;
 
   return {
     recommendedSystem: `${kW} kW`,
@@ -91,6 +140,9 @@ function calculateSolar(inputs: {
     annualSavings: `₹${Math.round(annualSavings).toLocaleString("en-IN")}`,
     lifetimeSavings: `₹${Math.round(lifetimeSavings).toLocaleString("en-IN")}`,
     annualSavingsNumber: annualSavings,
+    finalCostNumber: finalCost,
+    paybackYears,
+    roiNumber: roi,
   };
 }
 
@@ -134,6 +186,110 @@ function AnimatedStat({ value, className = "" }: { value: string; className?: st
   return <span className={className}>{display}</span>;
 }
 
+/* ── >10 kW: floating read-only commercial system card ────────────────── */
+
+function CustomCapacityCard({ result, labels }: { result: CalculatorResult; labels: any }) {
+  const { t } = useLanguage();
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: -8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -8 }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      className="relative overflow-hidden rounded-2xl border-2 border-amber-400/50 bg-gradient-to-br from-amber-950/40 via-slate-900/80 to-slate-900/80 p-4 sm:p-5"
+    >
+      <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-amber-500/20 blur-3xl" />
+
+      <div className="relative flex items-start justify-between gap-3">
+        <div className="flex items-center gap-2">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-500/20">
+            <Building2 className="h-4.5 w-4.5 text-amber-400" />
+          </span>
+          <span className="inline-flex items-center gap-1 rounded-full border border-amber-400/50 bg-amber-500/15 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-amber-300">
+            {t.calculator.customSystemTitle}
+          </span>
+        </div>
+        <span
+          title={t.calculator.customLockTitle}
+          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-slate-800/80 text-slate-400"
+        >
+          <Lock className="h-3.5 w-3.5" />
+        </span>
+      </div>
+
+      <div className="relative mt-4 flex flex-wrap items-baseline gap-2">
+        <span className="text-lg sm:text-xl font-semibold text-slate-200">
+          {t.calculator.customRecommendedLabel}:
+        </span>
+        <span className="text-2xl sm:text-3xl font-extrabold text-amber-400">
+          <AnimatedStat value={result.recommendedSystem} />
+        </span>
+      </div>
+
+      {/* Recalculated financials — same formulas as the standard tiers */}
+      <div className="relative mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4 rounded-xl border border-amber-400/20 bg-slate-950/40 p-4">
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-1.5 text-xs font-medium text-slate-400">
+            <IndianRupee className="h-3.5 w-3.5" />
+            {labels.installationCost}
+          </div>
+          <span className="text-lg sm:text-xl font-bold text-white">
+            <AnimatedStat value={result.installationCost} />
+          </span>
+        </div>
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-1.5 text-xs font-medium text-slate-400">
+            <ShieldCheck className="h-3.5 w-3.5" />
+            {labels.finalCost}
+          </div>
+          <span className="text-lg sm:text-xl font-bold text-amber-300">
+            <AnimatedStat value={result.finalCost} />
+          </span>
+        </div>
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-1.5 text-xs font-medium text-slate-400">
+            <Clock className="h-3.5 w-3.5" />
+            {labels.paybackPeriod}
+          </div>
+          <span className="text-lg sm:text-xl font-bold text-white">
+            <AnimatedStat value={result.paybackPeriod} />
+          </span>
+        </div>
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-1.5 text-xs font-medium text-slate-400">
+            <TrendingUp className="h-3.5 w-3.5" />
+            {labels.lifetimeSavings}
+          </div>
+          <span className="text-lg sm:text-xl font-bold text-emerald-400">
+            <AnimatedStat value={result.lifetimeSavings} />
+          </span>
+        </div>
+      </div>
+
+      {/* ROI — same 25-year horizon */}
+      <div className="relative mt-3 flex items-center justify-between rounded-xl border border-emerald-500/25 bg-emerald-500/10 px-4 py-2.5">
+        <span className="text-xs font-medium text-emerald-300">
+          {labels.roi} ({LIFETIME_YEARS} {t.calculator.years})
+        </span>
+        <span className="text-xl font-extrabold text-emerald-300">
+          <AnimatedStat value={result.roi} />
+        </span>
+      </div>
+
+      <p className="relative mt-3 text-xs sm:text-sm text-slate-400">{t.calculator.customNote}</p>
+
+      <a
+        href={`tel:${company.phone}`}
+        className="relative mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 py-3 text-sm font-semibold text-white shadow-lg shadow-amber-500/30 transition-transform duration-200 hover:scale-[1.01] active:scale-[0.98]"
+      >
+        <Phone className="h-4 w-4" />
+        {t.calculator.customAuditCta}
+      </a>
+    </motion.div>
+  );
+}
+
 export function SolarCalculatorForm() {
   const { t } = useLanguage();
   const [monthlyBill, setMonthlyBill] = useState("");
@@ -151,6 +307,8 @@ export function SolarCalculatorForm() {
     () => recommendCapacity(parseFloat(monthlyBill)),
     [monthlyBill]
   );
+  const recommendedKw = recommended ? parseInt(recommended) : null;
+  const isCustom = recommendedKw !== null && recommendedKw > STANDARD_KW_CAP && capacity === recommended;
 
   useEffect(() => {
     if (recommended) setCapacity(recommended);
@@ -194,7 +352,7 @@ export function SolarCalculatorForm() {
       { icon: IndianRupee, label: labels.annualSavings, value: results.annualSavings },
       {
         icon: IndianRupee,
-        label: `${labels.lifetimeSavings} (25 ${t.calculator.years})`,
+        label: `${labels.lifetimeSavings} (${LIFETIME_YEARS} ${t.calculator.years})`,
         value: results.lifetimeSavings,
       }
     );
@@ -245,7 +403,7 @@ export function SolarCalculatorForm() {
     } else setDownloading(false);
   }, [results, monthlyBill, capacity, propertyType, resultCards, labels, t]);
 
-  const maxTimeline = results ? Math.max(results.annualSavingsNumber * 25, 1) : 1;
+  const maxTimeline = results ? Math.max(results.annualSavingsNumber * LIFETIME_YEARS, 1) : 1;
 
   return (
     <div className="grid lg:grid-cols-2 gap-8">
@@ -328,6 +486,24 @@ export function SolarCalculatorForm() {
                   </button>
                 );
               })}
+
+              {/* Floating custom tab — appears directly next to the 10 kW option when >10 kW */}
+              <AnimatePresence>
+                {isCustom && recommended && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.25 }}
+                    className="flex items-center gap-1.5 rounded-2xl border-2 border-amber-400/60 bg-amber-500/10 px-3 py-2 h-11 text-sm font-bold text-amber-300 shadow-[0_0_16px_rgba(245,158,11,0.35)]"
+                    title={t.calculator.customLockTitle}
+                  >
+                    <Building2 className="h-4 w-4" />
+                    <AnimatedStat value={`${recommended} kW`} />
+                    <Lock className="h-3.5 w-3.5 opacity-70" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
 
@@ -375,32 +551,36 @@ export function SolarCalculatorForm() {
           </div>
         ) : (
           <>
-            <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <AnimatePresence initial={false}>
-                {resultCards.map((card) => (
-                  <motion.div
-                    key={card.label}
-                    layout
-                    initial={{ opacity: 0, scale: 0.92, y: 8 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.92 }}
-                    transition={cardSpring}
-                    className="glass-card p-4"
-                  >
-                    <div className="flex items-center gap-2 mb-1">
-                      <card.icon className="w-4 h-4 text-emerald-500" />
-                      <p className="text-xs text-slate-500">{card.label}</p>
-                    </div>
-                    <p className="font-display font-bold text-lg text-solar-blue-dark tabular-nums tracking-tight">
-                      <AnimatedStat value={card.value} />
-                    </p>
-                    {card.note && (
-                      <p className="text-[10px] text-slate-400 mt-1 leading-snug">{card.note}</p>
-                    )}
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </motion.div>
+            {isCustom && results ? (
+              <CustomCapacityCard result={results} labels={labels} />
+            ) : (
+              <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <AnimatePresence initial={false}>
+                  {resultCards.map((card) => (
+                    <motion.div
+                      key={card.label}
+                      layout
+                      initial={{ opacity: 0, scale: 0.92, y: 8 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.92 }}
+                      transition={cardSpring}
+                      className="glass-card p-4"
+                    >
+                      <div className="flex items-center gap-2 mb-1">
+                        <card.icon className="w-4 h-4 text-emerald-500" />
+                        <p className="text-xs text-slate-500">{card.label}</p>
+                      </div>
+                      <p className="font-display font-bold text-lg text-solar-blue-dark tabular-nums tracking-tight">
+                        <AnimatedStat value={card.value} />
+                      </p>
+                      {card.note && (
+                        <p className="text-[10px] text-slate-400 mt-1 leading-snug">{card.note}</p>
+                      )}
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </motion.div>
+            )}
 
             {/* Estimated Savings After — 5/10/15/20/25 year breakdown */}
             <div className="glass-card p-5">
@@ -412,7 +592,7 @@ export function SolarCalculatorForm() {
                 {TIMELINE_YEARS.map((years) => {
                   const value = results.annualSavingsNumber * years;
                   const pct = Math.max(4, Math.round((value / maxTimeline) * 100));
-                  const isMax = years === 25;
+                  const isMax = years === LIFETIME_YEARS;
                   return (
                     <div key={years} className="flex items-center gap-3">
                       <span className="w-20 sm:w-24 text-xs text-slate-500 flex-shrink-0">
@@ -438,7 +618,7 @@ export function SolarCalculatorForm() {
               </div>
               <p className="text-xs text-slate-400 mt-3">
                 {labels.lifetimeSavings}: <AnimatedStat value={results.lifetimeSavings} /> (
-                {25} {t.calculator.years})
+                {LIFETIME_YEARS} {t.calculator.years})
               </p>
             </div>
 
@@ -447,7 +627,7 @@ export function SolarCalculatorForm() {
                 {downloading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
                 {downloading ? t.common.generating : t.calculator.downloadReport}
               </Button>
-              <a href="tel:9568486108" className="btn-primary ripple inline-flex">
+              <a href={`tel:${company.phone}`} className="btn-primary ripple inline-flex">
                 <Phone className="w-4 h-4" />
                 {t.calculator.callNow}
               </a>

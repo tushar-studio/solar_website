@@ -12,7 +12,7 @@ export function GovernmentSubsidySection() {
   const topics = t.content.subsidyTopics;
 
   return (
-    <section className="py-section-sm sm:py-section">
+    <section id="subsidy" className="py-section-sm sm:py-section scroll-mt-24">
       <div className="section-container">
         <SectionHeader title={t.sections.subsidyTitle} subtitle={t.sections.subsidySubtitle} />
 

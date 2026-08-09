@@ -36,7 +36,7 @@ export function AboutCompanySection() {
   const items = t.content.aboutItems;
 
   return (
-    <section className="py-section-sm sm:py-section">
+    <section id="about" className="py-section-sm sm:py-section scroll-mt-24">
       <div className="section-container">
         <SectionHeader
           title={t.sections.aboutTitle}
