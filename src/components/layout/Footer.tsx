@@ -185,14 +185,28 @@ function BirdLayer({ isNight }: { isNight: boolean }) {
   );
 }
 
-/* Stars — night only, upper sky region */
+/* Stars — night only, upper sky region
+   NOTE: uses a deterministic seeded PRNG (mulberry32) instead of Math.random()
+   so the SSR HTML and the client render identical star positions — prevents
+   React hydration mismatches. */
+function seededRandom(seed: number) {
+  let t = seed;
+  return function () {
+    t += 0x6d2b79f5;
+    let r = Math.imul(t ^ (t >>> 15), 1 | t);
+    r = (r + Math.imul(r ^ (r >>> 7), 61 | r)) ^ r;
+    return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
 function StarLayer() {
+  const rand = seededRandom(20260809); // fixed seed — same stars on server & client
   const stars = Array.from({ length: 22 }, () => ({
-    x: Math.random() * 100,
-    y: Math.random() * 46,
-    size: Math.random() * 1.8 + 0.8,
-    duration: Math.random() * 2.5 + 2.5,
-    delay: Math.random() * 2,
+    x: rand() * 100,
+    y: rand() * 46,
+    size: rand() * 1.8 + 0.8,
+    duration: rand() * 2.5 + 2.5,
+    delay: rand() * 2,
   }));
 
   return (

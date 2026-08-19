@@ -2,10 +2,18 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Play, Clock } from "lucide-react";
+import { Play } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+
+const videoMap: Record<string, string> = {
+  "how-solar-works": "/Videos/video-1.mp4",
+  "how-we-help-you": "/Videos/video-2.mp4",
+  "our-impact": "/Videos/video-3.mp4",
+  "installation-process": "/Videos/video-4.mp4",
+  "maintenance-guide": "/Videos/video-5.mp4",
+};
 
 export function LearnAboutSolarSection() {
   const { t } = useLanguage();
@@ -29,15 +37,20 @@ export function LearnAboutSolarSection() {
                 href={`/learn/${card.slug}`}
                 className="group block h-full bg-white border border-slate-100 dark:bg-slate-900/60 dark:border-slate-800 rounded-3xl p-4 shadow-xl shadow-slate-200/50 dark:shadow-black/30 hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="relative aspect-video rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100/80 dark:from-slate-800/60 dark:to-slate-900/60 mb-4 overflow-hidden border border-slate-100 dark:border-slate-800">
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2.5">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-400 text-white flex items-center justify-center shadow-lg shadow-emerald-500/30 transition-transform duration-300 group-hover:scale-110">
-                      <Play className="w-6 h-6 ml-0.5" />
+                <div className="relative aspect-video rounded-2xl bg-slate-900 mb-4 overflow-hidden border border-slate-100 dark:border-slate-800">
+                  <video
+                    src={videoMap[card.slug] || "/Videos/video-1.mp4"}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-white/90 dark:bg-slate-900/90 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+                      <Play className="w-5 h-5 ml-0.5 fill-current" />
                     </div>
-                    <span className="text-xs font-medium text-slate-500 dark:text-slate-400 flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      {t.common.videoComingSoon}
-                    </span>
                   </div>
                 </div>
                 <h3 className="font-display font-semibold text-lg text-slate-900 dark:text-slate-100">
