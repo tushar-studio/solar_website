@@ -2,13 +2,15 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Calculator, ArrowRight, Sparkles } from "lucide-react";
+import { Calculator, ArrowRight, Sparkles, Pencil } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { fadeUp, viewportOnce } from "@/lib/animations";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { useSiteConfig } from "@/lib/config/SiteConfigProvider";
 
 export function SolarCalculatorSection() {
   const { t } = useLanguage();
+  const { isAdminUnlocked, openEditor } = useSiteConfig();
   const { inputsList, outputsList } = t.calculator;
 
   return (
@@ -24,6 +26,18 @@ export function SolarCalculatorSection() {
           subtitle={t.sections.calculatorSubtitle}
           align="center"
         />
+
+        {isAdminUnlocked && (
+          <div className="flex justify-center -mt-6 mb-8">
+            <button
+              onClick={() => openEditor("calculator")}
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-500/25 hover:bg-emerald-500/35 text-emerald-300 border border-emerald-500/50 rounded-xl text-xs font-bold shadow-lg transition-all cursor-pointer backdrop-blur-sm"
+            >
+              <Pencil className="w-3.5 h-3.5" />
+              <span>Edit Calculator Rates (2kW, 3kW, Subsidy)</span>
+            </button>
+          </div>
+        )}
 
         <motion.div
           variants={fadeUp}

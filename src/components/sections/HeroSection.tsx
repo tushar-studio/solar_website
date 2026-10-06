@@ -1,13 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap } from "lucide-react";
+import { Zap, Pencil } from "lucide-react";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { useSiteConfig } from "@/lib/config/SiteConfigProvider";
 import { HeroBannerCarousel } from "@/components/sections/HeroBannerCarousel";
 
 export function HeroSection() {
   const { t } = useLanguage();
+  const { config, isAdminUnlocked, openEditor } = useSiteConfig();
+
+  const badgeText = config.hero?.badge || t.hero.badge;
+  const headlineText = config.hero?.headline || t.hero.headline;
+  const subheadlineText = config.hero?.subheadline || t.hero.subheadline;
 
   return (
     <section className="relative min-h-[100svh] flex items-center pt-24 pb-16 overflow-hidden">
@@ -24,26 +30,40 @@ export function HeroSection() {
           animate="visible"
           className="max-w-3xl"
         >
-          <motion.div
-            variants={fadeUp}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-emerald-50 dark:bg-emerald-500/15 border border-emerald-200 dark:border-emerald-500/30 text-emerald-900 dark:text-emerald-300 text-sm font-semibold shadow-sm mb-6 transition-all"
-          >
-            <Zap className="w-4 h-4" />
-            {t.hero.badge}
-          </motion.div>
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            <motion.div
+              variants={fadeUp}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-emerald-50 dark:bg-emerald-500/15 border border-emerald-200 dark:border-emerald-500/30 text-emerald-900 dark:text-emerald-300 text-sm font-semibold shadow-sm transition-all"
+            >
+              <Zap className="w-4 h-4" />
+              {badgeText}
+            </motion.div>
+
+            {isAdminUnlocked && (
+              <button
+                type="button"
+                onClick={() => openEditor("hero")}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 rounded-pill text-xs font-bold shadow-sm transition-all cursor-pointer backdrop-blur-sm"
+                title="Edit Headline, Subheadline, Buttons & SEO"
+              >
+                <Pencil className="w-3.5 h-3.5" />
+                <span>Edit Hero &amp; SEO</span>
+              </button>
+            )}
+          </div>
 
           <motion.h1
             variants={fadeUp}
             className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-solar-blue-dark text-balance leading-[1.1]"
           >
-            {t.hero.headline}
+            {headlineText}
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             className="mt-6 text-lg sm:text-xl text-slate-600 max-w-xl leading-relaxed"
           >
-            {t.hero.subheadline}
+            {subheadlineText}
           </motion.p>
         </motion.div>
 

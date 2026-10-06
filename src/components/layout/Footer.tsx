@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, Mail, MapPin, Instagram, ShieldCheck } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, ShieldCheck, Lock } from "lucide-react";
 import { company } from "@/lib/data";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { useTheme } from "@/lib/theme/ThemeProvider";
+import { useSiteConfig } from "@/lib/config/SiteConfigProvider";
 
 /* ═════════════════════════════════════════════════════════════════════════
    Sundeya Solar — 2-State Dynamic Animated Footer
@@ -591,6 +592,7 @@ function ColumnTitle({ children }: { children: React.ReactNode }) {
 export function Footer({ theme: forcedTheme }: FooterProps) {
   const { theme: contextTheme } = useTheme();
   const { t } = useLanguage();
+  const { openPinModal } = useSiteConfig();
   const theme = forcedTheme || contextTheme;
   const isNight = theme === "dark";
 
@@ -682,10 +684,25 @@ export function Footer({ theme: forcedTheme }: FooterProps) {
           </div>
         </div>
 
-        {/* Copyright bar */}
-        <div className="relative mt-6 py-2.5 text-center text-[11px] font-semibold bg-slate-950/80 backdrop-blur-md border-t border-emerald-800/40 rounded-b-2xl" style={{ color: "#6EE7B7" }}>
-          <p className="mb-1">{t.footer.poweredBy}</p>
-          <p>{t.footer.allRightsReserved}</p>
+        {/* Copyright bar with secret admin trigger */}
+        <div className="relative mt-6 py-2.5 px-4 text-center text-[11px] font-semibold bg-slate-950/80 backdrop-blur-md border-t border-emerald-800/40 rounded-b-2xl flex items-center justify-between" style={{ color: "#6EE7B7" }}>
+          <div className="w-5 hidden sm:block" />
+          <div
+            onDoubleClick={openPinModal}
+            className="cursor-default select-none flex-1 text-center"
+            title="Sundeya Solar"
+          >
+            <p className="mb-0.5">{t.footer.poweredBy}</p>
+            <p className="opacity-90">{t.footer.allRightsReserved}</p>
+          </div>
+          <button
+            onClick={openPinModal}
+            aria-label="Portal Access"
+            title="Admin Portal"
+            className="w-5 h-5 flex items-center justify-center opacity-15 hover:opacity-80 transition-opacity text-emerald-400 cursor-pointer rounded"
+          >
+            <Lock className="w-3 h-3" />
+          </button>
         </div>
       </div>
 

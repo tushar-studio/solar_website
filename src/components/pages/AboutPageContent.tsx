@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Pencil } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { useSiteConfig } from "@/lib/config/SiteConfigProvider";
 
 interface AboutPageData {
   title: string;
@@ -12,6 +13,7 @@ interface AboutPageData {
 
 export function AboutPageContent({ slug }: { slug: string }) {
   const { t } = useLanguage();
+  const { isAdminUnlocked, openEditor } = useSiteConfig();
   const pages = t.pages.about as unknown as Record<string, AboutPageData>;
   const content = pages[slug];
   if (!content) return null;
@@ -21,13 +23,25 @@ export function AboutPageContent({ slug }: { slug: string }) {
   return (
     <div className="pt-28 pb-16 sm:pb-24">
       <div className="section-container max-w-4xl">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sm text-emerald-700 hover:text-emerald-800 mb-8"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          {t.pages.about.backHome}
-        </Link>
+        <div className="flex items-center justify-between mb-8">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm text-emerald-700 hover:text-emerald-800"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            {t.pages.about.backHome}
+          </Link>
+
+          {isAdminUnlocked && (
+            <button
+              onClick={() => openEditor("about")}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-purple-500/20 hover:bg-purple-500/30 text-purple-700 dark:text-purple-300 border border-purple-500/40 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-sm"
+            >
+              <Pencil className="w-3.5 h-3.5" />
+              <span>Edit About Content</span>
+            </button>
+          )}
+        </div>
 
         <h1 className="section-heading mb-4">{content.title}</h1>
 

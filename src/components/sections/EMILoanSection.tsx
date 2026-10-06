@@ -2,21 +2,38 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Banknote, Calculator, Phone, Info } from "lucide-react";
+import { Banknote, Calculator, Phone, Info, Pencil } from "lucide-react";
 import { company } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { fadeUp, viewportOnce } from "@/lib/animations";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { useSiteConfig } from "@/lib/config/SiteConfigProvider";
 
 export function EMILoanSection() {
   const { t } = useLanguage();
+  const { config, isAdminUnlocked, openEditor } = useSiteConfig();
   const topics = t.content.emiTopics;
   const emiCalculatorTopic = topics[1];
+
+  const currentRate = config.pricing?.emiInterestRate
+    ? `${config.pricing.emiInterestRate}% per annum`
+    : t.content.emiInfo.interestRate;
 
   return (
     <section className="py-section-sm sm:py-section">
       <div className="section-container">
-        <SectionHeader title={t.sections.emiTitle} subtitle={t.sections.emiSubtitle} />
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+          <SectionHeader title={t.sections.emiTitle} subtitle={t.sections.emiSubtitle} />
+          {isAdminUnlocked && (
+            <button
+              onClick={() => openEditor("emi")}
+              className="self-start sm:self-center inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-sky-500/20 hover:bg-sky-500/30 text-sky-700 dark:text-sky-300 border border-sky-500/40 rounded-xl text-xs font-bold shadow-sm transition-all cursor-pointer whitespace-nowrap"
+            >
+              <Pencil className="w-3.5 h-3.5" />
+              <span>Edit EMI Settings</span>
+            </button>
+          )}
+        </div>
 
         <div className="grid lg:grid-cols-3 gap-6">
           <motion.div
@@ -37,7 +54,7 @@ export function EMILoanSection() {
             </div>
 
             <p className="text-sm text-slate-600 mb-2">
-              {t.emi.interestRate}: <span className="font-semibold text-emerald-400">{t.content.emiInfo.interestRate}</span>
+              {t.emi.interestRate}: <span className="font-semibold text-emerald-400">{currentRate}</span>
             </p>
             <p className="text-xs text-amber-300 bg-amber-500/10 border border-amber-500/30 rounded-lg px-3 py-2 mb-6 inline-block">{t.content.emiInfo.verifyNote}</p>
 

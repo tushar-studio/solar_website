@@ -1,26 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, MessageCircle, Send, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle, Send, CheckCircle2, Pencil } from "lucide-react";
 import { company } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { fadeLeft, fadeRight, viewportOnce } from "@/lib/animations";
 import { Button } from "@/components/ui/Button";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { useSiteConfig } from "@/lib/config/SiteConfigProvider";
 import { useState } from "react";
 
 export function ContactSection() {
   const { t } = useLanguage();
+  const { config, isAdminUnlocked, openEditor } = useSiteConfig();
   const [formData, setFormData] = useState({ name: "", phone: "", email: "", inquiryType: "", message: "" });
   const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
   const [success, setSuccess] = useState(false);
 
+  const phoneVal = config.company?.phone || company.phone;
+  const whatsappVal = config.company?.whatsapp || company.whatsapp;
+  const emailVal = config.company?.email || company.email;
+  const addressVal = config.company?.address || t.contact.addressValue;
+  const workingHoursVal = config.company?.workingHours || t.contact.workingHoursValue;
+
   const contactItems = [
-    { icon: Phone, label: t.contact.phoneLabel, value: company.phone },
-    { icon: MessageCircle, label: t.contact.whatsappLabel, value: company.whatsapp },
-    { icon: Mail, label: t.contact.emailLabel, value: company.email },
-    { icon: MapPin, label: t.contact.addressLabel, value: t.contact.addressValue },
-    { icon: Clock, label: t.contact.workingHoursLabel, value: t.contact.workingHoursValue },
+    { icon: Phone, label: t.contact.phoneLabel, value: phoneVal },
+    { icon: MessageCircle, label: t.contact.whatsappLabel, value: whatsappVal },
+    { icon: Mail, label: t.contact.emailLabel, value: emailVal },
+    { icon: MapPin, label: t.contact.addressLabel, value: addressVal },
+    { icon: Clock, label: t.contact.workingHoursLabel, value: workingHoursVal },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -31,10 +39,11 @@ export function ContactSection() {
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
 
+    const cleanWhatsapp = (whatsappVal || "9568486108").replace(/\D/g, "");
     const msg = encodeURIComponent(
       `*New Solar Inquiry*\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nInquiry: ${formData.inquiryType}\nMessage: ${formData.message}`
     );
-    window.open(`https://wa.me/919568486108?text=${msg}`, "_blank");
+    window.open(`https://wa.me/91${cleanWhatsapp}?text=${msg}`, "_blank");
     setSuccess(true);
     window.setTimeout(() => setSuccess(false), 6000);
     setFormData({ name: "", phone: "", email: "", inquiryType: "", message: "" });
@@ -49,6 +58,19 @@ export function ContactSection() {
     <section id="contact" className="py-section-sm sm:py-section scroll-mt-24">
       <div className="section-container">
         <SectionHeader title={t.sections.contactTitle} subtitle={t.sections.contactSubtitle} align="center" />
+
+        {isAdminUnlocked && (
+          <div className="flex justify-center -mt-6 mb-8">
+            <button
+              type="button"
+              onClick={() => openEditor("contact")}
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-teal-500/20 hover:bg-teal-500/30 text-teal-700 dark:text-teal-300 border border-teal-500/40 rounded-xl text-xs font-bold shadow-md transition-all cursor-pointer backdrop-blur-sm"
+            >
+              <Pencil className="w-3.5 h-3.5" />
+              <span>Edit Personal Details &amp; WhatsApp Contacts</span>
+            </button>
+          </div>
+        )}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           <motion.div variants={fadeLeft} initial="hidden" whileInView="visible" viewport={viewportOnce} className="space-y-4">
             {contactItems.map((item) => (

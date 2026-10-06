@@ -15,11 +15,14 @@ import {
   Building2,
   Lock,
   ShieldCheck,
+  Pencil,
   type LucideIcon,
 } from "lucide-react";
 import { fadeUp, viewportOnce } from "@/lib/animations";
 import { Button } from "@/components/ui/Button";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { useSiteConfig } from "@/lib/config/SiteConfigProvider";
+import { PricingConfig } from "@/lib/site-config";
 import { company } from "@/lib/data";
 
 /* ═════════════════════════════════════════════════════════════════════════
@@ -64,7 +67,7 @@ const STANDARD_COST_PER_KW = 60000; // all other sizes (4, 6–10, and >10 kW)
 const LIFETIME_YEARS = 25;
 const STANDARD_KW_CAP = 10;
 
-const CAPACITY_OPTIONS = ["3", "4", "5", "6", "7", "8", "9", "10"];
+const CAPACITY_OPTIONS = ["2", "3", "4", "5", "6", "7", "8", "9", "10"];
 const TIMELINE_YEARS = [5, 10, 15, 20, 25];
 
 const pillSpring = { type: "spring", stiffness: 400, damping: 30 } as const;
@@ -94,35 +97,49 @@ interface CalculatorResult {
  * Returns null when the bill is empty/invalid so the user's selection is preserved.
  * May return >10 kW (e.g. "11", "12") — handled by the commercial card UI.
  */
-function recommendCapacity(bill: number): string | null {
+function recommendCapacity(bill: number, customTariffRate?: number): string | null {
   if (isNaN(bill) || bill <= 0) return null;
-  const units = Math.round(bill / TARIFF_RATE);
+  const rate = customTariffRate ?? TARIFF_RATE;
+  const units = Math.round(bill / rate);
   const kw = units <= 450 ? 3 : 3 + Math.ceil((units - 450) / 150);
   return String(kw);
 }
 
-function calculateSolar(inputs: {
-  monthlyBill: number;
-  propertyType: string;
-  capacity: number;
-}): CalculatorResult {
+function calculateSolar(
+  inputs: {
+    monthlyBill: number;
+    propertyType: string;
+    capacity: number;
+  },
+  pricing?: PricingConfig
+): CalculatorResult {
   const bill = inputs.monthlyBill || 0;
   const kW = inputs.capacity;
 
-  // Contract pricing: 3 kW and 5 kW bill at ₹70,000/kW; every other size at ₹60,000/kW
+  const premiumRate = pricing?.premiumCostPerKw ?? PREMIUM_COST_PER_KW;
+  const standardRate = pricing?.standardCostPerKw ?? STANDARD_COST_PER_KW;
+  const govSubsidyAmount = pricing?.govSubsidy ?? GOV_SUBSIDY;
+  const lifetime = pricing?.lifetimeYears ?? LIFETIME_YEARS;
+
+  // Contract pricing: Check capacityRates first, else 3kW/5kW premium, else standard rate
+  const customKwRate = pricing?.capacityRates?.[String(kW)];
   const costPerKw =
-    kW === 3 || kW === 5 ? PREMIUM_COST_PER_KW : STANDARD_COST_PER_KW;
+    customKwRate !== undefined && customKwRate > 0
+      ? customKwRate
+      : kW === 3 || kW === 5
+      ? premiumRate
+      : standardRate;
   const installationCost = kW * costPerKw;
 
-  // PM Surya Ghar subsidy: fixed ₹85,800 (Residential only)
-  const subsidy = inputs.propertyType === "Residential" ? GOV_SUBSIDY : 0;
+  // PM Surya Ghar subsidy: fixed (Residential only)
+  const subsidy = inputs.propertyType === "Residential" ? govSubsidyAmount : 0;
   const finalCost = installationCost - subsidy;
 
   // Monthly savings = 100% of the bill — no fixed charge, no deductions
   const monthlySavings = Math.max(0, bill);
   const annualSavings = monthlySavings * 12;
   const paybackYears = annualSavings > 0 ? finalCost / annualSavings : null;
-  const lifetimeSavings = annualSavings * LIFETIME_YEARS;
+  const lifetimeSavings = annualSavings * lifetime;
   const roi =
     finalCost > 0
       ? ((lifetimeSavings - finalCost) / finalCost) * 100
@@ -292,6 +309,8 @@ function CustomCapacityCard({ result, labels }: { result: CalculatorResult; labe
 
 export function SolarCalculatorForm() {
   const { t } = useLanguage();
+  const { config, isAdminUnlocked, openEditor } = useSiteConfig();
+  const pricing = config.pricing;
   const [monthlyBill, setMonthlyBill] = useState("");
   const [capacity, setCapacity] = useState("3");
   const [propertyType, setPropertyType] = useState("Residential");
@@ -304,8 +323,8 @@ export function SolarCalculatorForm() {
   // Auto-recommendation: recompute from the bill and auto-select whenever it changes.
   // The user can still manually override by clicking any other kW pill.
   const recommended = useMemo(
-    () => recommendCapacity(parseFloat(monthlyBill)),
-    [monthlyBill]
+    () => recommendCapacity(parseFloat(monthlyBill), pricing?.tariffRate),
+    [monthlyBill, pricing?.tariffRate]
   );
   const recommendedKw = recommended ? parseInt(recommended) : null;
   const isCustom = recommendedKw !== null && recommendedKw > STANDARD_KW_CAP && capacity === recommended;
@@ -320,8 +339,8 @@ export function SolarCalculatorForm() {
       monthlyBill: parseFloat(monthlyBill),
       propertyType,
       capacity: parseInt(capacity),
-    });
-  }, [showResults, monthlyBill, propertyType, capacity]);
+    }, pricing);
+  }, [showResults, monthlyBill, propertyType, capacity, pricing]);
 
   const resultCards: ResultCard[] = useMemo(() => {
     if (!results) return [];
@@ -414,16 +433,30 @@ export function SolarCalculatorForm() {
         viewport={viewportOnce}
         className="glass-card p-6 sm:p-8"
       >
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-12 h-12 rounded-xl bg-gradient-solar flex items-center justify-center">
-            <Calculator className="w-6 h-6 text-white" />
+        <div className="flex items-center justify-between gap-3 mb-6">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-xl bg-gradient-solar flex items-center justify-center">
+              <Calculator className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h2 className="font-display font-bold text-xl text-solar-blue-dark">
+                {t.calculator.cardTitle}
+              </h2>
+              <p className="text-sm text-slate-500">{t.calculator.cardSubtitle}</p>
+            </div>
           </div>
-          <div>
-            <h2 className="font-display font-bold text-xl text-solar-blue-dark">
-              {t.calculator.cardTitle}
-            </h2>
-            <p className="text-sm text-slate-500">{t.calculator.cardSubtitle}</p>
-          </div>
+
+          {isAdminUnlocked && (
+            <button
+              type="button"
+              onClick={() => openEditor("calculator")}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40 rounded-xl text-xs font-bold shadow-sm transition-all cursor-pointer whitespace-nowrap"
+              title="Edit 2kW, 3kW, subsidy and tariff rates"
+            >
+              <Pencil className="w-3.5 h-3.5" />
+              <span>Edit Calculator</span>
+            </button>
+          )}
         </div>
 
         <form className="space-y-4" onSubmit={handleSubmit} noValidate>

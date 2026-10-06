@@ -8,6 +8,8 @@ import { ScrollReset } from "@/components/layout/ScrollReset";
 import { SolarBackground } from "@/components/layout/SolarBackground";
 import { LanguageProvider } from "@/lib/i18n/LanguageProvider";
 import { ThemeProvider } from "@/lib/theme/ThemeProvider";
+import { SiteConfigProvider } from "@/lib/config/SiteConfigProvider";
+import { AdminTrigger } from "@/components/admin/AdminTrigger";
 import { company } from "@/lib/data";
 
 const inter = Inter({
@@ -86,12 +88,15 @@ export default function RootLayout({
         <ScrollReset />
         <ThemeProvider>
           <SolarBackground />
-          <LanguageProvider>
-            <PageLoader />
-            <Header />
-            <main className="relative z-10">{children}</main>
-            <Footer />
-          </LanguageProvider>
+          <SiteConfigProvider>
+            <LanguageProvider>
+              <PageLoader />
+              <Header />
+              <main className="relative z-10">{children}</main>
+              <Footer />
+              <AdminTrigger />
+            </LanguageProvider>
+          </SiteConfigProvider>
         </ThemeProvider>
       </body>
     </html>

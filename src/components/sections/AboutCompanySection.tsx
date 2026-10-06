@@ -18,6 +18,8 @@ import {
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { useSiteConfig } from "@/lib/config/SiteConfigProvider";
+import { Pencil } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
   story: BookOpen,
@@ -33,6 +35,7 @@ const iconMap: Record<string, LucideIcon> = {
 
 export function AboutCompanySection() {
   const { t } = useLanguage();
+  const { isAdminUnlocked, openEditor } = useSiteConfig();
   const items = t.content.aboutItems;
 
   return (
@@ -42,6 +45,19 @@ export function AboutCompanySection() {
           title={t.sections.aboutTitle}
           subtitle={t.sections.aboutSubtitle}
         />
+
+        {isAdminUnlocked && (
+          <div className="flex justify-start -mt-6 mb-8">
+            <button
+              type="button"
+              onClick={() => openEditor("about")}
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-purple-500/20 hover:bg-purple-500/30 text-purple-700 dark:text-purple-300 border border-purple-500/40 rounded-xl text-xs font-bold shadow-md transition-all cursor-pointer backdrop-blur-sm"
+            >
+              <Pencil className="w-3.5 h-3.5" />
+              <span>Edit About Us Section</span>
+            </button>
+          </div>
+        )}
 
         <motion.div
           variants={staggerContainer}

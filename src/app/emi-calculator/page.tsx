@@ -1,17 +1,19 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Calculator, Banknote, TrendingUp, IndianRupee, ArrowLeft } from "lucide-react";
+import { Calculator, Banknote, TrendingUp, IndianRupee, ArrowLeft, Pencil } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { useSiteConfig } from "@/lib/config/SiteConfigProvider";
 
 const TENURE_VALUES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20];
 
 export default function EMICalculatorPage() {
   const { t } = useLanguage();
+  const { config, isAdminUnlocked, openEditor } = useSiteConfig();
   const [loanAmount, setLoanAmount] = useState("");
-  const [interestRate, setInterestRate] = useState("5.75");
+  const [interestRate, setInterestRate] = useState(String(config.pricing.emiInterestRate || "5.75"));
   const [tenure, setTenure] = useState("5");
   const [calculated, setCalculated] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -51,7 +53,20 @@ export default function EMICalculatorPage() {
         </Link>
 
         <div className="text-center mb-10">
-          <h1 className="section-heading">{t.emiCalc.title}</h1>
+          <div className="inline-flex items-center gap-3">
+            <h1 className="section-heading">{t.emiCalc.title}</h1>
+            {isAdminUnlocked && (
+              <button
+                type="button"
+                onClick={() => openEditor("emi")}
+                className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold text-xs rounded-full shadow-md transition-all hover:scale-105"
+                title="Edit EMI Interest Rate and Settings"
+              >
+                <Pencil className="w-3.5 h-3.5" />
+                Edit EMI Settings
+              </button>
+            )}
+          </div>
           <p className="section-subheading mx-auto mt-4">{t.emiCalc.subtitle}</p>
         </div>
 
