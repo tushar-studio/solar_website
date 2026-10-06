@@ -24,23 +24,30 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!fs.existsSync(UPLOADS_DIR)) {
-      fs.mkdirSync(UPLOADS_DIR, { recursive: true });
-    }
-
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    // Create unique safe file name
+    let publicUrl = "";
+
+    try {
+      if (!fs.existsSync(UPLOADS_DIR)) {
+        fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+      }
+      const timestamp = Date.now();
+      const cleanName = file.name.replace(/[^a-zA-Z0-9.-]/g, "_");
+      const fileName = `${timestamp}-${cleanName}`;
+      const filePath = path.join(UPLOADS_DIR, fileName);
+
+      fs.writeFileSync(filePath, buffer);
+      publicUrl = `/uploads/${fileName}`;
+    } catch (fsErr) {
+      console.warn("[Notice] Serverless read-only filesystem (Vercel). Using Base64 Data URL for uploaded image:", fsErr);
+      // Fallback: Embed as Base64 Data URI so it renders everywhere without needing disk storage
+      const base64Data = buffer.toString("base64");
+      publicUrl = `data:${file.type};base64,${base64Data}`;
+    }
+
     const timestamp = Date.now();
-    const cleanName = file.name.replace(/[^a-zA-Z0-9.-]/g, "_");
-    const fileName = `${timestamp}-${cleanName}`;
-    const filePath = path.join(UPLOADS_DIR, fileName);
-
-    fs.writeFileSync(filePath, buffer);
-
-    const publicUrl = `/uploads/${fileName}`;
-
     return NextResponse.json({
       success: true,
       message: "Image uploaded successfully",
