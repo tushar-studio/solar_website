@@ -1,7 +1,24 @@
 {
-  "adminPin": "123456",
+  "adminPin": "1234567",
   "pricing": {
-    "capacityRates": "System.Collections.Hashtable"
+    "tariffRate": 7,
+    "govSubsidy": 85800,
+    "premiumCostPerKw": 70000,
+    "standardCostPerKw": 60000,
+    "lifetimeYears": 25,
+    "emiInterestRate": 5.75,
+    "tenureYears": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20],
+    "capacityRates": {
+      "2": 70000,
+      "3": 70000,
+      "4": 60000,
+      "5": 70000,
+      "6": 60000,
+      "7": 60000,
+      "8": 60000,
+      "9": 60000,
+      "10": 60000
+    }
   },
   "company": {
     "name": "Sundeya Solar",

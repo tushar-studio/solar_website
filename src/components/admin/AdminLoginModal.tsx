@@ -72,7 +72,7 @@ export function AdminLoginModal() {
                     setPin(e.target.value);
                     if (error) setError(null);
                   }}
-                  placeholder="Enter PIN (e.g. 123456)"
+                  placeholder="Enter PIN"
                   autoFocus
                   className="w-full pl-11 pr-4 py-3 bg-slate-800/90 border border-slate-700 rounded-xl text-white placeholder-slate-500 text-center tracking-widest text-lg font-mono focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
                 />
@@ -108,10 +108,6 @@ export function AdminLoginModal() {
               )}
             </button>
           </form>
-
-          <div className="mt-6 pt-4 border-t border-slate-800 text-center">
-            <p className="text-xs text-slate-500">Default PIN: <code className="text-emerald-400 bg-slate-800 px-1.5 py-0.5 rounded">123456</code> (You can change this inside)</p>
-          </div>
         </motion.div>
       </div>
     </AnimatePresence>

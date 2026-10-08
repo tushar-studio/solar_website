@@ -11,16 +11,6 @@ function getAdminPin(): string {
   if (process.env.ADMIN_PIN) {
     return process.env.ADMIN_PIN;
   }
-  if (globalThis.__sundeya_site_config?.adminPin) {
-    return globalThis.__sundeya_site_config.adminPin;
-  }
-  try {
-    if (fs.existsSync(TMP_CONFIG_PATH)) {
-      const data = fs.readFileSync(TMP_CONFIG_PATH, "utf-8");
-      const parsed = JSON.parse(data);
-      if (parsed.adminPin) return parsed.adminPin;
-    }
-  } catch {}
   try {
     if (fs.existsSync(CONFIG_PATH)) {
       const data = fs.readFileSync(CONFIG_PATH, "utf-8");
@@ -28,6 +18,16 @@ function getAdminPin(): string {
       if (parsed.adminPin) return parsed.adminPin;
     }
   } catch {}
+  try {
+    if (fs.existsSync(TMP_CONFIG_PATH)) {
+      const data = fs.readFileSync(TMP_CONFIG_PATH, "utf-8");
+      const parsed = JSON.parse(data);
+      if (parsed.adminPin) return parsed.adminPin;
+    }
+  } catch {}
+  if (globalThis.__sundeya_site_config?.adminPin) {
+    return globalThis.__sundeya_site_config.adminPin;
+  }
   return DEFAULT_SITE_CONFIG.adminPin;
 }
 

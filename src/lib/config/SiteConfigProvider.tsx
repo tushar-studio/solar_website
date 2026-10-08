@@ -145,7 +145,7 @@ export function SiteConfigProvider({ children }: { children: React.ReactNode }) 
     updated: Partial<SiteConfig>
   ): Promise<{ success: boolean; message: string }> => {
     try {
-      const pinToUse = cachedPin || sessionStorage.getItem("sundeya_admin_pin") || "123456";
+      const pinToUse = cachedPin || sessionStorage.getItem("sundeya_admin_pin") || "1234567";
 
       // 1. Immediately persist to React state & localStorage
       const merged = { ...config, ...updated };
@@ -179,7 +179,7 @@ export function SiteConfigProvider({ children }: { children: React.ReactNode }) 
 
   const resetDefaults = async (): Promise<{ success: boolean; message: string }> => {
     try {
-      const pinToUse = cachedPin || sessionStorage.getItem("sundeya_admin_pin") || "123456";
+      const pinToUse = cachedPin || sessionStorage.getItem("sundeya_admin_pin") || "1234567";
       if (typeof window !== "undefined") {
         try {
           localStorage.removeItem("sundeya_site_config_v1");

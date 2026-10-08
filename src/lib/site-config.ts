@@ -106,7 +106,7 @@ export interface SiteConfig {
 }
 
 export const DEFAULT_SITE_CONFIG: SiteConfig = {
-  adminPin: "123456",
+  adminPin: "1234567",
   pricing: {
     tariffRate: 7,
     govSubsidy: 85800,

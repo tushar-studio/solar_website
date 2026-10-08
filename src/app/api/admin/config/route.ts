@@ -18,20 +18,7 @@ function readConfig(): SiteConfig {
     return globalThis.__sundeya_site_config;
   }
 
-  // 1. Try reading from /tmp (persists during container lifetime on Vercel/Lambda)
-  try {
-    if (fs.existsSync(TMP_CONFIG_PATH)) {
-      const data = fs.readFileSync(TMP_CONFIG_PATH, "utf-8");
-      const parsed = JSON.parse(data);
-      const conf: SiteConfig = { ...DEFAULT_SITE_CONFIG, ...parsed };
-      globalThis.__sundeya_site_config = conf;
-      return conf;
-    }
-  } catch (e) {
-    console.warn("Could not read from /tmp config:", e);
-  }
-
-  // 2. Try reading from project filesystem (local dev & persistent VPS)
+  // 1. Try reading from project filesystem (local dev & persistent VPS)
   try {
     if (fs.existsSync(CONFIG_PATH)) {
       const data = fs.readFileSync(CONFIG_PATH, "utf-8");
@@ -42,6 +29,19 @@ function readConfig(): SiteConfig {
     }
   } catch (error) {
     console.warn("Error reading site config from disk:", error);
+  }
+
+  // 2. Try reading from /tmp (persists during container lifetime on Vercel/Lambda)
+  try {
+    if (fs.existsSync(TMP_CONFIG_PATH)) {
+      const data = fs.readFileSync(TMP_CONFIG_PATH, "utf-8");
+      const parsed = JSON.parse(data);
+      const conf: SiteConfig = { ...DEFAULT_SITE_CONFIG, ...parsed };
+      globalThis.__sundeya_site_config = conf;
+      return conf;
+    }
+  } catch (e) {
+    console.warn("Could not read from /tmp config:", e);
   }
 
   return DEFAULT_SITE_CONFIG;
